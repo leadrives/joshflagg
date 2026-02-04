@@ -2055,25 +2055,202 @@ textarea {
   margin: 0;
 }
 
-/* Mobile adjustments for parallax */
+/* ===== PARALLAX HERO SECTION ===== */
+/* Inspirational hero section with parallax background */
+
+.parallax-hero-section {
+  position: relative;
+  height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.parallax-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.parallax-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.parallax-hero-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 8px;
+  color: white;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.parallax-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.parallax-hero-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* ===== MOBILE RESPONSIVE: PARALLAX HERO SECTION ===== */
+/* Mobile-first responsive design for inspirational hero */
+
 @media (max-width: 768px) {
+  
+  /* Mobile Parallax Hero Container */
   .parallax-hero-section {
-    background-attachment: scroll;
+    background-attachment: scroll; /* Fix parallax issues on mobile */
+    height: 80vh;
+    min-height: 500px;
+    background-position: center center;
+  }
+  
+  /* Mobile Hero Overlay - Stronger for text readability */
+  .parallax-hero-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay for better mobile readability */
+  }
+  
+  /* Mobile Hero Content */
+  .parallax-hero-content {
+    padding: 0 1.5rem;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  /* Mobile Logo */
+  .parallax-hero-logo {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+  
+  /* Mobile Title */
+  .parallax-hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Mobile Subtitle */
+  .parallax-hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.8px;
+    line-height: 1.4;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+}
+
+/* Small Mobile Responsive */
+@media (max-width: 480px) {
+  
+  .parallax-hero-section {
     height: 70vh;
+    min-height: 450px;
+  }
+  
+  .parallax-hero-content {
+    padding: 0 1rem;
+  }
+  
+  .parallax-hero-logo {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .parallax-hero-title {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+  
+  .parallax-hero-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    max-width: 95%;
+  }
+  
+  .parallax-hero-overlay {
+    background: rgba(0, 0, 0, 0.55); /* Even darker for small screens */
+  }
+  
+}
+
+/* Tablet Responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+  .parallax-hero-section {
+    height: 85vh;
+    background-attachment: scroll; /* Better performance on tablets */
   }
   
   .parallax-hero-logo {
     font-size: 3rem;
-    letter-spacing: 4px;
+    letter-spacing: 5px;
   }
   
   .parallax-hero-title {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
   }
   
   .parallax-hero-subtitle {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
+  
+}
+
+/* Large Desktop Enhancement */
+@media (min-width: 1200px) {
+  
+  .parallax-hero-section {
+    height: 100vh;
+  }
+  
+  .parallax-hero-logo {
+    font-size: 4.5rem;
+    letter-spacing: 10px;
+  }
+  
+  .parallax-hero-title {
+    font-size: 4rem;
+  }
+  
+  .parallax-hero-subtitle {
+    font-size: 1.3rem;
+    letter-spacing: 1.2px;
+  }
+  
 }
 
 /* Expertise Section */
