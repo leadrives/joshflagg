@@ -328,74 +328,119 @@ textarea {
   flex: 1;
   background-size: cover;
   background-position: center;
-  min-height: 400px;
+  min-height: 300px;
+  order: 1;
 }
 
 .carousel-text {
   flex: 1;
   position: relative;
-  padding: 4rem 2rem;
+  padding: 3rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  order: 2;
 }
 
 @media (min-width: 768px) {
   .carousel-text {
     padding: 6rem 5rem;
   }
+  
+  .carousel-image {
+    min-height: 400px;
+  }
 }
 
 .carousel-logo {
   color: #e0ddd7;
-  font-size: 2rem;
-  letter-spacing: 6px;
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
   font-weight: bold;
 }
 
+@media (min-width: 768px) {
+  .carousel-logo {
+    font-size: 2rem;
+    letter-spacing: 6px;
+    margin-bottom: 1.5rem;
+  }
+}
+
 .carousel-subtitle {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   color: #7c6d5c;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
+@media (min-width: 768px) {
+  .carousel-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+}
+
 .carousel-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
-  line-height: 1.3;
-  margin-bottom: 1.2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
   color: #222;
+}
+
+@media (min-width: 768px) {
+  .carousel-title {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+  }
 }
 
 .carousel-description {
   font-family: 'Lato', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
   max-width: 500px;
+}
+
+@media (min-width: 768px) {
+  .carousel-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
 }
 
 /* Button Style */
 .carousel-text .btn {
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 0;
   font-weight: 500;
   font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   border: 1px solid #888;
   color: #222;
   background-color: transparent;
   text-transform: uppercase;
-  width: 200px;
+  width: 180px;
   text-align: center;
   transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .carousel-text .btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    width: 200px;
+  }
 }
 
 .carousel-text .btn:hover {
@@ -409,23 +454,61 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  margin-top: 2rem;
+  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .carousel-controls-wrapper {
+    gap: 20px;
+    margin-top: 2rem;
+  }
 }
 
 /* Arrows inside text */
 .carousel-arrow {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #000;
   cursor: pointer;
   transition: color 0.3s;
-  padding: 0.5rem;
+  padding: 0.4rem;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .carousel-arrow {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
 }
 
 .carousel-arrow:hover {
   color: #555;
+}
+
+/* Mobile specific styles */
+@media (max-width: 767.98px) {
+  .about-carousel-section .carousel-content {
+    min-height: auto;
+  }
+  
+  .carousel-image {
+    min-height: 250px;
+  }
+  
+  .carousel-text {
+    padding: 2rem 1rem;
+  }
+  
+  .carousel-logo-img {
+    height: 30px;
+  }
 }
 
 /* ===== 5. CUSTOM CAROUSEL INDICATORS ===== */
@@ -433,16 +516,22 @@ textarea {
 .custom-indicators {
   display: flex !important;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   position: static !important;
   margin: 0;
   padding: 0;
 }
 
+@media (min-width: 768px) {
+  .custom-indicators {
+    gap: 10px;
+  }
+}
+
 /* Individual indicator styling */
 .custom-indicators button {
-  width: 30px !important;
-  height: 3px !important;
+  width: 25px !important;
+  height: 2px !important;
   border-radius: 0 !important;
   background-color: #666666 !important;
   border: none !important;
@@ -452,6 +541,15 @@ textarea {
   text-indent: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+  min-height: auto !important;
+  outline: none !important;
+}
+
+@media (min-width: 768px) {
+  .custom-indicators button {
+    width: 30px !important;
+    height: 3px !important;
+  }
 }
 
 /* Indicator hover effect */
