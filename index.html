@@ -1,0 +1,2284 @@
+<!--
+=====================================================================================
+  Mohamad Ahmad - Real Estate Website
+  
+  Project: Mohamad Ahmad Luxury Real Estate Website
+  Description: A modern, responsive real estate website featuring video backgrounds,
+               carousel sections, parallax effects, and advanced UI components
+  
+  Developer: Aju Francis Anchanattu
+  Date Created: January 2026
+  Last Modified: January 30, 2026
+  Version: 1.0
+  
+  Technologies Used:
+  - HTML5 Semantic Markup
+  - CSS3 (Custom Styles + Bootstrap 5.3.2)
+  - JavaScript (Vanilla JS + Bootstrap JS)
+  - Google Fonts (Cormorant Garamond, Lato)
+  - Responsive Design
+  - Video Background
+  - Parallax Effects
+  - CSS Animations
+  
+  Browser Support: Modern browsers (Chrome, Firefox, Safari, Edge)
+  Responsive: Mobile-first approach, fully responsive design
+=====================================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== META TAGS ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohamad Ahmad - Real Estate</title>
+
+  <!-- ===== EXTERNAL STYLESHEETS ===== -->
+  <!-- Bootstrap CSS Framework -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts - Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <!-- Fixed sticky navigation bar with logo and menu items -->
+  <nav id="global-navbar" class="px-4">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <!-- Left Navigation Links -->
+      <div class="d-flex gap-4 align-items-center">
+        <a href="#" class="navigation__link">ABOUT AHMAD</a>
+        <a href="#" class="navigation__link">NOTABLE SALES</a>
+        <a href="#" class="navigation__link" data-bs-toggle="modal" data-bs-target="#projectsModal">ALL PROJECTS</a>
+        <a href="#" class="navigation__link">SELL</a>
+      </div>
+      
+      <!-- Center Logo -->
+      <div class="header__logo">
+        <img src="assets/images/Logo/mronelogo2.png" alt="Mohamad Ahmad Logo" class="logo-img">
+      </div>
+      
+      <!-- Right Navigation Links -->
+      <div class="d-flex gap-4 align-items-center">
+        <a href="#" class="navigation__link">SEARCH HOMES</a>
+        <a href="#" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#consultationModal">BOOK AN APPOINTMENT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <!-- Main hero section with video background and overlay content -->
+  <header class="hero-section">
+
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="hero-bg-video">
+      <source src="assets/videos/Jumeirah Residences Emirates Towers.mp4" type="video/mp4">
+      <!-- Fallback image for browsers that don't support video -->
+      <img src="assets/images/hero/vcgt8tivc2pewre3tvjz.avif" alt="Background" class="hero-fallback-img">
+    </video>
+
+    <!-- Dark Overlay for text readability -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content text-white">
+      <!-- Hero subtitle -->
+      <p class="hero-subtitle">OVER $3B+ IN TOTAL SALES VOLUME PER THE LABJ 2024</p>
+      <!-- Main hero heading -->
+      <h1 class="hero-title">One of UAE's Most<br/>Successful and Sought after<br/>Luxury Real Estate Agents</h1>
+      <!-- Call-to-action buttons -->
+      <div class="hero-buttons mt-4">
+        <a href="#" class="btn btn-light me-3" data-bs-toggle="modal" data-bs-target="#consultationModal">Find a Home</a>
+        <a href="#" class="btn btn-outline-light">Sold Properties</a>
+      </div>
+    </div>
+
+  </header>
+  
+  <!-- ===== ABOUT CAROUSEL SECTION ===== -->
+  <!-- Interactive carousel showcasing Mohamad Ahmad's expertise and achievements -->
+  <section id="about-carousel" class="about-carousel-section">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Carousel Slide 1 - Top 25 Agent -->
+        <div class="carousel-item active">
+          <div class="carousel-content d-md-flex">
+            <!-- Background image for slide -->
+            <div class="carousel-image" style="background-image: url('assets/images/carousel/img.avif');"></div>
+            
+            <!-- Text content for slide -->
+            <div class="carousel-text">
+             <!--  <div class="carousel-logo">FF</div>-->
+              <p class="carousel-subtitle">A GLOBAL LUXURY LIFESTYLE EXPERT</p>
+              <h2 class="carousel-title">Top 25 Ranked<br>Agent</h2>
+              <p class="carousel-description">
+                Known as one of Dubai's premier luxury real estate specialists, Ahmad is a contributor to several real estate publications, news and television outlets. He has been featured in Emirates Business, Gulf News, Arabian Business Magazine and Property Finder among others. Follow him for the latest luxury news, and come back for weekly videos and highlights.
+              </p>
+              <a href="#" class="btn btn-outline-dark">In the Press</a>
+
+              <!-- Carousel Navigation Controls -->
+              <div class="carousel-controls-wrapper mt-4">
+                <button class="carousel-arrow carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">←</button>
+                <!-- Custom line-style indicators -->
+                <div class="carousel-indicators custom-indicators m-0">
+                  <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+              </div>
+              <button class="carousel-arrow carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-content d-md-flex">
+          <div class="carousel-image" style="background-image: url('assets/images/carousel/img2.webp');"></div>
+          <div class="carousel-text">
+            <div class="carousel-logo">
+              <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="carousel-logo-img">
+            </div>
+            <p class="carousel-subtitle">INFLUENCING THE DUBAI REAL ESTATE LANDSCAPE</p>
+            <h2 class="carousel-title">$3B+ in Total Sales</h2>
+            <p class="carousel-description">
+              Ahmad's record-selling achievements include the highest sale in Downtown Dubai, the most expensive penthouse transaction in Dubai Marina, the record-breaking sale in Emirates Hills, as well as the largest villa sale in Palm Jumeirah. He sold the property for just under 150,000,000 AED. He has also been the listing agent for reputable estates including luxury penthouses in Burj Khalifa and exclusive villas in Emirates Hills.
+            </p>
+            <a href="#" class="btn btn-outline-dark">Notable Sales</a>
+
+            <div class="carousel-controls-wrapper mt-4">
+              <button class="carousel-arrow carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">←</button>
+              <div class="carousel-indicators custom-indicators m-0">
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" class="active"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+              </div>
+              <button class="carousel-arrow carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-content d-md-flex">
+          <div class="carousel-image" style="background-image: url('assets/images/carousel/img3.avif');"></div>
+          <div class="carousel-text">
+            <div class="carousel-logo">
+              <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="carousel-logo-img">
+            </div>
+            <p class="carousel-subtitle">A LUXURY REAL ESTATE ICON</p>
+            <h2 class="carousel-title">Global Luxury<br>Recognition</h2>
+            <p class="carousel-description">
+              Mohamad Ahmad is one of <em>UAE's most successful</em> and sought-after Dubai luxury real estate agents, having completed more than 11 billion AED in residential real estate sales in the past decade. Ahmad has been recognized by Gulf News as one of the top-ranked agents in Dubai and nationally by sales volume and as a top 25 real estate agent in the region by Arabian Business.
+            </p>
+            <a href="#" class="btn btn-outline-dark">Learn More</a>
+
+            <div class="carousel-controls-wrapper mt-4">
+              <button class="carousel-arrow carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">←</button>
+              <div class="carousel-indicators custom-indicators m-0">
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" class="active"></button>
+              </div>
+              <button class="carousel-arrow carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section id="notable-transactions" class="notable-section py-5">
+
+  <!-- Section Heading -->
+  <div class="text-center mb-5 container">
+    <p class="small-text">$3B+ in total sales volume</p>
+    <h2 class="section-title">Notable Transactions</h2>
+  </div>
+
+  <!-- ===== NOTABLE TRANSACTIONS CAROUSEL (DYNAMIC) ===== -->
+  <!-- Enhanced with JSON data loading from notable-transactions-loader.js -->
+  <!-- Fallback: Current hardcoded content preserved as backup -->
+  
+  <!-- Carousel -->
+  <div id="notableCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+    <div class="carousel-inner">
+
+      <!-- FALLBACK SLIDE 1 (shown if JavaScript fails) -->
+      <div class="carousel-item active" data-slide="0">
+        <div class="carousel-card">
+          <img src="assets/images/four-seasons-private-residences-al-maryah-island.webp" 
+               class="card-img" 
+               alt="Palm Jumeirah Villa"
+               data-price="150,000,000 AED" 
+               data-name="Palm Jumeirah Villa">
+          <div class="status-label">Sold</div>
+        </div>
+      </div>
+
+      <!-- FALLBACK SLIDE 2 (shown if JavaScript fails) -->
+      <div class="carousel-item" data-slide="1">
+        <div class="carousel-card">
+          <img src="assets/images/the-row-saadiyat-aldar.webp" 
+               class="card-img" 
+               alt="Downtown Dubai Penthouse"
+               data-price="85,000,000 AED" 
+               data-name="Downtown Dubai Penthouse">
+          <div class="status-label">Sold</div>
+        </div>
+      </div>
+
+      <!-- FALLBACK SLIDE 3 (shown if JavaScript fails) -->
+      <div class="carousel-item" data-slide="2">
+        <div class="carousel-card">
+          <img src="assets/images/hudayriyat-island-modon.jpg" 
+               class="card-img" 
+               alt="Dubai Marina Tower"
+               data-price="65,000,000 AED" 
+               data-name="Dubai Marina Tower">
+          <div class="status-label">Sold</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Controls + Info -->
+  <div class="notable-footer container d-flex justify-content-between align-items-center mt-4">
+
+    <div class="d-flex align-items-center gap-4">
+
+      <!-- Arrows -->
+      <div class="carousel-arrows d-flex gap-2">
+        <button class="carousel-nav-btn" type="button" data-bs-target="#notableCarousel" data-bs-slide="prev" aria-label="Previous property">←</button>
+        <button class="carousel-nav-btn" type="button" data-bs-target="#notableCarousel" data-bs-slide="next" aria-label="Next property">→</button>
+      </div>
+
+      <!-- Info -->
+      <div class="d-flex align-items-center gap-3">
+        <span class="ff-logo">
+          <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="ff-logo-img">
+        </span>
+        <span class="vertical-line"></span>
+        <div class="text-details">
+          <p class="detail-price">150,000,000 AED</p>
+          <p class="detail-name">Palm Jumeirah Villa</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- View All -->
+    <a href="#" class="btn btn-view-all" data-bs-toggle="modal" data-bs-target="#projectsModal">View All</a>
+
+  </div>
+
+</section>
+
+<section id="ft-authority-section">
+
+  <div class="ft-container">
+
+    <!-- TOP CONTENT -->
+    <div class="ft-top">
+
+      <!-- LEFT -->
+      <div class="ft-left">
+        <h2 class="ft-quote">
+          “Mohamad Ahmad is a<br>
+          global luxury lifestyle<br>
+          expert”
+        </h2>
+
+        <div class="ft-nav">
+          <button class="ft-nav-btn ft-prev">←</button>
+          <button class="ft-nav-btn ft-next">→</button>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="ft-right">
+        <div class="ft-slider">
+
+          <div class="ft-slide active">
+            <p class="ft-text">
+              “We interviewed a number of his competitors (most at least 25 years his senior) and were impressed by his immediate understanding of the property, his poise and his honesty. Ahmad is brilliant, professional and wise beyond his years. Wouldn’t hire anyone else in the future.”
+            </p>
+            <span class="ft-author">— James Bloomingdale</span>
+          </div>
+
+          <div class="ft-slide">
+            <p class="ft-text">
+              "Mohamad Ahmad represented us in the sale of our Dubai Marina penthouse and exceeded all expectations. His market knowledge, negotiation skills, and attention to detail resulted in a sale price well above our initial asking price. Professional, responsive, and truly dedicated to his clients."
+            </p>
+            <span class="ft-author">— Sarah & Michael Chen</span>
+          </div>
+
+          <div class="ft-slide">
+            <p class="ft-text">
+              "Working with Ahmad was an absolute pleasure. His expertise in luxury real estate is unmatched, and his ability to understand exactly what we were looking for made our home buying experience seamless. We found our dream home within weeks of starting our search."
+            </p>
+            <span class="ft-author">— Jennifer Rodriguez</span>
+          </div>
+
+          <div class="ft-slide">
+            <p class="ft-text">
+              "Ahmad's reputation precedes him, and rightfully so. His deep understanding of the Dubai real estate market and his extensive network of connections made all the difference in our transaction. Highly professional and results-driven."
+            </p>
+            <span class="ft-author">— David Thompson</span>
+          </div>
+
+        </div>
+
+        <a href="#" class="ft-view-all" data-bs-toggle="modal" data-bs-target="#testimonialsModal">VIEW ALL</a>
+      </div>
+
+    </div>
+
+    <!-- MONOGRAM -->
+    <div class="ft-monogram">
+      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="ft-monogram-img">
+    </div>
+
+    <!-- STATS -->
+    <div class="ft-stats-wrapper">
+      <div class="ft-stats">
+
+        <div class="ft-stat">
+          <span class="ft-number" data-target="50">0</span><span class="plus">+</span>
+          <span class="ft-line"></span>
+          <span class="ft-label">SALES OVER $20M</span>
+        </div>
+
+        <div class="ft-stat center">
+          <span class="ft-number" data-target="3">$0</span><span class="plus">B+</span>
+          <span class="ft-line"></span>
+          <span class="ft-label">IN TOTAL SALES VOLUME</span>
+        </div>
+
+        <div class="ft-stat">
+          <span class="ft-number" data-target="100">0</span><span class="plus">+</span>
+          <span class="ft-line"></span>
+          <span class="ft-label">SALES OVER $10M</span>
+        </div>
+
+        <!-- Duplicate for seamless loop -->
+        <div class="ft-stat">
+          <span class="ft-number" data-target="50">50</span><span class="plus">+</span>
+          <span class="ft-line"></span>
+          <span class="ft-label">SALES OVER $20M</span>
+        </div>
+
+        <div class="ft-stat center">
+          <span class="ft-number" data-target="3">$3</span><span class="plus">B+</span>
+          <span class="ft-line"></span>
+          <span class="ft-label">IN TOTAL SALES VOLUME</span>
+        </div>
+
+        <div class="ft-stat">
+          <span class="ft-number" data-target="100">100</span><span class="plus">+</span>
+          <span class="ft-line"></span>
+          <span class="ft-label">SALES OVER $10M</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== EXCLUSIVE LISTINGS SECTION (DYNAMIC) ===== -->
+<!-- Enhanced with real Valley & Grand Polo property data -->
+<!-- Fallback: Original dummy data preserved in structure -->
+<section class="ex-listing-section">
+
+  <div class="ex-listing-title">
+    <h2>Exclusive Listings</h2>
+  </div>
+
+  <!-- Dynamic slider container - populated by property-loader.js -->
+  <div class="ex-listing-slider">
+
+    <!-- FALLBACK SLIDE 1 (shown if JavaScript fails) -->
+    <div class="ex-listing-slide active" style="background-image: url('assets/images/your-image-1.jpg');">
+      <div class="ex-listing-overlay">
+
+        <!-- Hover content -->
+        <div class="ex-listing-center-content">
+          <div class="ex-line"></div>
+          <div class="ex-monogram">
+            <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="ex-monogram-img">
+          </div>
+          <div class="ex-tag">FOR SALE</div>
+          <h3 class="ex-address">Burj Khalifa Penthouse</h3>
+          <div class="ex-location">Burj Khalifa, Downtown Dubai, UAE</div>
+          <div class="ex-price">85,000,000 AED</div>
+        </div>
+
+        <!-- Default bottom-left content -->
+        <div class="ex-bottom-content">
+          <h3 class="ex-address">Burj Khalifa Penthouse</h3>
+          <div class="ex-location">Burj Khalifa, Downtown Dubai, UAE</div>
+          <div class="ex-price">85,000,000 AED</div>
+        </div>
+
+        <!-- Nav Arrows -->
+        <div class="ex-nav">
+          <button class="ex-prev" onclick="propertyLoader?.previousSlide()">←</button>
+          <button class="ex-next" onclick="propertyLoader?.nextSlide()">→</button>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- FALLBACK SLIDE 2 (shown if JavaScript fails) -->
+    <div class="ex-listing-slide" style="background-image: url('assets/images/your-image-2.jpg');">
+      <div class="ex-listing-overlay">
+
+        <!-- Hover content -->
+        <div class="ex-listing-center-content">
+          <div class="ex-line"></div>
+          <div class="ex-monogram">
+            <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="ex-monogram-img">
+          </div>
+          <div class="ex-tag">FOR SALE</div>
+          <h3 class="ex-address">Emirates Hills Villa</h3>
+          <div class="ex-location">Emirates Hills, Dubai, UAE</div>
+          <div class="ex-price">125,000,000 AED</div>
+        </div>
+
+        <!-- Default bottom-left content -->
+        <div class="ex-bottom-content">
+          <h3 class="ex-address">Emirates Hills Villa</h3>
+          <div class="ex-location">Emirates Hills, Dubai, UAE</div>
+          <div class="ex-price">125,000,000 AED</div>
+        </div>
+
+        <!-- Nav Arrows -->
+        <div class="ex-nav">
+          <button class="ex-prev" onclick="propertyLoader?.previousSlide()">←</button>
+          <button class="ex-next" onclick="propertyLoader?.nextSlide()">→</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="brand-carousel-section">
+  <div class="brand-carousel">
+    <div class="brand-carousel-track">
+      <!-- Trusted Partners -->
+      <img src="assets/images/Trusted Partners/aeada.png" alt="Aeada">
+      <img src="assets/images/Trusted Partners/bingathi.png" alt="Bingathi">
+      <img src="assets/images/Trusted Partners/damac.png" alt="DAMAC">
+      <img src="assets/images/Trusted Partners/danube.png" alt="Danube">
+      <img src="assets/images/Trusted Partners/dubaiSouth.png" alt="Dubai South">
+      <img src="assets/images/Trusted Partners/ellington.png" alt="Ellington">
+      <img src="assets/images/Trusted Partners/emaar.png" alt="Emaar">
+      <img src="assets/images/Trusted Partners/expocitydubai.png" alt="Expo City Dubai">
+      <img src="assets/images/Trusted Partners/mag.png" alt="MAG">
+      <img src="assets/images/Trusted Partners/meraas.png" alt="Meraas">
+      <img src="assets/images/Trusted Partners/nakheel.png" alt="Nakheel">
+      <img src="assets/images/Trusted Partners/omniyat.png" alt="Omniyat">
+      <img src="assets/images/Trusted Partners/samana.png" alt="Samana">
+      <img src="assets/images/Trusted Partners/selectgroup.png" alt="Select Group">
+      <img src="assets/images/Trusted Partners/shoba.png" alt="Sobha">
+      
+      <!-- Duplicate for seamless loop -->
+      <img src="assets/images/Trusted Partners/aeada.png" alt="Aeada">
+      <img src="assets/images/Trusted Partners/bingathi.png" alt="Bingathi">
+      <img src="assets/images/Trusted Partners/damac.png" alt="DAMAC">
+      <img src="assets/images/Trusted Partners/danube.png" alt="Danube">
+      <img src="assets/images/Trusted Partners/dubaiSouth.png" alt="Dubai South">
+      <img src="assets/images/Trusted Partners/ellington.png" alt="Ellington">
+      <img src="assets/images/Trusted Partners/emaar.png" alt="Emaar">
+      <img src="assets/images/Trusted Partners/expocitydubai.png" alt="Expo City Dubai">
+      <img src="assets/images/Trusted Partners/mag.png" alt="MAG">
+      <img src="assets/images/Trusted Partners/meraas.png" alt="Meraas">
+      <img src="assets/images/Trusted Partners/nakheel.png" alt="Nakheel">
+      <img src="assets/images/Trusted Partners/omniyat.png" alt="Omniyat">
+      <img src="assets/images/Trusted Partners/samana.png" alt="Samana">
+      <img src="assets/images/Trusted Partners/selectgroup.png" alt="Select Group">
+      <img src="assets/images/Trusted Partners/shoba.png" alt="Sobha">
+    </div>
+  </div>
+</section>
+
+
+<section class="parallax-form-section" style="background-image: url('assets/images/your-parallax-image.webp');">
+  <div class="parallax-form-wrapper">
+
+    <!-- Watermark Logo -->
+    <div class="parallax-form-logo">
+      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="parallax-form-logo-img">
+    </div>
+
+    <div class="parallax-form-box">
+      <h2 class="parallax-form-heading">Be the First to Know</h2>
+      <p class="parallax-form-subtitle">Get exclusive industry news delivered straight to your inbox.</p>
+
+      <form class="parallax-form">
+
+        <div class="parallax-form-fields">
+          <div class="parallax-form-group">
+            <label for="form-name">Name *</label>
+            <input type="text" id="form-name" placeholder="Enter your name" required />
+          </div>
+          <div class="parallax-form-group">
+            <label for="form-phone">Phone *</label>
+            <input type="tel" id="form-phone" placeholder="Enter your phone number" required />
+          </div>
+          <div class="parallax-form-group parallax-form-group-full">
+            <label for="form-email">Email *</label>
+            <input type="email" id="form-email" placeholder="Enter your email address" required />
+          </div>
+        </div>
+
+        <div class="parallax-form-consent">
+          <label>
+            <input type="checkbox" required />
+            I agree to be contacted by Mohamad Ahmad via call, email, and text for real estate services. To opt out, you can reply 'stop' at any time or reply 'help' for assistance. You can also click the unsubscribe link in the emails. Message and data rates may apply. Message frequency may vary<a href="/terms-and-conditions" target="_blank">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <button type="submit" class="parallax-form-button">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="parallax-hero-section" style="background-image: url('assets/images/paralleximage.avif');">
+  <div class="parallax-hero-overlay"></div>
+  <div class="parallax-hero-content">
+    <div class="parallax-hero-logo">
+      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="parallax-logo-img">
+    </div>
+    <h2 class="parallax-hero-title">Luxury Real Estate</h2>
+    <p class="parallax-hero-subtitle">Experience Excellence in Every Transaction</p>
+  </div>
+</section>
+
+<section class="expertise-section">
+  <div class="full-bleed-container">
+
+    <div class="hoverable-image hoverable-image--straight">
+
+      <div class="hoverable-image__img-col">
+        <div class="full-bleed" style="min-height: 363.547px;">
+          <div class="">
+            <img src="assets/images/expertise-image.avif" srcset="assets/images/expertise-image.avif 320w, assets/images/expertise-image.avif 960w, assets/images/expertise-image.avif 1280w, assets/images/expertise-image.avif 1920w, assets/images/expertise-image.avif 2560w, assets/images/expertise-image.avif 2672w" sizes="(max-width: 992px) 100vw, 50vw" alt="Luxury Home Exterior" class="main-image" loading="lazy">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="hoverable-image__text-col">
+        <div class="lp-container">
+        <div class="hoverable-image__text-wrap">
+          <div class="lp-a lp-text--subtitle">
+            <div class="ahmad-custom-titles">
+<h3>Home to Dubai's Elite</h3>
+<h2>Areas of Expertise</h2>
+</div>
+<p>Dubai and its surrounding emirates are regarded as the region's most prestigious zip codes. Contact Mohamad Ahmad to find exclusive <a href="#">property</a>, <a href="#">apartments</a>, <a href="#">land</a>, <a href="#">villas</a> &amp; luxury homes for sale in <a href="#">Dubai, UAE</a> &amp; <a href="#">nearby emirates</a>.</p>
+          </div>
+          <div class="buttons-wrapper">
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="neighborhoods-section">
+  <div class="neighborhoods-container">
+
+    <div class="neighborhoods-slider">
+
+      <!-- Slide 1 -->
+      <div class="neighborhood-card" data-title="Valley" data-link="#" data-community="valley">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#propertiesModal">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/The_Vally.webp" alt="Valley">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Valley</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="neighborhood-card" data-title="Grand Polo Club & Resort" data-link="#" data-community="grandpolo">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#propertiesModal">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Grand_Polo_Club_&_Resort.webp" alt="Grand Polo Club & Resort">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Grand Polo Club & Resort</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="neighborhood-card" data-title="Dubai Hills Estate" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Dubai_Hills_Estate.webp" alt="Dubai Hills Estate">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Dubai Hills Estate</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="neighborhood-card" data-title="Dubai Creek Harbour" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Dubai_Creek_Harbour.webp" alt="Dubai Creek Harbour">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Dubai Creek Harbour</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="neighborhood-card" data-title="Emaar South" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Emaar_South.webp" alt="Emaar South">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Emaar South</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="neighborhood-card" data-title="Emaar Beachfront" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Emaar_Beachfront.webp" alt="Emaar Beachfront">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Emaar Beachfront</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="neighborhood-card" data-title="Address Al Marjan Island" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Address Al_Marjan_Island_Ras_Al_Khaimah.webp" alt="Address Al Marjan Island, Ras Al Khaimah">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Address Al Marjan Island</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="neighborhood-card" data-title="Expo Living" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Expo_Living.webp" alt="Expo Living">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Expo Living</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 9 -->
+      <div class="neighborhood-card" data-title="Damac Hills" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Damac_Hills.webp" alt="Damac Hills">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Damac Hills</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 10 -->
+      <div class="neighborhood-card" data-title="Rashid Yachts & Marina" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Rashid_Yachts_&_Marina.webp" alt="Rashid Yachts & Marina">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Rashid Yachts & Marina</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 11 -->
+      <div class="neighborhood-card" data-title="THE OASIS" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/THE_OASIS.webp" alt="THE OASIS">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>THE OASIS</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 12 -->
+      <div class="neighborhood-card" data-title="DIFC" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/DIFC.webp" alt="Dubai International Financial Centre (DIFC)">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>DIFC</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 13 -->
+      <div class="neighborhood-card" data-title="Sheikh Zayed Road" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Sheikh_Zayed_Road.jpg" alt="Sheikh Zayed Road">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Sheikh Zayed Road</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 14 -->
+      <div class="neighborhood-card" data-title="Dubai South" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Dubai_South.jpeg" alt="Dubai South">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Dubai South</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 15 -->
+      <div class="neighborhood-card" data-title="Dubailand" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Dubailand.jpeg" alt="Dubailand">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Dubailand</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 16 -->
+      <div class="neighborhood-card" data-title="JBR - Jumeirah Beach Residence" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/JBR.webp" alt="JBR - Jumeirah Beach Residence">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>JBR - Jumeirah Beach Residence</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 17 -->
+      <div class="neighborhood-card" data-title="Downtown Dubai" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Downtown_Dubai.jpg" alt="Downtown Dubai">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Downtown Dubai</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 18 -->
+      <div class="neighborhood-card" data-title="Business Bay" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Business_Bay .webp" alt="Business Bay">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Business Bay</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 19 -->
+      <div class="neighborhood-card" data-title="Dubai Marina" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Dubai_Marina.webp" alt="Dubai Marina">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Dubai Marina</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Slide 20 -->
+      <div class="neighborhood-card" data-title="Palm Jumeirah" data-link="#">
+        <a href="#">
+          <div class="neighborhood-image">
+            <img src="assets/images/Communities/Palm_Jumeirah.jpg" alt="Palm Jumeirah">
+          </div>
+          <div class="neighborhood-title">
+            <div class="vertical-line"></div>
+            <span>Palm Jumeirah</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="neighborhoods-nav">
+      <button class="arrow prev">&larr;</button>
+      <button class="arrow next">&rarr;</button>
+    </div>
+
+  </div>
+</section>
+
+<section class="recent-posts-section">
+  <div class="recent-posts-container">
+
+    <!-- Header -->
+    <div class="recent-posts-header">
+      <span class="recent-eyebrow">Real Estate Insights</span>
+      <h2 class="recent-title">Recent Blog Posts</h2>
+    </div>
+
+    <!-- Featured Post -->
+    <div class="recent-featured-post">
+      <a href="#" class="recent-post-card featured">
+        <img src="assets/images/featured-blog.avif" alt="Featured blog">
+        <div class="recent-post-overlay">
+          <h3 class="post-title">Dubai, UAE, Through the Seasons: Property Maintenance Tips</h3>
+        </div>
+      </a>
+    </div>
+
+    <!-- Smaller Posts Row -->
+    <div class="recent-posts-grid">
+      <a href="#" class="recent-post-card small">
+        <img src="assets/images/4a72697f-369e-4c44-9002-98f124db0c0c.avif" alt="Family Friendly Activities">
+        <div class="recent-post-overlay">
+          <h3 class="post-title">Family Friendly Activities in Dubai, UAE</h3>
+        </div>1
+      </a>
+      <a href="#" class="recent-post-card small">
+        <img src="assets/images/blog-small.avif" alt="Best Restaurants">
+        <div class="recent-post-overlay">
+          <h3 class="post-title">15 Best Restaurants in Dubai, UAE</h3>
+        </div>
+      </a>
+    </div>
+
+    <!-- View All Button -->
+    <div class="recent-view-all-wrap">
+      <a href="#" class="btn recent-view-all">VIEW ALL</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="work-with-josh-section" style="background-image: url('assets/images/natura_updated_dh2_brochure_16.jpg');">
+  <div class="work-with-josh-overlay">
+    <div class="work-with-josh-container">
+
+      <!-- Decorative logo + divider -->
+      <div class="wwj-header">
+        <div class="wwj-divider"></div>
+        <div class="wwj-logo">
+          <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="wwj-logo-img">
+        </div>
+      </div>
+
+      <!-- Main text -->
+      <h2 class="wwj-title">Work With Ahmad</h2>
+      <p class="wwj-description">
+        Mohamad Ahmad is one of the region's most successful real estate agents and has helped
+        hundreds of buyers find their dream home in Dubai and the UAE,
+        resulting in over 11 Billion AED of closed real estate transactions.
+      </p>
+
+      <!-- Contact Form -->
+      <form class="wwj-form">
+
+        <div class="wwj-row wwj-inputs">
+          <div class="wwj-group">
+            <label for="wwj-name">Name *</label>
+            <input type="text" id="wwj-name" name="name" required>
+          </div>
+
+          <div class="wwj-group">
+            <label for="wwj-email">Email *</label>
+            <input type="email" id="wwj-email" name="email" required>
+          </div>
+
+          <div class="wwj-group">
+            <label for="wwj-phone">Phone *</label>
+            <input type="tel" id="wwj-phone" name="phone" required>
+          </div>
+        </div>
+
+        <div class="wwj-group wwj-message-group">
+          <label for="wwj-message">Message</label>
+          <textarea id="wwj-message" name="message" rows="5"></textarea>
+        </div>
+
+        <div class="wwj-consent">
+          <label>
+            <input type="checkbox" required>
+            I agree to be contacted by Mohamad Ahmad via call, email, and text for real estate services.
+            To opt out, reply 'stop'. Message and data rates may apply. Privacy Policy.
+          </label>
+        </div>
+
+        <div class="wwj-submit-wrap">
+          <button type="submit" class="wwj-submit-btn">Submit</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer-full">
+
+  <!-- TOP -->
+  <div class="footer-top">
+    <div class="footer-logo">
+      <span class="footer-logo-mark">
+        <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="footer-logo-img">
+      </span>
+      <span class="footer-logo-text">MOHAMAD AHMAD<br><small>DUBAI</small></span>
+    </div>
+
+    <div class="footer-columns">
+
+      <div class="footer-col footer-col-left">
+        <h6>CONTACT</h6>
+        <p>ahmad@mr1properties.com<br>+971 56 227 9111</p>
+      </div>
+
+      <div class="footer-col footer-col-center">
+        <h6>OFFICE</h6>
+        <p>Bay Square Building 10, Floor 4, Office 402<br>Business Bay, Dubai, UAE</p>
+      </div>
+
+      <div class="footer-col footer-col-right">
+        <h6>NEWSLETTER</h6>
+        <p>For exclusive news & market updates sign up to our newsletter</p>
+        <label class="footer-input-label">EMAIL ADDRESS</label>
+        <input type="email" class="footer-input" placeholder="Enter Your Email Address">
+        <div class="footer-consent">
+          <label><input type="checkbox"> I agree to be contacted by Mohamad Ahmad via call, email, and text for real estate services… <a href="#">Privacy Policy</a>.</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MIDDLE -->
+  <div class="footer-middle">
+    <div class="footer-watermark"></div>
+
+    <div class="footer-license-wrap">
+      <img src="assets/images/Logo/m r one Properties logo.png" class="footer-compass-logo" alt="Compass Logo">
+
+      <div class="footer-license-text">
+        <p>Mohamad Ahmad | Associate Partner<br>M R One Properties | RERA Licensed</p>
+        <p class="footer-disclaimer">
+          M R One Properties is a licensed real estate brokerage regulated by the Real Estate Regulatory Agency (RERA) in Dubai and abides by equal housing opportunity laws… <a href="#">Sitemap</a>
+        </p>
+
+        <!-- <div class="footer-legal-icons">
+          <img src="realtor_icon.png" alt="REALTOR Icon">
+          <img src="equal_housing_icon.png" alt="Equal Housing Icon">
+        </div>  -->
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <span class="footer-credit">
+        <img src="assets/images/Logo/m r one Properties logo.png" alt="Luxury Presence Logo" class="footer-lp-logo">
+        Real Estate Website Design by <a href="#">Luxury Presence</a>
+      </span>
+      <span class="footer-copy">Copyright © M R One Properties Dubai 2026 | <a href="#">Privacy Policy</a></span>
+    </div>
+    <div class="footer-social-icons">
+      <a href="https://www.facebook.com/p/M-R-One-Properties-61551373948924/" target="_blank" rel="noopener noreferrer"><span class="icon fb"></span></a>
+      <a href="https://www.instagram.com/mroneproperties/" target="_blank" rel="noopener noreferrer"><span class="icon ig"></span></a>
+      <a href="https://www.youtube.com/@MROneProperties" target="_blank" rel="noopener noreferrer"><span class="icon yt"></span></a>
+      <a href="https://www.linkedin.com/company/mr-oneproperties/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><span class="icon li"></span></a>
+    </div>
+  </div>
+
+</footer>
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".neighborhoods-slider");
+  const prevBtn = document.querySelector(".neighborhoods-nav .prev");
+  const nextBtn = document.querySelector(".neighborhoods-nav .next");
+  
+  prevBtn.addEventListener("click", () => {
+    slider.scrollBy({ left: -300, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    slider.scrollBy({ left: 300, behavior: "smooth" });
+  });
+});
+</script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Navbar Scroll Handler -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.getElementById('global-navbar');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  });
+  </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* Slider */
+  const slides = document.querySelectorAll(".ft-slide");
+  let index = 0;
+
+  function showSlide(i) {
+    slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+  }
+
+  document.querySelector(".ft-next").onclick = () => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  };
+
+  document.querySelector(".ft-prev").onclick = () => {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  };
+
+  /* Stats Counter */
+  const counters = document.querySelectorAll(".ft-number");
+  let started = false;
+
+  function animateStats() {
+    if (started) return;
+    started = true;
+
+    counters.forEach(counter => {
+      const target = +counter.dataset.target;
+      let count = 0;
+      const step = target / 60;
+
+      const update = () => {
+        count += step;
+        if (count < target) {
+          counter.textContent = Math.floor(count);
+          requestAnimationFrame(update);
+        } else {
+          counter.textContent = target;
+        }
+      };
+      update();
+    });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) animateStats();
+  });
+
+  observer.observe(document.querySelector(".ft-stats"));
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".ex-listing-slide");
+  let current = 0;
+
+  const showSlide = index => {
+    slides.forEach((slide, i) =>
+      slide.classList.toggle("active", i === index)
+    );
+  };
+
+  // Attach event listeners to all prev buttons
+  document.querySelectorAll(".ex-prev").forEach(btn => {
+    btn.addEventListener("click", () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+  });
+
+  // Attach event listeners to all next buttons
+  document.querySelectorAll(".ex-next").forEach(btn => {
+    btn.addEventListener("click", () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+  });
+
+  // Optional autoplay
+  // setInterval(() => {
+  //   current = (current + 1) % slides.length;
+  //   showSlide(current);
+  // }, 5000);
+});
+</script>
+
+  <!-- ===== CONSULTATION MODAL ===== -->
+  <!-- Modal for collecting user consultation details -->
+  <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content consultation-modal">
+        <div class="modal-header consultation-header">
+          <h2 class="modal-title consultation-title" id="consultationModalLabel">
+            <span class="consultation-logo">
+              <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="consultation-logo-img">
+            </span>
+            Schedule a Consultation
+          </h2>
+          <button type="button" class="btn-close consultation-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body consultation-body">
+          <p class="consultation-subtitle">Connect with Mohamad Ahmad for personalized real estate guidance</p>
+          
+          <form id="consultationForm" class="consultation-form">
+            <div class="row g-3">
+              <!-- Name Field -->
+              <div class="col-md-6">
+                <div class="consultation-group">
+                  <label for="fullName" class="consultation-label">Full Name *</label>
+                  <input type="text" id="fullName" name="fullName" class="consultation-input" placeholder="Enter your full name" required>
+                  <div class="consultation-error" id="fullNameError"></div>
+                </div>
+              </div>
+              
+              <!-- Phone Field with Country Code -->
+              <div class="col-md-6">
+                <div class="consultation-group">
+                  <label for="phoneNumber" class="consultation-label">Phone Number *</label>
+                  <div class="phone-input-wrapper">
+                    <select id="countryCode" name="countryCode" class="country-select" required>
+                      <option value="+1" data-flag="🇺🇸" selected>🇺🇸 +1</option>
+                      <option value="+1" data-flag="🇨🇦">🇨🇦 +1</option>
+                      <option value="+44" data-flag="🇬🇧">🇬🇧 +44</option>
+                      <option value="+61" data-flag="🇦🇺">🇦🇺 +61</option>
+                      <option value="+33" data-flag="🇫🇷">🇫🇷 +33</option>
+                      <option value="+49" data-flag="🇩🇪">🇩🇪 +49</option>
+                      <option value="+39" data-flag="🇮🇹">🇮🇹 +39</option>
+                      <option value="+34" data-flag="🇪🇸">🇪🇸 +34</option>
+                      <option value="+81" data-flag="🇯🇵">🇯🇵 +81</option>
+                      <option value="+86" data-flag="🇨🇳">🇨🇳 +86</option>
+                    </select>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="consultation-input phone-input" placeholder="Enter phone number" required>
+                  </div>
+                  <div class="consultation-error" id="phoneError"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row g-3 mt-2">
+              <!-- Preferred Date -->
+              <div class="col-md-6">
+                <div class="consultation-group">
+                  <label for="preferredDate" class="consultation-label">Preferred Date *</label>
+                  <input type="date" id="preferredDate" name="preferredDate" class="consultation-input" min="2026-02-05" max="2026-02-07" required>
+                  <div class="consultation-hint">Available: Feb 5-7, 2026</div>
+                  <div class="consultation-error" id="dateError"></div>
+                </div>
+              </div>
+              
+              <!-- Preferred Time -->
+              <div class="col-md-6">
+                <div class="consultation-group">
+                  <label for="preferredTime" class="consultation-label">Preferred Time *</label>
+                  <select id="preferredTime" name="preferredTime" class="consultation-input" required>
+                    <option value="">Select time</option>
+                    <option value="09:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                    <option value="18:00">6:00 PM</option>
+                  </select>
+                  <div class="consultation-hint">Business hours: 9 AM - 6 PM</div>
+                  <div class="consultation-error" id="timeError"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Remarks Field -->
+            <div class="consultation-group mt-3">
+              <label for="remarks" class="consultation-label">Remarks (Optional)</label>
+              <textarea id="remarks" name="remarks" class="consultation-textarea" rows="3" placeholder="Tell us about your real estate needs, budget, preferred areas, or any specific requirements..."></textarea>
+            </div>
+            
+            <!-- Consent Checkbox -->
+            <div class="consultation-consent mt-4">
+              <label class="consent-wrapper">
+                <input type="checkbox" id="consent" name="consent" required>
+                <span class="consent-checkmark"></span>
+                <span class="consent-text">
+                  I agree to be contacted by Mohamad Ahmad via call, email, and text for real estate services. 
+                  <a href="#" class="consent-link">Privacy Policy</a>
+                </span>
+              </label>
+              <div class="consultation-error" id="consentError"></div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer consultation-footer">
+          <button type="button" class="btn consultation-cancel" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" form="consultationForm" class="btn consultation-submit">
+            <span class="submit-text">Schedule Consultation</span>
+            <span class="submit-loading" style="display: none;">
+              <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+              Scheduling...
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Consultation Modal JavaScript -->
+  <script>
+    // Modal and form functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('consultationModal');
+      const form = document.getElementById('consultationForm');
+      const submitBtn = document.querySelector('.consultation-submit');
+      const phoneInput = document.getElementById('phoneNumber');
+      const countrySelect = document.getElementById('countryCode');
+      
+      // Phone number formatting
+      phoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        const countryCode = countrySelect.value;
+        
+        if (countryCode === '+1') {
+          // US/Canada format: (XXX) XXX-XXXX
+          if (value.length >= 6) {
+            value = value.replace(/(\d{3})(\d{3})(\d{4}).*/, '($1) $2-$3');
+          } else if (value.length >= 3) {
+            value = value.replace(/(\d{3})(\d{1,3})/, '($1) $2');
+          }
+        } else {
+          // International format: XXX-XXX-XXXX
+          if (value.length >= 6) {
+            value = value.replace(/(\d{1,4})(\d{1,3})(\d{1,4}).*/, '$1-$2-$3');
+          } else if (value.length >= 3) {
+            value = value.replace(/(\d{1,4})(\d{1,3})/, '$1-$2');
+          }
+        }
+        
+        e.target.value = value;
+      });
+      
+      // Form validation
+      function validateForm() {
+        let isValid = true;
+        clearErrors();
+        
+        // Name validation
+        const fullName = document.getElementById('fullName').value.trim();
+        if (!fullName || fullName.length < 2) {
+          showError('fullNameError', 'Please enter your full name');
+          isValid = false;
+        }
+        
+        // Phone validation
+        const phoneNumber = document.getElementById('phoneNumber').value.trim();
+        const phoneRegex = /^[\(\)\d\s\-\+]{10,}$/;
+        if (!phoneNumber || !phoneRegex.test(phoneNumber)) {
+          showError('phoneError', 'Please enter a valid phone number');
+          isValid = false;
+        }
+        
+        // Date validation
+        const preferredDate = document.getElementById('preferredDate').value;
+        if (!preferredDate) {
+          showError('dateError', 'Please select a preferred date');
+          isValid = false;
+        } else {
+          const selectedDate = new Date(preferredDate);
+          const minDate = new Date('2026-02-05');
+          const maxDate = new Date('2026-02-07');
+          if (selectedDate < minDate || selectedDate > maxDate) {
+            showError('dateError', 'Please select a date between Feb 5-7, 2026');
+            isValid = false;
+          }
+        }
+        
+        // Time validation
+        const preferredTime = document.getElementById('preferredTime').value;
+        if (!preferredTime) {
+          showError('timeError', 'Please select a preferred time');
+          isValid = false;
+        }
+        
+        // Consent validation
+        const consent = document.getElementById('consent').checked;
+        if (!consent) {
+          showError('consentError', 'Please agree to be contacted');
+          isValid = false;
+        }
+        
+        return isValid;
+      }
+      
+      function showError(elementId, message) {
+        const errorElement = document.getElementById(elementId);
+        if (errorElement) {
+          errorElement.textContent = message;
+          errorElement.style.display = 'block';
+        }
+      }
+      
+      function clearErrors() {
+        const errors = document.querySelectorAll('.consultation-error');
+        errors.forEach(error => {
+          error.textContent = '';
+          error.style.display = 'none';
+        });
+      }
+      
+      // Form submission
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm()) {
+          // Show loading state
+          submitBtn.disabled = true;
+          document.querySelector('.submit-text').style.display = 'none';
+          document.querySelector('.submit-loading').style.display = 'inline-block';
+          
+          // Simulate form submission
+          setTimeout(() => {
+            // Reset loading state
+            submitBtn.disabled = false;
+            document.querySelector('.submit-text').style.display = 'inline-block';
+            document.querySelector('.submit-loading').style.display = 'none';
+            
+            // Show success message and close modal
+            alert('Thank you! Your consultation request has been submitted. Mohamad Ahmad will contact you soon.');
+            
+            // Reset form and close modal
+            form.reset();
+            bootstrap.Modal.getInstance(modal).hide();
+          }, 2000);
+        }
+      });
+      
+      // Reset form when modal is hidden
+      modal.addEventListener('hidden.bs.modal', function() {
+        form.reset();
+        clearErrors();
+      });
+    });
+  </script>
+
+  <!-- ===== PROJECTS MODAL ===== -->
+  <!-- Full-screen modal displaying all projects in elegant card layout -->
+  <div class="modal fade" id="projectsModal" tabindex="-1" aria-labelledby="projectsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content projects-modal">
+        
+        <!-- Modal Header -->
+        <div class="modal-header projects-header">
+          <div class="projects-header-content">
+            <div class="projects-logo">
+              <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="projects-logo-img">
+            </div>
+            <div class="projects-title-section">
+              <h2 class="modal-title projects-title" id="projectsModalLabel">Luxury Projects Portfolio</h2>
+              <p class="projects-subtitle">Discover Dubai's Most Prestigious Developments</p>
+            </div>
+          </div>
+          <button type="button" class="btn-close projects-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <!-- Modal Body -->
+        <div class="modal-body projects-body">
+          
+          <!-- Filter Tabs -->
+          <div class="projects-filter-tabs">
+            <button class="filter-tab active" data-filter="all">All Projects</button>
+            <button class="filter-tab" data-filter="luxury">Luxury Developments</button>
+            <button class="filter-tab" data-filter="waterfront">Waterfront Properties</button>
+            <button class="filter-tab" data-filter="downtown">Downtown Dubai</button>
+            <button class="filter-tab" data-filter="palm">Palm Jumeirah</button>
+          </div>
+          
+          <!-- Projects Grid -->
+          <div class="projects-grid">
+            
+            <!-- Project Card 1 -->
+            <div class="project-card" data-category="luxury waterfront">
+              <div class="project-image-wrapper">
+                <img src="assets/images/jacob-co-beachfront-living-al-jurf.avif" alt="Burj Khalifa Residences" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-status">Available</div>
+                  <div class="project-hover-content">
+                    <div class="project-monogram">
+                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
+                    </div>
+                    <button class="project-view-btn">View Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-name">Burj Khalifa Residences</h3>
+                <p class="project-location">Downtown Dubai, UAE</p>
+                <div class="project-details">
+                  <span class="project-price">Starting from 8,500,000 AED</span>
+                  <span class="project-type">Luxury Apartments</span>
+                </div>
+                <p class="project-description">Exclusive residences in the world's tallest tower, offering unparalleled luxury and breathtaking city views.</p>
+              </div>
+            </div>
+            
+            <!-- Project Card 2 -->
+            <div class="project-card" data-category="waterfront palm">
+              <div class="project-image-wrapper">
+                <img src="assets/images/sha-residences-al-jurf-imkan.avif" alt="Emirates Hills Estates" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-status sold">Sold Out</div>
+                  <div class="project-hover-content">
+                    <div class="project-monogram">
+                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
+                    </div>
+                    <button class="project-view-btn">View Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-name">Emirates Hills Estates</h3>
+                <p class="project-location">Emirates Hills, Dubai, UAE</p>
+                <div class="project-details">
+                  <span class="project-price">From 15,000,000 AED</span>
+                  <span class="project-type">Luxury Villas</span>
+                </div>
+                <p class="project-description">Ultra-premium gated community featuring magnificent villas with golf course and lake views.</p>
+              </div>
+            </div>
+            
+            <!-- Project Card 3 -->
+            <div class="project-card" data-category="waterfront luxury">
+              <div class="project-image-wrapper">
+                <img src="assets/images/carousel/img.avif" alt="Dubai Marina Towers" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-status">Available</div>
+                  <div class="project-hover-content">
+                    <div class="project-monogram">
+                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
+                    </div>
+                    <button class="project-view-btn">View Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-name">Dubai Marina Towers</h3>
+                <p class="project-location">Dubai Marina, UAE</p>
+                <div class="project-details">
+                  <span class="project-price">Starting from 3,200,000 AED</span>
+                  <span class="project-type">Marina Apartments</span>
+                </div>
+                <p class="project-description">Modern waterfront living with panoramic marina views and world-class amenities.</p>
+              </div>
+            </div>
+            
+            <!-- Project Card 4 -->
+            <div class="project-card" data-category="palm waterfront">
+              <div class="project-image-wrapper">
+                <img src="assets/images/carousel/img3.avif" alt="Palm Jumeirah Villas" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-status">Available</div>
+                  <div class="project-hover-content">
+                    <div class="project-monogram">
+                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
+                    </div>
+                    <button class="project-view-btn">View Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-name">Palm Jumeirah Villas</h3>
+                <p class="project-location">Palm Jumeirah, Dubai, UAE</p>
+                <div class="project-details">
+                  <span class="project-price">From 25,000,000 AED</span>
+                  <span class="project-type">Beachfront Villas</span>
+                </div>
+                <p class="project-description">Exclusive beachfront villas on the iconic Palm Jumeirah with private beach access.</p>
+              </div>
+            </div>
+            
+            <!-- Project Card 5 -->
+            <div class="project-card" data-category="downtown luxury">
+              <div class="project-image-wrapper">
+                <img src="assets/images/hero/vcgt8tivc2pewre3tvjz.avif" alt="DIFC Towers" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-status">Available</div>
+                  <div class="project-hover-content">
+                    <div class="project-monogram">
+                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
+                    </div>
+                    <button class="project-view-btn">View Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-name">DIFC Towers</h3>
+                <p class="project-location">DIFC, Dubai, UAE</p>
+                <div class="project-details">
+                  <span class="project-price">Starting from 4,500,000 AED</span>
+                  <span class="project-type">Business District Apartments</span>
+                </div>
+                <p class="project-description">Sophisticated apartments in Dubai's premier financial district with premium amenities.</p>
+              </div>
+            </div>
+            
+            <!-- Project Card 6 -->
+            <div class="project-card" data-category="luxury waterfront">
+              <div class="project-image-wrapper">
+                <img src="assets/images/jacob-co-beachfront-living-al-jurf.avif" alt="Jumeirah Beach Residences" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-status">Available</div>
+                  <div class="project-hover-content">
+                    <div class="project-monogram">
+                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
+                    </div>
+                    <button class="project-view-btn">View Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-name">Jumeirah Beach Residences</h3>
+                <p class="project-location">JBR, Dubai, UAE</p>
+                <div class="project-details">
+                  <span class="project-price">From 2,800,000 AED</span>
+                  <span class="project-type">Beachfront Apartments</span>
+                </div>
+                <p class="project-description">Stunning beachfront living with direct beach access and vibrant community atmosphere.</p>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="modal-footer projects-footer">
+          <div class="projects-footer-content">
+            <div class="footer-contact-info">
+              <span class="contact-label">Interested in a project?</span>
+              <span class="contact-details">Contact Mohamad Ahmad: ahmad@mr1properties.com | +971 56 227 9111</span>
+            </div>
+            <button type="button" class="btn projects-close-btn" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects Modal JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const projectCards = document.querySelectorAll('.project-card');
+      
+      // Filter functionality
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const filter = this.dataset.filter;
+          
+          // Update active tab
+          filterTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filter cards
+          projectCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category.includes(filter)) {
+              card.style.display = 'block';
+              card.style.animation = 'fadeInUp 0.6s ease forwards';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // View details buttons
+      document.querySelectorAll('.project-view-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Here you can add logic to show project details
+          const projectName = this.closest('.project-card').querySelector('.project-name').textContent;
+          alert(`View details for: ${projectName}\nThis would typically open a detailed project page or modal.`);
+        });
+      });
+      
+      // Reset filter when modal is closed
+      document.getElementById('projectsModal').addEventListener('hidden.bs.modal', function() {
+        filterTabs[0].click(); // Reset to "All Projects"
+      });
+    });
+  </script>
+
+  <!-- ===== TESTIMONIALS MODAL ===== -->
+  <!-- Modal displaying all client testimonials in elegant layout -->
+  <div class="modal fade" id="testimonialsModal" tabindex="-1" aria-labelledby="testimonialsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content testimonials-modal">
+        
+        <!-- Modal Header -->
+        <div class="modal-header testimonials-header">
+          <div class="testimonials-header-content">
+            <div class="testimonials-logo">
+              <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="testimonials-logo-img">
+            </div>
+            <div class="testimonials-title-section">
+              <h2 class="modal-title testimonials-title" id="testimonialsModalLabel">Client Testimonials</h2>
+              <p class="testimonials-subtitle">What Our Valued Clients Say About Working With Ahmad</p>
+            </div>
+          </div>
+          <button type="button" class="btn-close testimonials-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <!-- Modal Body -->
+        <div class="modal-body testimonials-body">
+          
+          <div class="testimonials-grid">
+            
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                We interviewed a number of his competitors (most at least 25 years his senior) and were impressed by his immediate understanding of the property, his poise and his honesty. Ahmad is brilliant, professional and wise beyond his years. Wouldn't hire anyone else in the future.
+              </p>
+              <div class="testimonial-author">— James Bloomingdale</div>
+              <div class="testimonial-location">Emirates Hills, Dubai</div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                Mohamad Ahmad represented us in the sale of our Dubai Marina penthouse and exceeded all expectations. His market knowledge, negotiation skills, and attention to detail resulted in a sale price well above our initial asking price. Professional, responsive, and truly dedicated to his clients.
+              </p>
+              <div class="testimonial-author">— Sarah & Michael Chen</div>
+              <div class="testimonial-location">Dubai Marina, Dubai</div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                Working with Ahmad was an absolute pleasure. His expertise in luxury real estate is unmatched, and his ability to understand exactly what we were looking for made our home buying experience seamless. We found our dream home within weeks of starting our search.
+              </p>
+              <div class="testimonial-author">— Jennifer Rodriguez</div>
+              <div class="testimonial-location">Palm Jumeirah, Dubai</div>
+            </div>
+            
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                Ahmad's reputation precedes him, and rightfully so. His deep understanding of the Dubai real estate market and his extensive network of connections made all the difference in our transaction. Highly professional and results-driven.
+              </p>
+              <div class="testimonial-author">— David Thompson</div>
+              <div class="testimonial-location">Downtown Dubai, UAE</div>
+            </div>
+            
+            <!-- Additional Testimonials -->
+            
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                Ahmad helped us find our dream villa in Emirates Hills. His attention to detail, market insight, and negotiation skills are exceptional. He made what could have been a stressful process completely smooth and enjoyable. We couldn't be happier with our new home.
+              </p>
+              <div class="testimonial-author">— Hassan & Fatima Al-Rashid</div>
+              <div class="testimonial-location">Emirates Hills, Dubai</div>
+            </div>
+            
+            <!-- Testimonial 6 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                As international buyers, we needed someone who understood both the local market and our specific requirements. Ahmad delivered beyond our expectations, providing invaluable guidance throughout the entire process. His professionalism is unmatched.
+              </p>
+              <div class="testimonial-author">— Robert & Maria Gonzalez</div>
+              <div class="testimonial-location">DIFC, Dubai</div>
+            </div>
+            
+            <!-- Testimonial 7 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                Ahmad's market knowledge is incredible. He sold our property in Business Bay within two weeks of listing at a price that exceeded our expectations. His marketing strategy and network of qualified buyers is truly impressive.
+              </p>
+              <div class="testimonial-author">— Priya & Rajesh Sharma</div>
+              <div class="testimonial-location">Business Bay, Dubai</div>
+            </div>
+            
+            <!-- Testimonial 8 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                From our first meeting to the closing, Ahmad demonstrated the highest level of professionalism and expertise. He understood our vision for luxury living and found us the perfect penthouse with stunning Burj Khalifa views. Exceptional service!
+              </p>
+              <div class="testimonial-author">— Alexander & Catherine Wright</div>
+              <div class="testimonial-location">Downtown Dubai, UAE</div>
+            </div>
+            
+            <!-- Testimonial 9 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-icon">❝</div>
+              <p class="testimonial-text">
+                Ahmad's dedication to his clients is extraordinary. He was available whenever we had questions and guided us through every step of purchasing our beachfront villa. His expertise in luxury properties is evident in every interaction.
+              </p>
+              <div class="testimonial-author">— Omar & Layla Ahmed</div>
+              <div class="testimonial-location">Jumeirah Beach, Dubai</div>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="modal-footer testimonials-footer">
+          <div class="testimonials-footer-content">
+            <div class="footer-experience-info">
+              <span class="experience-highlight">Over $3B+ in Total Sales Volume</span>
+              <span class="experience-detail">Trusted by hundreds of satisfied clients across Dubai's luxury real estate market</span>
+            </div>
+            <button type="button" class="btn testimonials-close-btn" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PROPERTIES MODAL ===== -->
+  <!-- Full-screen modal displaying all properties for selected community -->
+  <div class="modal fade" id="propertiesModal" tabindex="-1" aria-labelledby="propertiesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content properties-modal">
+        
+        <!-- Modal Header -->
+        <div class="modal-header properties-header">
+          <div class="properties-header-content">
+            <div class="properties-logo">
+              <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="properties-logo-img">
+            </div>
+            <div class="properties-title-section">
+              <h2 class="modal-title properties-title" id="propertiesModalLabel">Valley Properties</h2>
+              <p class="properties-subtitle">Discover Premium Developments in The Valley Community</p>
+            </div>
+          </div>
+          <button type="button" class="btn-close properties-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <!-- Modal Body -->
+        <div class="modal-body properties-body">
+          
+          <!-- Properties Grid -->
+          <div class="properties-grid">
+            
+            <!-- Valley Properties (Default) -->
+            <div id="valley-properties" class="community-properties" style="display: contents;">
+            
+            <!-- Property Card 1 - KAIA -->
+            <div class="property-card">
+              <div class="property-image-wrapper">
+                <img src="assets/images/Communities/Properties/KAIA.webp" alt="KAIA at The Valley" class="property-image">
+                <div class="property-overlay">
+                  <div class="property-status">Available</div>
+                  <div class="property-hover-content">
+                    <button class="property-details-btn" data-bs-toggle="modal" data-bs-target="#consultationModal">View More Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="property-info">
+                <h3 class="property-name">KAIA</h3>
+                <p class="property-description">KAIA at The Valley presents an elegant collection of 3‑ and 4‑bedroom townhouses within the thoughtfully designed master‑community of The Valley by Emaar.</p>
+                
+                <div class="property-details-grid">
+                  <div class="detail-item">
+                    <span class="detail-icon">💰</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Starting from</span>
+                      <span class="detail-value">2,800,000 AED</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📋</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Payment Plan</span>
+                      <span class="detail-value">Easy 80/20</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📐</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Area (sq. ft.)</span>
+                      <span class="detail-value">2,323 to 2,754</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Handover</span>
+                      <span class="detail-value">Q2 2028</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">🏠</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Bedrooms</span>
+                      <span class="detail-value">3-4 BR</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Property Card 2 - Vindera -->
+            <div class="property-card">
+              <div class="property-image-wrapper">
+                <img src="assets/images/Communities/Properties/Vindera.webp" alt="Vindera at The Valley" class="property-image">
+                <div class="property-overlay">
+                  <div class="property-status">Available</div>
+                  <div class="property-hover-content">
+                    <button class="property-details-btn" data-bs-toggle="modal" data-bs-target="#consultationModal">View More Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="property-info">
+                <h3 class="property-name">Vindera</h3>
+                <p class="property-description">Vindera at The Valley offers an exclusive collection of modern 3- and 4-bedroom townhouses nestled within the lush, master-planned community of The Valley.</p>
+                
+                <div class="property-details-grid">
+                  <div class="detail-item">
+                    <span class="detail-icon">💰</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Starting from</span>
+                      <span class="detail-value">3,170,000 AED</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📋</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Payment Plan</span>
+                      <span class="detail-value">Easy 80/20</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📐</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Area (sq. ft.)</span>
+                      <span class="detail-value">2,401</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Handover</span>
+                      <span class="detail-value">Dec 2029</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">🏠</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Bedrooms</span>
+                      <span class="detail-value">3-4 BR</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Property Card 3 - Avelia -->
+            <div class="property-card">
+              <div class="property-image-wrapper">
+                <img src="assets/images/Communities/Properties/Avelia.jpg" alt="Avelia at The Valley" class="property-image">
+                <div class="property-overlay">
+                  <div class="property-status">Available</div>
+                  <div class="property-hover-content">
+                    <button class="property-details-btn" data-bs-toggle="modal" data-bs-target="#consultationModal">View More Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="property-info">
+                <h3 class="property-name">Avelia</h3>
+                <p class="property-description">Avelia by Emaar is a limited-release luxury villa community located within The Valley, offering an exclusive collection of just 139 four- and five-bedroom villas.</p>
+                
+                <div class="property-details-grid">
+                  <div class="detail-item">
+                    <span class="detail-icon">💰</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Starting from</span>
+                      <span class="detail-value">7,250,000 AED</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📋</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Payment Plan</span>
+                      <span class="detail-value">Easy 80/20</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📐</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Area (sq. ft.)</span>
+                      <span class="detail-value">4,346</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Handover</span>
+                      <span class="detail-value">Dec 2029</span>
+                    </div>
+                  </div>
+                  
+                  <div class="detail-item">
+                    <span class="detail-icon">🏠</span>
+                    <div class="detail-content">
+                      <span class="detail-label">Bedrooms</span>
+                      <span class="detail-value">4-5 BR</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Grand Polo Club & Resort Properties - DYNAMIC LOADING -->
+            <!-- Populated by properties-modal-loader.js from JSON data -->
+            <!-- Fallback: Original hardcoded cards preserved below for no-JS scenarios -->
+            <div id="grandpolo-properties" class="community-properties" style="display: none;">
+              
+              <!-- FALLBACK: Grand Polo Property Cards (shown if JavaScript fails) -->
+              <div class="property-card">
+                <div class="property-image-wrapper">
+                  <img src="assets/images/Communities/Properties/Grand_Polo_Club_&_Resort.webp" alt="Grand Polo Club & Resort" class="property-image">
+                  <div class="property-overlay">
+                    <div class="property-status">Available</div>
+                    <div class="property-hover-content">
+                      <button class="property-details-btn" data-bs-toggle="modal" data-bs-target="#consultationModal">View More Details</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="property-info">
+                  <h3 class="property-name">Grand Polo Club & Resort</h3>
+                  <p class="property-description">Grand Polo Club & Resort is a visionary master-planned community by Emaar that fuses luxury living with equestrian heritage.</p>
+                  
+                  <div class="property-details-grid">
+                    <div class="detail-item">
+                      <span class="detail-icon">💰</span>
+                      <div class="detail-content">
+                        <span class="detail-label">Starting from</span>
+                        <span class="detail-value">5,670,000 AED</span>
+                      </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                      <span class="detail-icon">📋</span>
+                      <div class="detail-content">
+                        <span class="detail-label">Payment Plan</span>
+                        <span class="detail-value">Easy 80/20</span>
+                      </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                      <span class="detail-icon">📐</span>
+                      <div class="detail-content">
+                        <span class="detail-label">Area (sq. ft.)</span>
+                        <span class="detail-value">2,949-10,012</span>
+                      </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                      <span class="detail-icon">📅</span>
+                      <div class="detail-content">
+                        <span class="detail-label">Handover</span>
+                        <span class="detail-value">Q2 2029</span>
+                      </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                      <span class="detail-icon">🏠</span>
+                      <div class="detail-content">
+                        <span class="detail-label">Bedrooms</span>
+                        <span class="detail-value">3-5 BR</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="modal-footer properties-footer">
+          <div class="properties-footer-content">
+            <div class="footer-contact-info">
+              <span class="contact-label">Interested in Valley Properties?</span>
+              <span class="contact-details">Contact Mohamad Ahmad: ahmad@mr1properties.com | +971 56 227 9111</span>
+            </div>
+            <button type="button" class="btn properties-close-btn" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Properties Modal JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle property details button clicks
+      document.querySelectorAll('.property-details-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Get modal instances
+          const propertiesModal = bootstrap.Modal.getInstance(document.getElementById('propertiesModal'));
+          const consultationModalEl = document.getElementById('consultationModal');
+          
+          if (propertiesModal) {
+            // Hide properties modal and wait for it to close completely
+            propertiesModal.hide();
+            
+            // Listen for the properties modal to be completely hidden
+            document.getElementById('propertiesModal').addEventListener('hidden.bs.modal', function showConsultation() {
+              // Remove the listener to prevent multiple bindings
+              document.getElementById('propertiesModal').removeEventListener('hidden.bs.modal', showConsultation);
+              
+              // Ensure no residual backdrop
+              document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+              
+              // Show consultation modal
+              const consultationModal = new bootstrap.Modal(consultationModalEl, {
+                backdrop: true,
+                keyboard: true
+              });
+              consultationModal.show();
+            });
+          } else {
+            // If properties modal isn't open, just show consultation modal
+            const consultationModal = new bootstrap.Modal(consultationModalEl);
+            consultationModal.show();
+          }
+        });
+      });
+      
+      // Handle neighborhood card clicks to show relevant properties
+      document.querySelectorAll('.neighborhood-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          const community = this.dataset.community;
+          const communityTitle = this.dataset.title;
+          
+          console.log('Community clicked:', community); // Debug log
+          
+          // Hide all community property sections
+          document.querySelectorAll('.community-properties').forEach(section => {
+            section.style.display = 'none';
+          });
+          
+          if (community === 'valley') {
+            // Update modal title and show Valley properties
+            document.getElementById('propertiesModalLabel').textContent = 'Valley Properties';
+            document.querySelector('.properties-subtitle').textContent = 'Discover Premium Developments in The Valley Community';
+            document.getElementById('valley-properties').style.display = 'contents';
+            
+            // Update footer contact info
+            document.querySelector('.contact-label').textContent = 'Interested in Valley Properties?';
+            
+          } else if (community === 'grandpolo') {
+            console.log('Showing Grand Polo properties'); // Debug log
+            // Update modal title and show Grand Polo properties
+            document.getElementById('propertiesModalLabel').textContent = 'Grand Polo Club & Resort Properties';
+            document.querySelector('.properties-subtitle').textContent = 'Discover Luxury Equestrian Living at Grand Polo Club & Resort';
+            
+            const grandPoloSection = document.getElementById('grandpolo-properties');
+            if (grandPoloSection) {
+              grandPoloSection.style.display = 'contents';
+              console.log('Grand Polo section found and displayed'); // Debug log
+            } else {
+              console.log('Grand Polo section NOT found'); // Debug log
+            }
+            
+            // Update footer contact info
+            document.querySelector('.contact-label').textContent = 'Interested in Grand Polo Properties?';
+          } else {
+            console.log('No matching community found, defaulting to Valley:', community); // Debug log
+            // Default to Valley if no community match
+            document.getElementById('propertiesModalLabel').textContent = 'Valley Properties';
+            document.querySelector('.properties-subtitle').textContent = 'Discover Premium Developments in The Valley Community';
+            document.getElementById('valley-properties').style.display = 'contents';
+            document.querySelector('.contact-label').textContent = 'Interested in Valley Properties?';
+          }
+        });
+      });
+      
+      // Cleanup function for modal overlays
+      function cleanupModalBackdrops() {
+        // Remove any stray backdrops
+        document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+          if (!backdrop.closest('.modal.show')) {
+            backdrop.remove();
+          }
+        });
+        
+        // Ensure body doesn't have modal-open class if no modals are open
+        if (!document.querySelector('.modal.show')) {
+          document.body.classList.remove('modal-open');
+          document.body.style.overflow = '';
+          document.body.style.paddingRight = '';
+        }
+      }
+      
+      // Add cleanup listeners to all modals
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('hidden.bs.modal', cleanupModalBackdrops);
+      });
+      
+      // Add modal show event listener for properties modal
+      document.getElementById('propertiesModal').addEventListener('show.bs.modal', function(e) {
+        // Get the trigger element (the neighborhood card that was clicked)
+        const triggerElement = e.relatedTarget;
+        if (triggerElement) {
+          const neighborhoodCard = triggerElement.closest('.neighborhood-card');
+          if (neighborhoodCard) {
+            const community = neighborhoodCard.dataset.community;
+            console.log('Modal opening for community:', community);
+            
+            // Trigger the community selection logic
+            if (community === 'grandpolo') {
+              document.querySelectorAll('.community-properties').forEach(section => {
+                section.style.display = 'none';
+              });
+              document.getElementById('propertiesModalLabel').textContent = 'Grand Polo Club & Resort Properties';
+              document.querySelector('.properties-subtitle').textContent = 'Discover Luxury Equestrian Living at Grand Polo Club & Resort';
+              document.getElementById('grandpolo-properties').style.display = 'contents';
+              document.querySelector('.contact-label').textContent = 'Interested in Grand Polo Properties?';
+            } else {
+              // Default to Valley
+              document.querySelectorAll('.community-properties').forEach(section => {
+                section.style.display = 'none';
+              });
+              document.getElementById('propertiesModalLabel').textContent = 'Valley Properties';
+              document.querySelector('.properties-subtitle').textContent = 'Discover Premium Developments in The Valley Community';
+              document.getElementById('valley-properties').style.display = 'contents';
+              document.querySelector('.contact-label').textContent = 'Interested in Valley Properties?';
+            }
+          }
+        }
+      });
+    });
+  </script>
+
+  <!-- Property Loader for Dynamic Exclusive Listings -->
+  <script src="assets/js/property-loader.js"></script>
+
+  <!-- Properties Modal Loader for Dynamic Property Cards -->
+  <script src="assets/js/properties-modal-loader.js"></script>
+
+  <!-- Notable Transactions Loader for Dynamic Carousel Content -->
+  <script src="assets/js/notable-transactions-loader.js"></script>
+
+</body>
+</html>

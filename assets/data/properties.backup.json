@@ -1,0 +1,154 @@
+{
+  "exclusiveListings": [
+    {
+      "id": "kaia-valley",
+      "name": "KAIA",
+      "community": "The Valley",
+      "fullAddress": "KAIA at The Valley, Dubai, UAE",
+      "price": "2,800,000",
+      "currency": "AED", 
+      "status": "FOR SALE",
+      "bedrooms": "3-4 BR",
+      "area": "2,323-2,754 sq ft",
+      "handover": "Q2 2028",
+      "paymentPlan": "Easy 80/20",
+      "description": "KAIA at The Valley presents an elegant collection of 3‑ and 4‑bedroom townhouses within the thoughtfully designed master‑community of The Valley by Emaar.",
+      "images": {
+        "main": "assets/images/Communities/Properties/KAIA.webp",
+        "hero": "assets/images/Communities/Properties/KAIA.webp"
+      }
+    },
+    {
+      "id": "selvara-grandpolo",
+      "name": "Selvara Grand Polo",
+      "community": "Grand Polo Club & Resort", 
+      "fullAddress": "Selvara at Grand Polo Club & Resort, Dubai, UAE",
+      "price": "6,200,000",
+      "currency": "AED",
+      "status": "FOR SALE",
+      "bedrooms": "4 BR",
+      "area": "3,802 sq ft",
+      "handover": "Q2 2029",
+      "paymentPlan": "Easy 80/20",
+      "description": "Selvara at Grand Polo Club & Resort is a refined enclave of 4-bedroom luxury villas set within the prestigious master-planned equestrian lifestyle community.",
+      "images": {
+        "main": "assets/images/Communities/Properties/Selvara_Grand_Polo.webp", 
+        "hero": "assets/images/Communities/Properties/Selvara_Grand_Polo.webp"
+      }
+    },
+    {
+      "id": "avelia-valley",
+      "name": "Avelia",
+      "community": "The Valley",
+      "fullAddress": "Avelia at The Valley, Dubai, UAE", 
+      "price": "7,250,000",
+      "currency": "AED",
+      "status": "FOR SALE", 
+      "bedrooms": "4-5 BR",
+      "area": "4,346 sq ft",
+      "handover": "Dec 2029",
+      "paymentPlan": "Easy 80/20",
+      "description": "Avelia by Emaar is a limited-release luxury villa community located within The Valley, offering an exclusive collection of just 139 four- and five-bedroom villas.",
+      "images": {
+        "main": "assets/images/Communities/Properties/Avelia.jpg",
+        "hero": "assets/images/Communities/Properties/Avelia.jpg"
+      }
+    }
+  ],
+  "communities": {
+    "valley": [
+      {
+        "id": "kaia",
+        "name": "KAIA",
+        "community": "The Valley",
+        "fullAddress": "KAIA at The Valley, Dubai, UAE",
+        "price": "2,800,000",
+        "currency": "AED",
+        "status": "Available",
+        "bedrooms": "3-4 BR",
+        "area": "2,323-2,754 sq ft",
+        "handover": "Q2 2028",
+        "paymentPlan": "Easy 80/20",
+        "description": "KAIA at The Valley presents an elegant collection of 3‑ and 4‑bedroom townhouses within the thoughtfully designed master‑community of The Valley by Emaar.",
+        "images": {
+          "main": "assets/images/Communities/Properties/KAIA.webp",
+          "hero": "assets/images/Communities/Properties/KAIA.webp"
+        }
+      },
+      {
+        "id": "vindera",
+        "name": "Vindera",
+        "community": "The Valley",
+        "fullAddress": "Vindera at The Valley, Dubai, UAE",
+        "price": "3,170,000",
+        "currency": "AED",
+        "status": "Available",
+        "bedrooms": "3-4 BR",
+        "area": "2,401 sq ft",
+        "handover": "Dec 2029",
+        "paymentPlan": "Easy 80/20",
+        "description": "Vindera at The Valley offers an exclusive collection of modern 3- and 4-bedroom townhouses nestled within the lush, master-planned community of The Valley.",
+        "images": {
+          "main": "assets/images/Communities/Properties/Vindera.webp",
+          "hero": "assets/images/Communities/Properties/Vindera.webp"
+        }
+      },
+      {
+        "id": "avelia",
+        "name": "Avelia",
+        "community": "The Valley",
+        "fullAddress": "Avelia at The Valley, Dubai, UAE",
+        "price": "7,250,000",
+        "currency": "AED",
+        "status": "Available",
+        "bedrooms": "4-5 BR",
+        "area": "4,346 sq ft",
+        "handover": "Dec 2029",
+        "paymentPlan": "Easy 80/20",
+        "description": "Avelia by Emaar is a limited-release luxury villa community located within The Valley, offering an exclusive collection of just 139 four- and five-bedroom villas.",
+        "images": {
+          "main": "assets/images/Communities/Properties/Avelia.jpg",
+          "hero": "assets/images/Communities/Properties/Avelia.jpg"
+        }
+      }
+    ],
+    "grandpolo": [
+      {
+        "id": "grandpolo-main",
+        "name": "Grand Polo Club & Resort",
+        "community": "Grand Polo Club & Resort",
+        "fullAddress": "Grand Polo Club & Resort, Dubai, UAE",
+        "price": "5,670,000",
+        "currency": "AED",
+        "status": "Available",
+        "bedrooms": "3-5 BR",
+        "area": "2,949-10,012 sq ft",
+        "handover": "Q2 2029",
+        "paymentPlan": "Easy 80/20",
+        "description": "Grand Polo Club & Resort is a visionary master-planned community by Emaar that fuses luxury living with equestrian heritage.",
+        "images": {
+          "main": "assets/images/Communities/Properties/Grand_Polo_Club_&_Resort.webp",
+          "hero": "assets/images/Communities/Properties/Grand_Polo_Club_&_Resort.webp"
+        }
+      },
+      {
+        "id": "selvara",
+        "name": "Selvara Grand Polo",
+        "community": "Grand Polo Club & Resort",
+        "fullAddress": "Selvara at Grand Polo Club & Resort, Dubai, UAE",
+        "price": "6,200,000",
+        "currency": "AED",
+        "status": "Available",
+        "bedrooms": "4 BR",
+        "area": "3,802 sq ft",
+        "handover": "Q2 2029",
+        "paymentPlan": "Easy 80/20",
+        "description": "Selvara at Grand Polo Club & Resort is a refined enclave of 4-bedroom luxury villas set within the prestigious master-planned equestrian lifestyle community of the Grand Polo Club in Dubai.",
+        "images": {
+          "main": "assets/images/Communities/Properties/Selvara_Grand_Polo.webp",
+          "hero": "assets/images/Communities/Properties/Selvara_Grand_Polo.webp"
+        }
+      }
+    ]
+  }
+}
