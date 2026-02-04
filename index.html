@@ -278,17 +278,12 @@
   </div>
 
   <!-- Controls + Info -->
-  <div class="notable-footer container d-flex justify-content-between align-items-center mt-4">
+  <div class="notable-footer container mt-4">
 
-    <div class="d-flex align-items-center gap-4">
-
-      <!-- Arrows -->
-      <div class="carousel-arrows d-flex gap-2">
-        <button class="carousel-nav-btn" type="button" data-bs-target="#notableCarousel" data-bs-slide="prev" aria-label="Previous property">←</button>
-        <button class="carousel-nav-btn" type="button" data-bs-target="#notableCarousel" data-bs-slide="next" aria-label="Next property">→</button>
-      </div>
-
-      <!-- Info -->
+    <!-- Mobile Layout - Stacked -->
+    <div class="d-flex d-lg-none flex-column gap-3">
+      
+      <!-- Property Info (Mobile Top) -->
       <div class="d-flex align-items-center gap-3">
         <span class="ff-logo">
           <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="ff-logo-img">
@@ -300,10 +295,46 @@
         </div>
       </div>
 
+      <!-- Controls + View All (Mobile Bottom) -->
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="carousel-arrows d-flex gap-2">
+          <button class="carousel-nav-btn" type="button" data-bs-target="#notableCarousel" data-bs-slide="prev" aria-label="Previous property">←</button>
+          <button class="carousel-nav-btn" type="button" data-bs-target="#notableCarousel" data-bs-slide="next" aria-label="Next property">→</button>
+        </div>
+        <a href="#" class="btn btn-view-all" data-bs-toggle="modal" data-bs-target="#projectsModal">View All</a>
+      </div>
+
     </div>
 
-    <!-- View All -->
-    <a href="#" class="btn btn-view-all" data-bs-toggle="modal" data-bs-target="#projectsModal">View All</a>
+    <!-- Desktop Layout - Original -->
+    <div class="d-none d-lg-flex justify-content-between align-items-center w-100">
+
+      <div class="d-flex align-items-center gap-4">
+
+        <!-- Arrows -->
+        <div class="carousel-arrows d-flex gap-2">
+          <button class="carousel-nav-btn" type="button" data-bs-target="#notableCarousel" data-bs-slide="prev" aria-label="Previous property">←</button>
+          <button class="carousel-nav-btn" type="button" data-bs-target="#notableCarousel" data-bs-slide="next" aria-label="Next property">→</button>
+        </div>
+
+        <!-- Info -->
+        <div class="d-flex align-items-center gap-3">
+          <span class="ff-logo">
+            <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="ff-logo-img">
+          </span>
+          <span class="vertical-line"></span>
+          <div class="text-details">
+            <p class="detail-price">150,000,000 AED</p>
+            <p class="detail-name">Palm Jumeirah Villa</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- View All -->
+      <a href="#" class="btn btn-view-all" data-bs-toggle="modal" data-bs-target="#projectsModal">View All</a>
+
+    </div>
 
   </div>
 

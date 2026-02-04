@@ -816,6 +816,27 @@ textarea {
 /* ===== 6.6. RESPONSIVE DESIGN - MOBILE & TABLET ===== */
 /* Responsive adaptations for smaller screen sizes */
 
+/* General mobile improvements */
+@media (max-width: 991.98px) {
+  #notable-transactions .section-title {
+    font-size: 2.2rem;
+  }
+  
+  #notable-transactions .ff-logo-img {
+    height: 35px;
+  }
+  
+  #notable-transactions .carousel-nav-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+  
+  #notable-transactions .vertical-line {
+    height: 40px;
+  }
+}
+
 /* Tablet-specific adjustments */
 @media (max-width: 1024px) {
   /* Reduced padding for tablet screens */
@@ -850,11 +871,17 @@ textarea {
   /* Smaller section title */
   #notable-transactions .section-title {
     font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  #notable-transactions .small-text {
+    font-size: 0.85rem;
   }
   
   /* Minimal padding for mobile */
   #notable-transactions #notableCarousel {
     padding: 0 1rem;
+    margin-bottom: 3rem;
   }
   
   /* Reduced carousel height */
@@ -879,32 +906,52 @@ textarea {
     opacity: 0;
     pointer-events: none;
   }
-  
-  #notable-transactions .notable-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-  
-  #notable-transactions .notable-footer > div {
-    width: 100%;
-  }
-
-  #notable-transactions .btn-view-all {
-    align-self: flex-end;
-    margin-top: 1rem;
-  }
 
   #notable-transactions .text-details .detail-price {
     font-size: 1.25rem;
   }
   
-  #notable-transactions .ff-logo {
-    font-size: 1.8rem;
+  #notable-transactions .text-details .detail-name {
+    font-size: 0.9rem;
+  }
+  
+  #notable-transactions .ff-logo-img {
+    height: 30px;
+  }
+  
+  #notable-transactions .btn-view-all {
+    font-size: 0.8rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  #notable-transactions .carousel-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  #notable-transactions .vertical-line {
+    height: 35px;
+    width: 1.5px;
+  }
+  
+  #notable-transactions .status-label {
+    top: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
   }
 }
 
 @media (max-width: 576px) {
+  #notable-transactions {
+    padding: 3rem 0;
+  }
+  
+  #notable-transactions .section-title {
+    font-size: 1.8rem;
+  }
+  
   #notable-transactions #notableCarousel {
     margin: 0 0 2rem 0;
     padding: 0;
@@ -915,14 +962,34 @@ textarea {
   }
   
   #notable-transactions .carousel-item {
-    width: 100%;
+    width: 95%;
   }
   
-  #notable-transactions .status-label {
-    top: 15px;
-    right: 15px;
-    padding: 6px 12px;
+  #notable-transactions .text-details .detail-price {
+    font-size: 1.1rem;
+  }
+  
+  #notable-transactions .text-details .detail-name {
+    font-size: 0.85rem;
+  }
+  
+  #notable-transactions .ff-logo-img {
+    height: 25px;
+  }
+  
+  #notable-transactions .carousel-nav-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  
+  #notable-transactions .vertical-line {
+    height: 30px;
+  }
+  
+  #notable-transactions .btn-view-all {
     font-size: 0.75rem;
+    padding: 0.6rem 1.2rem;
   }
 }
 
