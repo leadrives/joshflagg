@@ -1678,10 +1678,319 @@ textarea {
   border-color: #222;
 }
 
+/* ===== PARALLAX FORM SECTION ===== */
+/* Newsletter signup form with parallax background */
+
+.parallax-form-section {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 6rem 1rem;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.parallax-form-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.parallax-form-box {
+  background: white;
+  padding: 4rem 3rem;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  z-index: 3;
+}
+
+.parallax-form-logo {
+  position: absolute;
+  font-size: 12rem;
+  font-weight: bold;
+  color: #e0ddd7;
+  opacity: 0.5;
+  font-family: 'Cormorant Garamond', serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  letter-spacing: 6px;
+}
+
+.parallax-form-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.parallax-form-subtitle {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.parallax-form {
+  position: relative;
+  z-index: 2;
+}
+
+.parallax-form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.parallax-form-group {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.parallax-form-group-full {
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+.parallax-form-group label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #7c6d5c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.parallax-form-group input {
+  font-family: 'Lato', sans-serif;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  color: #222;
+  transition: border-color 0.3s ease;
+}
+
+.parallax-form-group input::placeholder {
+  color: #999;
+}
+
+.parallax-form-group input:focus {
+  border-color: #7c6d5c;
+}
+
+.parallax-form-consent {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.parallax-form-consent input {
+  margin-right: 0.5rem;
+}
+
+.parallax-form-consent a {
+  color: #7c6d5c;
+  text-decoration: underline;
+}
+
+.parallax-form-consent a:hover {
+  color: #222;
+}
+
+.parallax-form-button {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  background-color: transparent;
+  color: #222;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  border: 1px solid #888;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+.parallax-form-button:hover {
+  background-color: #222;
+  color: white;
+  border-color: #222;
+}
+
+/* ===== MOBILE RESPONSIVE: PARALLAX FORM SECTION ===== */
+/* Mobile-first responsive design for newsletter form */
+
 @media (max-width: 768px) {
+  
+  /* Mobile Parallax Form Container */
+  .parallax-form-section {
+    padding: 3rem 1rem;
+    background-attachment: scroll; /* Fix parallax issues on mobile */
+    min-height: auto;
+  }
+  
+  /* Mobile Form Wrapper */
+  .parallax-form-wrapper {
+    max-width: 100%;
+  }
+  
+  /* Mobile Form Box */
+  .parallax-form-box {
+    padding: 2.5rem 1.5rem;
+    margin: 0 0.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-radius: 8px;
+  }
+  
+  /* Mobile Background Logo - Hidden for cleaner look */
+  .parallax-form-logo {
+    display: none; /* Hide background logo on mobile for better readability */
+  }
+  
+  /* Mobile Heading */
+  .parallax-form-heading {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Mobile Subtitle */
+  .parallax-form-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  /* Mobile Form Fields - Stack Vertically */
   .parallax-form-fields {
     flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
   }
+  
+  .parallax-form-group {
+    flex: 1 1 100%;
+  }
+  
+  /* Mobile Form Labels */
+  .parallax-form-group label {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  /* Mobile Form Inputs */
+  .parallax-form-group input {
+    padding: 0.9rem 0.6rem;
+    font-size: 1.05rem; /* Slightly larger for mobile typing */
+    border-bottom: 2px solid #ddd; /* Thicker border for touch */
+  }
+  
+  .parallax-form-group input:focus {
+    border-color: #7c6d5c;
+    border-bottom-width: 2px;
+  }
+  
+  /* Mobile Consent Text */
+  .parallax-form-consent {
+    font-size: 0.7rem;
+    line-height: 1.5;
+    margin-top: 1.25rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+  }
+  
+  .parallax-form-consent input {
+    margin-right: 0.75rem;
+    transform: scale(1.2); /* Larger checkbox for touch */
+  }
+  
+  /* Mobile Submit Button */
+  .parallax-form-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  
+}
+
+/* Small Mobile Responsive */
+@media (max-width: 480px) {
+  
+  .parallax-form-section {
+    padding: 2rem 0.75rem;
+  }
+  
+  .parallax-form-box {
+    padding: 2rem 1rem;
+    margin: 0;
+  }
+  
+  .parallax-form-heading {
+    font-size: 1.75rem;
+  }
+  
+  .parallax-form-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .parallax-form-group input {
+    font-size: 1rem;
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .parallax-form-consent {
+    font-size: 0.65rem;
+  }
+  
+  .parallax-form-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+}
+
+/* Tablet Responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+  .parallax-form-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .parallax-form-box {
+    padding: 3rem 2.5rem;
+  }
+  
+  .parallax-form-heading {
+    font-size: 2.25rem;
+  }
+  
+  .parallax-form-logo {
+    font-size: 10rem;
+  }
+  
 }
 
 /* Parallax Hero Section */
