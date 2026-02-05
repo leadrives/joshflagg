@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== META TAGS ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Real Estate Insights & Market Analysis - Mohamad Ahmad Blog</title>
+  <meta name="description" content="Expert insights on Dubai real estate market trends, investment strategies, and property analysis from Mohamad Ahmad, UAE's leading luxury real estate advisor">
+
+  <!-- ===== EXTERNAL STYLESHEETS ===== -->
+  <!-- Bootstrap CSS Framework -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts - Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="css/blog-styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <!-- Fixed sticky navigation bar with logo and menu items -->
+  <nav id="global-navbar" class="navbar navbar-expand-lg px-3 px-lg-4">
+    <div class="container-fluid">
+      
+      <!-- Mobile Hamburger Button (Left) -->
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Mobile Logo (Centered) -->
+      <div class="header__logo navbar-brand mx-auto d-lg-none">
+        <img src="../assets/images/Logo/mronelogo2.png" alt="Mohamad Ahmad Logo" class="logo-img">
+      </div>
+      
+      <!-- Mobile CTA Button (Right) -->
+      <a href="../index.html#consultationModal" class="btn btn-outline-light btn-sm d-lg-none">BOOK</a>
+      
+      <!-- Desktop Navigation Content -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        
+        <!-- Left Navigation Links -->
+        <div class="d-flex me-auto d-none d-lg-flex">
+          <a href="../index.html#about-carousel" class="navigation__link">ABOUT AHMAD</a>
+          <a href="../index.html#notable-transactions" class="navigation__link">NOTABLE SALES</a>
+          <a href="../index.html#projectsModal" class="navigation__link">ALL PROJECTS</a>
+          <a href="../index.html#work-with-josh-section" class="navigation__link">SELL</a>
+        </div>
+        
+        <!-- Desktop Logo (Centered) -->
+        <div class="header__logo navbar-brand mx-auto d-none d-lg-block">
+          <a href="../index.html">
+            <img src="../assets/images/Logo/mronelogo2.png" alt="Mohamad Ahmad Logo" class="logo-img">
+          </a>
+        </div>
+        
+        <!-- Right Navigation Links -->
+        <div class="d-flex ms-auto d-none d-lg-flex align-items-center">
+          <a href="../index.html#neighborhoods-section" class="navigation__link me-3">SEARCH HOMES</a>
+          <a href="../index.html#consultationModal" class="btn btn-outline-light btn-sm">BOOK AN APPOINTMENT</a>
+        </div>
+        
+        <!-- Mobile Navigation Links -->
+        <div class="d-lg-none">
+          <div class="d-flex flex-column">
+            <a href="../index.html#about-carousel" class="navigation__link">ABOUT AHMAD</a>
+            <a href="../index.html#notable-transactions" class="navigation__link">NOTABLE SALES</a>
+            <a href="../index.html#projectsModal" class="navigation__link">ALL PROJECTS</a>
+            <a href="../index.html#work-with-josh-section" class="navigation__link">SELL</a>
+          </div>
+          <div class="d-flex flex-column mt-3 pt-3 border-top border-light">
+            <a href="../index.html#neighborhoods-section" class="navigation__link">SEARCH HOMES</a>
+            <a href="../index.html#consultationModal" class="navigation__link">BOOK AN APPOINTMENT</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== BLOG HEADER SECTION ===== -->
+  <section class="blog-header-section">
+    <div class="blog-header-overlay"></div>
+    <div class="blog-header-content">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8">
+            <span class="blog-eyebrow">Real Estate Insights</span>
+            <h1 class="blog-main-title">Market Analysis & Investment Guidance</h1>
+            <p class="blog-main-description">Expert insights and analysis on Dubai's luxury real estate market from Mohamad Ahmad, your trusted advisor for premium properties and strategic investments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG FILTERS & SEARCH ===== -->
+  <section class="blog-filters-section">
+    <div class="container">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-lg-8">
+          <!-- Category Filters -->
+          <div class="blog-category-filters">
+            <button class="category-filter active" data-category="all">All Articles</button>
+            <button class="category-filter" data-category="Market Analysis">Market Analysis</button>
+            <button class="category-filter" data-category="Investment Strategy">Investment Strategy</button>
+            <button class="category-filter" data-category="Legal & Regulatory">Legal & Regulatory</button>
+            <button class="category-filter" data-category="Lifestyle">Lifestyle</button>
+            <button class="category-filter" data-category="Luxury Market">Luxury Market</button>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <!-- Search Box -->
+          <div class="blog-search-box">
+            <input type="text" class="blog-search-input" placeholder="Search articles..." id="blogSearchInput">
+            <i class="fas fa-search blog-search-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED BLOG POST ===== -->
+  <section class="featured-blog-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="featured-blog-card" id="featuredBlogCard">
+            <!-- Featured blog content will be dynamically loaded -->
+            <div class="featured-blog-image">
+              <img src="images/dubai-market-2025-recap.jpg" alt="Featured Blog" class="featured-image">
+            </div>
+            <div class="featured-blog-content">
+              <div class="featured-blog-meta">
+                <span class="featured-category">Market Analysis</span>
+                <span class="featured-date">December 30, 2024</span>
+              </div>
+              <h2 class="featured-title">
+                <a href="dubai-real-estate-market-2025-recap-record-year.html">Dubai Real Estate Market 2025 Recap: A Record Year</a>
+              </h2>
+              <p class="featured-excerpt">Comprehensive review of Dubai's exceptional real estate performance in 2025, highlighting record-breaking sales, key trends, and market dynamics.</p>
+              <div class="featured-author-info">
+                <img src="../assets/images/Logo/mronelogo2.png" alt="Mohamad Ahmad" class="author-avatar">
+                <div class="author-details">
+                  <span class="author-name">Mohamad Ahmad</span>
+                  <span class="author-title">Luxury Real Estate Expert</span>
+                </div>
+                <span class="read-time">9 min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG GRID ===== -->
+  <section class="blog-grid-section">
+    <div class="container">
+      <div class="row" id="blogGrid">
+        <!-- Blog articles will be dynamically loaded here -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="blog-card" data-category="Investment Strategy">
+            <div class="blog-card-image">
+              <img src="images/villa-communities-schools.jpg" alt="Villa Communities Near Schools" class="blog-image">
+              <div class="blog-card-overlay">
+                <span class="blog-category">Investment Strategy</span>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-date">November 28, 2024</span>
+                <span class="blog-read-time">6 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="why-villa-communities-next-to-top-schools-outperform-dubai.html">Why Villa Communities Next to Top Schools Outperform in Dubai</a>
+              </h3>
+              <p class="blog-card-excerpt">Discover why villa communities located near premier educational institutions consistently deliver superior investment returns in Dubai.</p>
+              <div class="blog-card-author">
+                <span class="author-name">Mohamad Ahmad</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="blog-card" data-category="Market Analysis">
+            <div class="blog-card-image">
+              <img src="images/dubai-market-outlook-2026.jpg" alt="Dubai Market Outlook 2026" class="blog-image">
+              <div class="blog-card-overlay">
+                <span class="blog-category">Market Analysis</span>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-date">December 15, 2024</span>
+                <span class="blog-read-time">8 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="dubai-property-market-outlook-2026-investment-insights.html">Dubai Property Market Outlook 2026: Investment Insights</a>
+              </h3>
+              <p class="blog-card-excerpt">Comprehensive analysis of Dubai's real estate market trends, investment opportunities, and growth projections for 2026.</p>
+              <div class="blog-card-author">
+                <span class="author-name">Mohamad Ahmad</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="blog-card" data-category="Legal & Regulatory">
+            <div class="blog-card-image">
+              <img src="images/ejari-hotel-apartments.jpg" alt="Ejari for Hotel Apartments" class="blog-image">
+              <div class="blog-card-overlay">
+                <span class="blog-category">Legal & Regulatory</span>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-date">October 22, 2024</span>
+                <span class="blog-read-time">7 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="ejari-for-hotel-apartments-dubai-complete-guide.html">Ejari for Hotel Apartments in Dubai: Complete Guide</a>
+              </h3>
+              <p class="blog-card-excerpt">Essential guide to Ejari requirements for hotel apartments in Dubai, covering legal obligations, registration process, and compliance requirements.</p>
+              <div class="blog-card-author">
+                <span class="author-name">Mohamad Ahmad</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="blog-card" data-category="Property Management">
+            <div class="blog-card-image">
+              <img src="../assets/images/featured-blog.avif" alt="Property Maintenance Tips" class="blog-image">
+              <div class="blog-card-overlay">
+                <span class="blog-category">Property Management</span>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-date">September 15, 2024</span>
+                <span class="blog-read-time">8 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="property-maintenance-tips-dubai-seasons.html">Dubai, UAE, Through the Seasons: Property Maintenance Tips</a>
+              </h3>
+              <p class="blog-card-excerpt">Essential property maintenance guide for Dubai's unique climate, covering seasonal considerations and best practices for property preservation.</p>
+              <div class="blog-card-author">
+                <span class="author-name">Mohamad Ahmad</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="blog-card" data-category="Lifestyle">
+            <div class="blog-card-image">
+              <img src="../assets/images/4a72697f-369e-4c44-9002-98f124db0c0c.avif" alt="Family Friendly Activities" class="blog-image">
+              <div class="blog-card-overlay">
+                <span class="blog-category">Lifestyle</span>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-date">August 10, 2024</span>
+                <span class="blog-read-time">7 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="family-friendly-activities-dubai-uae.html">Family Friendly Activities in Dubai, UAE</a>
+              </h3>
+              <p class="blog-card-excerpt">Comprehensive guide to family-friendly activities and attractions in Dubai, perfect for residents and visitors with children.</p>
+              <div class="blog-card-author">
+                <span class="author-name">Mohamad Ahmad</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <article class="blog-card" data-category="Lifestyle">
+            <div class="blog-card-image">
+              <img src="../assets/images/blog-small.avif" alt="Best Restaurants in Dubai" class="blog-image">
+              <div class="blog-card-overlay">
+                <span class="blog-category">Lifestyle</span>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-date">July 25, 2024</span>
+                <span class="blog-read-time">10 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="15-best-restaurants-dubai-uae.html">15 Best Restaurants in Dubai, UAE</a>
+              </h3>
+              <p class="blog-card-excerpt">Curated guide to Dubai's finest dining establishments, featuring diverse cuisines and exceptional culinary experiences.</p>
+              <div class="blog-card-author">
+                <span class="author-name">Mohamad Ahmad</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+        <!-- Additional blog cards will be loaded dynamically -->
+      </div>
+      
+      <!-- Load More Button -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <button class="btn blog-load-more" id="loadMoreBtn">
+            <span class="load-more-text">Load More Articles</span>
+            <span class="load-more-spinner" style="display: none;">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER SUBSCRIPTION ===== -->
+  <section class="blog-newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="newsletter-card">
+            <div class="newsletter-logo">
+              <img src="../assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="newsletter-logo-img">
+            </div>
+            <h3 class="newsletter-title">Stay Informed About Dubai Real Estate</h3>
+            <p class="newsletter-description">Get exclusive market insights, investment opportunities, and property updates delivered directly to your inbox.</p>
+            
+            <form class="newsletter-form" id="newsletterForm">
+              <div class="newsletter-input-group">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-submit-btn">
+                  Subscribe
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="newsletter-consent">
+                <label>
+                  <input type="checkbox" required>
+                  <span class="consent-text">I agree to receive market updates and insights. <a href="../index.html#footer" class="consent-link">Privacy Policy</a></span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-full">
+
+    <!-- TOP -->
+    <div class="footer-top">
+      <div class="footer-logo">
+        <span class="footer-logo-mark">
+          <img src="../assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="footer-logo-img">
+        </span>
+        <span class="footer-logo-text">MOHAMAD AHMAD<br><small>DUBAI</small></span>
+      </div>
+
+      <div class="footer-columns">
+
+        <div class="footer-col footer-col-left">
+          <h6>CONTACT</h6>
+          <p>ahmad@mr1properties.com<br>+971 56 227 9111</p>
+        </div>
+
+        <div class="footer-col footer-col-center">
+          <h6>OFFICE</h6>
+          <p>Bay Square Building 10, Floor 4, Office 402<br>Business Bay, Dubai, UAE</p>
+        </div>
+
+        <div class="footer-col footer-col-right">
+          <h6>NEWSLETTER</h6>
+          <p>For exclusive news & market updates sign up to our newsletter</p>
+          <label class="footer-input-label">EMAIL ADDRESS</label>
+          <input type="email" class="footer-input" placeholder="Enter Your Email Address">
+          <div class="footer-consent">
+            <label><input type="checkbox"> I agree to be contacted by Mohamad Ahmad via call, email, and text for real estate services… <a href="../index.html#footer">Privacy Policy</a>.</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MIDDLE -->
+    <div class="footer-middle">
+      <div class="footer-watermark"></div>
+
+      <div class="footer-license-wrap">
+        <img src="../assets/images/Logo/m r one Properties logo.png" class="footer-compass-logo" alt="Compass Logo">
+
+        <div class="footer-license-text">
+          <p>Mohamad Ahmad | Associate Partner<br>M R One Properties | RERA Licensed</p>
+          <p class="footer-disclaimer">
+            M R One Properties is a licensed real estate brokerage regulated by the Real Estate Regulatory Agency (RERA) in Dubai and abides by equal housing opportunity laws… <a href="../index.html">Sitemap</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span class="footer-credit">
+          <img src="../assets/images/Logo/m r one Properties logo.png" alt="Luxury Presence Logo" class="footer-lp-logo">
+          Real Estate Website Design by <a href="#">Luxury Presence</a>
+        </span>
+        <span class="footer-copy">Copyright © M R One Properties Dubai 2026 | <a href="../index.html#footer">Privacy Policy</a></span>
+      </div>
+      <div class="footer-social-icons">
+        <a href="https://www.facebook.com/p/M-R-One-Properties-61551373948924/" target="_blank" rel="noopener noreferrer"><span class="icon fb"></span></a>
+        <a href="https://www.instagram.com/mroneproperties/" target="_blank" rel="noopener noreferrer"><span class="icon ig"></span></a>
+        <a href="https://www.youtube.com/@MROneProperties" target="_blank" rel="noopener noreferrer"><span class="icon yt"></span></a>
+        <a href="https://www.linkedin.com/company/mr-oneproperties/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><span class="icon li"></span></a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Blog JavaScript -->
+  <script src="js/blog-manager.js"></script>
+  
+  <!-- Navbar Scroll Handler -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.getElementById('global-navbar');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  });
+  </script>
+
+</body>
+</html>
