@@ -1,5 +1,19 @@
 <!--
 =====================================================================================
+  YOUTUBE EMBEDS DIAGNOSTIC CHECKLIST:
+  
+  If YouTube embeds show "Error 153 - Video player configuration error":
+  1. Test using Live Server or local http server (NOT file:// protocol)
+  2. Open Chrome DevTools > Network tab > Click the DOCUMENT request
+  3. Check Response Headers for "Referrer-Policy":
+     - If it's "no-referrer" or "same-origin": embeds will fail
+     - Should be "strict-origin-when-cross-origin" or "strict-origin"
+  4. Check iframe requests show non-empty "Referrer" header in DevTools
+  
+  For production: See server config snippets at bottom of this file.
+=====================================================================================
+
+=====================================================================================
   Mohamad Ahmad - Real Estate Website
   
   Project: Mohamad Ahmad Luxury Real Estate Website
@@ -31,6 +45,7 @@
   <!-- ===== META TAGS ===== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Mohamad Ahmad - Real Estate</title>
   <meta name="description" content="Mohamad Ahmad - One of UAE's most successful luxury real estate agents with $3B+ in total sales volume">
 
@@ -1040,6 +1055,29 @@
     </div>
   </div>
 </section>
+<section class="py-5" style="background-color: #f8f9fa; min-height: auto; overflow: hidden; position: relative;">
+  <div class="container-fluid px-1 px-md-3">
+
+    <!-- Section Heading -->
+    <div class="text-center mb-5">
+      <p class="small-text">Latest Content</p>
+      <h2 class="section-title">Featured Videos</h2>
+    </div>
+
+    <div class="YouTubeShortsCarousel3D_root__viTF0 mx-auto"
+         role="listbox"
+         aria-activedescendant="short-0"
+         tabindex="0"
+         style="touch-action: pan-y;">
+
+      <div class="YouTubeShortsCarousel3D_track__vvfdl" id="ytShortsTrack"></div>
+
+      <div class="d-flex justify-content-center align-items-center mt-3 YouTubeShortsCarousel3D_dots__VJzWN"
+           id="ytShortsDots"></div>
+    </div>
+
+  </div>
+</section>
 
 <footer class="footer-full">
 
@@ -1118,7 +1156,233 @@
 </footer>
 
 
+<script>
+  /**
+   * Shorts data (JSON).
+   * You can later move this into a separate .json file + fetch() if you want.
+   */
+  const YT_SHORTS_DATA = [
+    { "url": "https://youtube.com/shorts/gpZZVxTNOHI?si=rAcA_siF23l1wK3a" },
+    { "url": "https://youtube.com/shorts/PdxI9t5cZ_Y?si=s3IPweS7vzEWXnue" },
+    { "url": "https://youtube.com/shorts/BRmSK9f5M1E?si=b0nAnHmpWXeHYVo4" },
+    { "url": "https://youtube.com/shorts/sWd2QOUlI_s?si=fguIBFj0REwGzYrF" },
+    { "url": "https://youtube.com/shorts/Oh7lnw6RV-E?si=Todj5K8ae-TsNLm4" },
+    { "url": "https://youtube.com/shorts/VqaAfdOFFYY?si=IprFP-IhzBggdMkH" },
+    { "url": "https://youtube.com/shorts/eH5tx3148WE?si=W5_i016DKXI12Ssx" },
+    { "url": "https://youtube.com/shorts/xt1O6alvdGw?si=IP6hEDqujCJgj83J" },
+    { "url": "https://youtube.com/shorts/LO_j_dVnCpM?si=KUTSGjKjB6OCIbgq" },
+    { "url": "https://youtube.com/shorts/DV1l8PRWYKk?si=J1q9PUQhRNqQcufg" }
+  ];
 
+  (function initYouTubeShorts3DCarousel(){
+    const track = document.getElementById('ytShortsTrack');
+    const dotsWrap = document.getElementById('ytShortsDots');
+    const root = track?.closest('.YouTubeShortsCarousel3D_root__viTF0');
+
+    if(!track || !dotsWrap || !root) return;
+
+    // --- helpers ---
+    const extractYouTubeId = (url) => {
+      // Handle direct ID (if already extracted)
+      if (typeof url === 'string' && url.match(/^[a-zA-Z0-9_-]{6,}$/) && !url.includes('/')) {
+        return url;
+      }
+      
+      // YouTube Shorts: youtube.com/shorts/ID or youtube.com/shorts/ID?...
+      const shortsMatch = url.match(/\/shorts\/([a-zA-Z0-9_-]{6,})/);
+      if (shortsMatch?.[1]) return shortsMatch[1];
+      
+      // Standard watch: youtube.com/watch?v=ID or youtube.com/watch?v=ID&...
+      const watchMatch = url.match(/[?&]v=([a-zA-Z0-9_-]{6,})/);
+      if (watchMatch?.[1]) return watchMatch[1];
+      
+      // Short URL: youtu.be/ID or youtu.be/ID?...
+      const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]{6,})/);
+      if (shortMatch?.[1]) return shortMatch[1];
+      
+      // Embed URL: youtube.com/embed/ID or youtube-nocookie.com/embed/ID
+      const embedMatch = url.match(/\/embed\/([a-zA-Z0-9_-]{6,})/);
+      if (embedMatch?.[1]) return embedMatch[1];
+      
+      return null;
+    };
+
+    const makeEmbedSrc = (videoId) => {
+      // safest baseline (loads everywhere)
+      return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${videoId}`;
+    };
+
+    // --- build model from JSON ---
+    const items = YT_SHORTS_DATA
+      .map(x => ({ ...x, id: extractYouTubeId(x.url) }))
+      .filter(x => !!x.id);
+
+    if(items.length < 1) return;
+
+    // --- render cards ---
+    track.innerHTML = '';
+    dotsWrap.innerHTML = '';
+
+    const cards = [];
+    const dots = [];
+
+    items.forEach((item, idx) => {
+      const btn = document.createElement('button');
+      btn.id = `short-${idx}`;
+      btn.className = 'YouTubeShortsCarousel3D_card__I-Iof';
+      btn.type = 'button';
+      btn.title = `Short ${idx + 1} of ${items.length}`;
+      btn.setAttribute('role', 'option');
+      btn.setAttribute('aria-selected', 'false');
+
+      btn.innerHTML = `
+        <div class="YouTubeShortsCarousel3D_cardInner__wwjg2">
+          <div class="YouTubeShortsCarousel3D_player__HkofC">
+            <iframe
+              class="YouTubeShortsCarousel3D_iframe__JJd+j"
+              frameborder="0"
+              loading="lazy"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              title="YouTube Short ${idx + 1}"
+              src="${makeEmbedSrc(item.id)}"
+              onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';">
+            </iframe>
+            <div class="fallback" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #f0f0f0; border-radius: 12px; align-items: center; justify-content: center; flex-direction: column; color: #666; text-align: center;">
+              <p style="margin: 0 0 10px 0;">Video unavailable</p>
+              <a href="${item.url}" target="_blank" rel="noopener" style="color: #1a73e8; text-decoration: none; font-size: 14px;">Watch on YouTube</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      btn.addEventListener('click', () => setActive(idx, true));
+      track.appendChild(btn);
+      cards.push(btn);
+
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'YouTubeShortsCarousel3D_dot__ifvL4';
+      dot.setAttribute('aria-label', `Go to video ${idx + 1}`);
+      dot.addEventListener('click', () => setActive(idx, true));
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    });
+
+    // --- layout math (matches your ref transforms) ---
+    const POSITIONS = [
+      { key: 'left2',  xMult: -2, rot:  56, scale: .85, blur: 3.0, z: 98 },
+      { key: 'left1',  xMult: -1, rot:  28, scale: .85, blur: 1.5, z: 99 },
+      { key: 'active', xMult:  0, rot:   0, scale: 1.0, blur: 0.0, z: 100 },
+      { key: 'right1', xMult:  1, rot: -28, scale: .85, blur: 1.5, z: 99 },
+      { key: 'right2', xMult:  2, rot: -56, scale: .85, blur: 3.0, z: 98 }
+    ];
+
+    let activeIndex = 0;
+    let timer = null;
+    let isPaused = false;
+
+    const calcOffset = () => {
+      // based on card width for perfect spacing across breakpoints
+      const card = cards[0];
+      const w = card ? card.getBoundingClientRect().width : 300;
+      // visually closest to your screenshot spacing
+      return Math.round(w * 0.93);
+    };
+
+    const normalize = (i) => {
+      const n = items.length;
+      return ((i % n) + n) % n;
+    };
+
+    const applyTransforms = () => {
+      const offset = calcOffset();
+
+      // hide all by default (keeps DOM simple)
+      cards.forEach((c) => {
+        c.style.opacity = '0';
+        c.style.pointerEvents = 'none';
+        c.style.zIndex = '0';
+        c.style.filter = 'blur(6px)';
+        c.style.transform = 'translate(-50%, -50%) translateX(0px) rotateY(0deg) scale(0.75)';
+        c.classList.remove('YouTubeShortsCarousel3D_active__gWM4X');
+        c.setAttribute('aria-selected', 'false');
+      });
+
+      // place 5 around active
+      POSITIONS.forEach((pos) => {
+        const idx = normalize(activeIndex + pos.xMult);
+        const card = cards[idx];
+        if(!card) return;
+
+        card.style.opacity = '1';
+        card.style.pointerEvents = pos.key === 'active' ? 'auto' : 'auto';
+        card.style.zIndex = String(pos.z);
+        card.style.filter = `blur(${pos.blur}px)`;
+        card.style.transform = `translate(-50%, -50%) translateX(${pos.xMult * offset}px) rotateY(${pos.rot}deg) scale(${pos.scale})`;
+
+        if(pos.key === 'active'){
+          card.classList.add('YouTubeShortsCarousel3D_active__gWM4X');
+          card.setAttribute('aria-selected', 'true');
+          root.setAttribute('aria-activedescendant', card.id);
+        }
+      });
+
+      // dots
+      dots.forEach((d, i) => {
+        d.classList.toggle('YouTubeShortsCarousel3D_dotActive__QL06j', i === activeIndex);
+      });
+    };
+
+    const setActive = (idx, userAction = false) => {
+      activeIndex = normalize(idx);
+      applyTransforms();
+      if(userAction) restartAuto();
+    };
+
+    const next = () => setActive(activeIndex + 1, false);
+    const prev = () => setActive(activeIndex - 1, false);
+
+    const startAuto = () => {
+      stopAuto();
+      timer = setInterval(() => {
+        if(!isPaused) next();
+      }, 3200); // matches your “auto moving” feel
+    };
+
+    const stopAuto = () => {
+      if(timer) clearInterval(timer);
+      timer = null;
+    };
+
+    const restartAuto = () => {
+      stopAuto();
+      startAuto();
+    };
+
+    // pause on hover/focus (so users can interact)
+    root.addEventListener('mouseenter', () => { isPaused = true; });
+    root.addEventListener('mouseleave', () => { isPaused = false; });
+    root.addEventListener('focusin', () => { isPaused = true; });
+    root.addEventListener('focusout', () => { isPaused = false; });
+
+    // keyboard support
+    root.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowRight'){ e.preventDefault(); setActive(activeIndex + 1, true); }
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); setActive(activeIndex - 1, true); }
+    });
+
+    // keep layout correct on resize
+    window.addEventListener('resize', () => {
+      applyTransforms();
+    });
+
+    // initial
+    setActive(0, false);
+    startAuto();
+  })();
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -2338,4 +2602,31 @@ document.addEventListener("DOMContentLoaded", () => {
   <script src="assets/js/notable-transactions-loader.js"></script>
 
 </body>
+
+<!--
+=====================================================================================
+  SERVER CONFIGURATION FOR YOUTUBE EMBEDS (Production Fix)
+  
+  If embeds still show Error 153 in production, set the server's Referrer-Policy:
+  
+  APACHE (.htaccess):
+  <IfModule mod_headers.c>
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+  </IfModule>
+  
+  NGINX:
+  add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+  
+  CLOUDFLARE:
+  Transform Rules > HTTP Response Header Modification
+  Header Name: Referrer-Policy
+  Value: strict-origin-when-cross-origin
+  
+  HOW TO VERIFY:
+  1. Run with Live Server (http://localhost:3000 or similar)
+  2. DevTools > Network > Document request > Response Headers
+  3. Confirm "Referrer-Policy: strict-origin-when-cross-origin"
+  4. Check iframe requests show non-empty "Referrer" header
+=====================================================================================
+-->
 </html>
