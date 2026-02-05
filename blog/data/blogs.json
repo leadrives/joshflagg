@@ -10,7 +10,7 @@
       "category": "Market Analysis",
       "tags": ["Dubai Real Estate", "Investment", "Market Trends", "2026 Outlook"],
       "excerpt": "Comprehensive analysis of Dubai's real estate market trends, investment opportunities, and growth projections for 2026.",
-      "featuredImage": "blog/images/dubai-market-outlook-2026.jpg",
+      "featuredImage": "../assets/images/featured-blog.avif",
       "featured": true,
       "content": {
         "introduction": "Dubai's real estate market continues to demonstrate resilience and growth potential as we look ahead to 2026. This comprehensive analysis explores key market trends, investment opportunities, and strategic insights for property investors.",
@@ -46,7 +46,7 @@
       "category": "Investment Strategy",
       "tags": ["Villa Communities", "Schools", "Family Investment", "Dubai Education"],
       "excerpt": "Discover why villa communities located near premier educational institutions consistently deliver superior investment returns in Dubai.",
-      "featuredImage": "blog/images/villa-communities-schools.jpg",
+      "featuredImage": "../assets/images/featured-blog.avif",
       "featured": false,
       "content": {
         "introduction": "Family-oriented investors consistently seek properties near top-tier educational institutions. This analysis reveals why villa communities adjacent to premier schools significantly outperform the broader Dubai real estate market.",
@@ -82,7 +82,7 @@
       "category": "Legal & Regulatory",
       "tags": ["Ejari", "Hotel Apartments", "Legal Requirements", "Dubai Regulations"],
       "excerpt": "Essential guide to Ejari requirements for hotel apartments in Dubai, covering legal obligations, registration process, and compliance requirements.",
-      "featuredImage": "blog/images/ejari-hotel-apartments.jpg",
+      "featuredImage": "../assets/images/featured-blog.avif",
       "featured": false,
       "content": {
         "introduction": "Understanding Ejari requirements for hotel apartments is crucial for property investors and operators in Dubai. This comprehensive guide covers all essential aspects of compliance and registration.",
@@ -118,7 +118,7 @@
       "category": "Market Analysis",
       "tags": ["2025 Market Review", "Record Sales", "Market Performance", "Year-End Analysis"],
       "excerpt": "Comprehensive review of Dubai's exceptional real estate performance in 2025, highlighting record-breaking sales, key trends, and market dynamics.",
-      "featuredImage": "blog/images/dubai-market-2025-recap.jpg",
+      "featuredImage": "../assets/images/featured-blog.avif",
       "featured": true,
       "content": {
         "introduction": "2025 has been a landmark year for Dubai's real estate market, with unprecedented transaction volumes and price appreciation. This detailed recap analyzes the key factors behind this exceptional performance.",
@@ -154,7 +154,7 @@
       "category": "Market Analysis",
       "tags": ["Record Sales", "Market Growth", "2025 Performance", "Sales Data"],
       "excerpt": "Analysis of Dubai's record-breaking property sales in 2025, examining key metrics, growth drivers, and implications for the future.",
-      "featuredImage": "blog/images/dubai-record-sales-2025.jpg",
+      "featuredImage": "../assets/images/featured-blog.avif",
       "featured": false,
       "content": {
         "introduction": "Dubai's property market has shattered previous records in 2025, with sales volumes reaching unprecedented levels. This analysis examines the key metrics and factors driving this exceptional performance.",
@@ -190,7 +190,7 @@
       "category": "Property Management",
       "tags": ["Property Maintenance", "Seasonal Care", "Dubai Climate", "Home Care"],
       "excerpt": "Essential property maintenance guide for Dubai's unique climate, covering seasonal considerations and best practices for property preservation.",
-      "featuredImage": "blog/images/featured-blog.avif",
+      "featuredImage": "../assets/images/featured-blog.avif",
       "featured": true,
       "content": {
         "introduction": "Dubai's unique climate presents specific challenges for property maintenance. This comprehensive guide provides seasonal maintenance strategies to protect and preserve your property investment.",
@@ -226,7 +226,7 @@
       "category": "Lifestyle",
       "tags": ["Family Activities", "Dubai Lifestyle", "Entertainment", "Tourism"],
       "excerpt": "Comprehensive guide to family-friendly activities and attractions in Dubai, perfect for residents and visitors with children.",
-      "featuredImage": "blog/images/4a72697f-369e-4c44-9002-98f124db0c0c.avif",
+      "featuredImage": "../assets/images/4a72697f-369e-4c44-9002-98f124db0c0c.avif",
       "featured": false,
       "content": {
         "introduction": "Dubai offers an exceptional array of family-friendly activities that make it an ideal destination for families. This guide explores the best attractions, activities, and experiences for families living in or visiting Dubai.",
@@ -262,7 +262,7 @@
       "category": "Lifestyle",
       "tags": ["Dining", "Restaurants", "Dubai Cuisine", "Fine Dining"],
       "excerpt": "Curated guide to Dubai's finest dining establishments, featuring diverse cuisines and exceptional culinary experiences.",
-      "featuredImage": "blog/images/blog-small.avif",
+      "featuredImage": "../assets/images/blog-small.avif",
       "featured": false,
       "content": {
         "introduction": "Dubai's culinary scene reflects its international character, offering world-class dining experiences across diverse cuisines. This carefully curated list features 15 exceptional restaurants that define Dubai's gastronomic landscape.",
@@ -298,7 +298,7 @@
       "category": "Luxury Market",
       "tags": ["Luxury Properties", "Market Trends", "High-End Real Estate", "Investment"],
       "excerpt": "Exploration of key trends defining Dubai's luxury real estate market in 2025, from ultra-high-net-worth preferences to emerging luxury segments.",
-      "featuredImage": "blog/images/luxury-trends-2025.jpg",
+      "featuredImage": "../assets/images/featured-blog.avif",
       "featured": false,
       "content": {
         "introduction": "Dubai's luxury real estate market continues to evolve, driven by changing preferences of ultra-high-net-worth individuals and emerging global trends. This analysis explores the key trends shaping the luxury segment in 2025.",
@@ -334,7 +334,7 @@
       "category": "Investment Guide",
       "tags": ["Off-Plan Properties", "Investment Strategy", "Due Diligence", "Risk Management"],
       "excerpt": "Comprehensive guide to investing in Dubai's off-plan properties, covering strategy, risk assessment, and best practices for successful investments.",
-      "featuredImage": "blog/images/off-plan-investment-guide.jpg",
+      "featuredImage": "../assets/images/featured-blog.avif",
       "featured": false,
       "content": {
         "introduction": "Off-plan property investment offers significant opportunities in Dubai's dynamic market. This comprehensive guide provides essential insights for making informed off-plan investment decisions.",
