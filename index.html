@@ -74,35 +74,48 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       
-      <!-- Center Logo -->
-      <div class="header__logo navbar-brand mx-auto mx-lg-0 order-0 order-lg-1">
+      <!-- Mobile Logo (Centered) -->
+      <div class="header__logo navbar-brand mx-auto d-lg-none">
         <img src="assets/images/Logo/mronelogo2.png" alt="Mohamad Ahmad Logo" class="logo-img">
       </div>
       
       <!-- Mobile CTA Button (Right) -->
-      <a href="#" class="btn btn-outline-light btn-sm d-lg-none order-2" data-bs-toggle="modal" data-bs-target="#consultationModal">BOOK</a>
+      <a href="#" class="btn btn-outline-light btn-sm d-lg-none" data-bs-toggle="modal" data-bs-target="#consultationModal">BOOK</a>
       
-      <!-- Collapsible Navigation Content -->
-      <div class="collapse navbar-collapse order-3 order-lg-0" id="navbarContent">
+      <!-- Desktop Navigation Content -->
+      <div class="collapse navbar-collapse" id="navbarContent">
         
         <!-- Left Navigation Links -->
-        <div class="navbar-nav me-auto">
-          <a href="#" class="nav-link navigation__link">ABOUT AHMAD</a>
-          <a href="#" class="nav-link navigation__link">NOTABLE SALES</a>
-          <a href="#" class="nav-link navigation__link" data-bs-toggle="modal" data-bs-target="#projectsModal">ALL PROJECTS</a>
-          <a href="#" class="nav-link navigation__link">SELL</a>
+        <div class="d-flex me-auto d-none d-lg-flex">
+          <a href="#" class="navigation__link">ABOUT AHMAD</a>
+          <a href="#" class="navigation__link">NOTABLE SALES</a>
+          <a href="#" class="navigation__link" data-bs-toggle="modal" data-bs-target="#projectsModal">ALL PROJECTS</a>
+          <a href="#" class="navigation__link">SELL</a>
+        </div>
+        
+        <!-- Desktop Logo (Centered) -->
+        <div class="header__logo navbar-brand mx-auto d-none d-lg-block">
+          <img src="assets/images/Logo/mronelogo2.png" alt="Mohamad Ahmad Logo" class="logo-img">
         </div>
         
         <!-- Right Navigation Links -->
-        <div class="navbar-nav ms-auto d-none d-lg-flex">
-          <a href="#" class="nav-link navigation__link me-3">SEARCH HOMES</a>
+        <div class="d-flex ms-auto d-none d-lg-flex align-items-center">
+          <a href="#" class="navigation__link me-3">SEARCH HOMES</a>
           <a href="#" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#consultationModal">BOOK AN APPOINTMENT</a>
         </div>
         
-        <!-- Mobile Right Links -->
-        <div class="navbar-nav d-lg-none mt-3 pt-3 border-top border-light">
-          <a href="#" class="nav-link navigation__link">SEARCH HOMES</a>
-          <a href="#" class="nav-link navigation__link" data-bs-toggle="modal" data-bs-target="#consultationModal">BOOK AN APPOINTMENT</a>
+        <!-- Mobile Navigation Links -->
+        <div class="d-lg-none">
+          <div class="d-flex flex-column">
+            <a href="#" class="navigation__link">ABOUT AHMAD</a>
+            <a href="#" class="navigation__link">NOTABLE SALES</a>
+            <a href="#" class="navigation__link" data-bs-toggle="modal" data-bs-target="#projectsModal">ALL PROJECTS</a>
+            <a href="#" class="navigation__link">SELL</a>
+          </div>
+          <div class="d-flex flex-column mt-3 pt-3 border-top border-light">
+            <a href="#" class="navigation__link">SEARCH HOMES</a>
+            <a href="#" class="navigation__link" data-bs-toggle="modal" data-bs-target="#consultationModal">BOOK AN APPOINTMENT</a>
+          </div>
         </div>
         
       </div>
