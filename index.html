@@ -1208,8 +1208,8 @@
     };
 
     const makeEmbedSrc = (videoId) => {
-      // safest baseline (loads everywhere)
-      return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${videoId}`;
+      // safest baseline with autoplay enabled
+      return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${videoId}`;
     };
 
     // --- build model from JSON ---
