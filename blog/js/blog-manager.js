@@ -29,16 +29,93 @@ class BlogManager {
 
   async loadBlogData() {
     try {
+      console.log('Attempting to load blog data from data/blogs.json');
       const response = await fetch('data/blogs.json');
       if (!response.ok) {
-        throw new Error('Failed to load blog data');
+        throw new Error(`Failed to load blog data: ${response.status} ${response.statusText}`);
       }
       this.blogData = await response.json();
       this.filteredBlogs = [...this.blogData.blogs];
+      console.log(`Successfully loaded ${this.blogData.blogs.length} blog articles`);
     } catch (error) {
-      console.error('Error loading blog data:', error);
-      throw error;
+      console.warn('Failed to fetch blogs.json, using fallback data:', error);
+      // Fallback to inline data when fetch fails (e.g., when serving files directly)
+      this.blogData = this.getFallbackBlogData();
+      this.filteredBlogs = [...this.blogData.blogs];
+      console.log(`Using fallback data with ${this.blogData.blogs.length} blog articles`);
     }
+  }
+
+  getFallbackBlogData() {
+    return {
+      "blogs": [
+        {
+          "id": "why-villa-communities-next-to-top-schools-outperform-dubai",
+          "title": "Why Villa Communities Next to Top Schools Will Outperform Under Dubai's E33 Strategy",
+          "slug": "why-villa-communities-next-to-top-schools-outperform-dubai",
+          "author": "Mohamad Ahmad",
+          "date": "2025-02-05",
+          "readTime": "11 min read",
+          "category": "Investment Strategy",
+          "tags": ["Dubai E33 Strategy", "Villa Communities", "Dubai Schools", "Real Estate Investment", "Mudon", "Tilal Al Ghaf"],
+          "excerpt": "Dubai's Education 33 strategy is reshaping residential real estate. Discover why villa communities near premium schools are positioned for exceptional growth through 2033.",
+          "featuredImage": "images/Why_Villa_Communities.webp",
+          "featured": false
+        },
+        {
+          "id": "can-ai-predict-real-estate-prices",
+          "title": "Can AI Really Predict Real Estate Prices?",
+          "slug": "can-ai-predict-real-estate-prices",
+          "author": "Mohamad Ahmad",
+          "date": "2026-02-05",
+          "readTime": "15 min read",
+          "category": "Technology",
+          "tags": ["AI Technology", "Real Estate Prediction", "Market Analysis", "Investment Strategy"],
+          "excerpt": "An honest analysis of AI's limitations in predicting real estate prices, examining why even billion-dollar companies like Zillow failed at property forecasting.",
+          "featuredImage": "images/Can AI Really_Predict_Real_Estate_Prices.jpeg",
+          "featured": true
+        },
+        {
+          "id": "dubai-real-estate-market-2025-recap-record-year",
+          "title": "Dubai Real Estate Market 2025 Recap: A Record Year",
+          "slug": "dubai-real-estate-market-2025-recap-record-year",
+          "author": "Mohamad Ahmad",
+          "date": "2024-12-30",
+          "readTime": "12 min read",
+          "category": "Market Analysis",
+          "tags": ["Dubai Real Estate", "Market Analysis", "2025 Recap", "Investment"],
+          "excerpt": "Comprehensive review of Dubai's exceptional real estate performance in 2025, highlighting record-breaking sales, key trends, and market dynamics.",
+          "featuredImage": "images/Dubai Real_Estate_Market_2025_Recap.webp",
+          "featured": false
+        },
+        {
+          "id": "15-best-restaurants-dubai-uae",
+          "title": "15 Best Restaurants in Dubai, UAE",
+          "slug": "15-best-restaurants-dubai-uae",
+          "author": "Mohamad Ahmad",
+          "date": "2024-07-25",
+          "readTime": "10 min read",
+          "category": "Lifestyle",
+          "tags": ["Dining", "Restaurants", "Dubai Cuisine", "Fine Dining"],
+          "excerpt": "Curated guide to Dubai's finest dining establishments, featuring diverse cuisines and exceptional culinary experiences.",
+          "featuredImage": "images/dubaiSkyline.webp",
+          "featured": false
+        },
+        {
+          "id": "family-friendly-activities-dubai-uae",
+          "title": "Family Friendly Activities in Dubai, UAE",
+          "slug": "family-friendly-activities-dubai-uae",
+          "author": "Mohamad Ahmad",
+          "date": "2024-08-10",
+          "readTime": "8 min read",
+          "category": "Lifestyle",
+          "tags": ["Family", "Activities", "Dubai Tourism", "Children"],
+          "excerpt": "Comprehensive guide to family-friendly activities and attractions in Dubai, perfect for residents and visitors with children.",
+          "featuredImage": "images/dubaiAppartments.webp",
+          "featured": false
+        }
+      ]
+    };
   }
 
   setupEventListeners() {

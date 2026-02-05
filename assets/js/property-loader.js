@@ -10,20 +10,20 @@ class PropertyLoader {
     this.properties = null;
     this.fallbackData = [
       {
-        name: "Burj Khalifa Penthouse",
-        fullAddress: "Burj Khalifa, Downtown Dubai, UAE",
-        price: "85,000,000",
+        name: "KAIA at The Valley",
+        fullAddress: "The Valley, Dubai, UAE",
+        price: "2,800,000",
         currency: "AED",
         status: "FOR SALE",
-        images: { hero: "assets/images/your-image-1.jpg" }
+        images: { hero: "assets/images/Communities/Properties/KAIA.webp" }
       },
       {
-        name: "Emirates Hills Villa", 
-        fullAddress: "Emirates Hills, Dubai, UAE",
-        price: "125,000,000",
+        name: "Selvara Grand Polo", 
+        fullAddress: "Grand Polo Club & Resort, Dubai, UAE",
+        price: "6,200,000",
         currency: "AED",
         status: "FOR SALE",
-        images: { hero: "assets/images/your-image-2.jpg" }
+        images: { hero: "assets/images/Communities/Properties/Selvara_Grand_Polo.webp" }
       }
     ];
     this.currentSlideIndex = 0;

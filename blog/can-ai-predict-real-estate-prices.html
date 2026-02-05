@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== META TAGS ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Can AI Really Predict Real Estate Prices? | Mohamad Ahmad Blog</title>
+  <meta name="description" content="An honest analysis of AI's limitations in predicting real estate prices, examining why even billion-dollar companies like Zillow failed at property forecasting.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mohammadahmad.com/blog/can-ai-predict-real-estate-prices.html">
+  <meta property="og:title" content="Can AI Really Predict Real Estate Prices?">
+  <meta property="og:description" content="An honest analysis of AI's limitations in predicting real estate prices, examining why even billion-dollar companies like Zillow failed at property forecasting.">
+  <meta property="og:image" content="https://mohammadahmad.com/assets/images/featured-blog.avif">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mohammadahmad.com/blog/can-ai-predict-real-estate-prices.html">
+  <meta property="twitter:title" content="Can AI Really Predict Real Estate Prices?">
+  <meta property="twitter:description" content="An honest analysis of AI's limitations in predicting real estate prices, examining why even billion-dollar companies like Zillow failed at property forecasting.">
+  <meta property="twitter:image" content="https://mohammadahmad.com/assets/images/featured-blog.avif">
+
+  <!-- ===== EXTERNAL STYLESHEETS ===== -->
+  <!-- Bootstrap CSS Framework -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts - Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS Styles -->
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="css/blog-styles.css" />
+  <link rel="stylesheet" href="css/article-styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="global-navbar" class="navbar navbar-expand-lg px-3 px-lg-4">
+    <div class="container-fluid">
+      
+      <!-- Mobile Hamburger Button (Left) -->
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Mobile Logo (Centered) -->
+      <div class="header__logo navbar-brand mx-auto d-lg-none">
+        <img src="../assets/images/Logo/mronelogo2.png" alt="Mohamad Ahmad Logo" class="logo-img">
+      </div>
+      
+      <!-- Mobile CTA Button (Right) -->
+      <a href="../index.html#consultationModal" class="btn btn-outline-light btn-sm d-lg-none">BOOK</a>
+      
+      <!-- Desktop Navigation Content -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        
+        <!-- Left Navigation Links -->
+        <div class="d-flex me-auto d-none d-lg-flex">
+          <a href="../index.html#about-carousel" class="navigation__link">ABOUT AHMAD</a>
+          <a href="../index.html#notable-transactions" class="navigation__link">NOTABLE SALES</a>
+          <a href="../index.html#projectsModal" class="navigation__link">ALL PROJECTS</a>
+          <a href="../index.html#work-with-josh-section" class="navigation__link">SELL</a>
+        </div>
+        
+        <!-- Desktop Logo (Centered) -->
+        <div class="header__logo navbar-brand mx-auto d-none d-lg-block">
+          <a href="../index.html">
+            <img src="../assets/images/Logo/mronelogo2.png" alt="Mohamad Ahmad Logo" class="logo-img">
+          </a>
+        </div>
+        
+        <!-- Right Navigation Links -->
+        <div class="d-flex ms-auto d-none d-lg-flex align-items-center">
+          <a href="../index.html#neighborhoods-section" class="navigation__link me-3">SEARCH HOMES</a>
+          <a href="../index.html#consultationModal" class="btn btn-outline-light btn-sm">BOOK AN APPOINTMENT</a>
+        </div>
+        
+        <!-- Mobile Navigation Links -->
+        <div class="d-lg-none">
+          <div class="d-flex flex-column">
+            <a href="../index.html#about-carousel" class="navigation__link">ABOUT AHMAD</a>
+            <a href="../index.html#notable-transactions" class="navigation__link">NOTABLE SALES</a>
+            <a href="../index.html#projectsModal" class="navigation__link">ALL PROJECTS</a>
+            <a href="../index.html#work-with-josh-section" class="navigation__link">SELL</a>
+          </div>
+          <div class="d-flex flex-column mt-3 pt-3 border-top border-light">
+            <a href="../index.html#neighborhoods-section" class="navigation__link">SEARCH HOMES</a>
+            <a href="../index.html#consultationModal" class="navigation__link">BOOK AN APPOINTMENT</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== BREADCRUMB NAVIGATION ===== -->
+  <nav class="blog-breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item"><a href="index.html">Blog</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item active">Can AI Really Predict Real Estate Prices?</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- ===== ARTICLE HEADER ===== -->
+  <header class="article-header">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="article-meta">
+            <span class="article-category">Technology</span>
+            <time class="article-date" datetime="2025-02-05">February 5, 2026</time>
+          </div>
+          <h1 class="article-title">Can AI Really Predict Real Estate Prices?</h1>
+          <p class="article-excerpt">An honest analysis of AI's limitations in predicting real estate prices, examining why even billion-dollar companies like Zillow failed at property forecasting.</p>
+          
+          <div class="article-author-info">
+            <img src="images/MohamadAhamad.jpg" alt="Mohamad Ahmad" class="author-avatar">
+            <div class="author-details">
+              <span class="author-name">Mohamad Ahmad</span>
+              <span class="author-title">Luxury Real Estate Expert • Associate Partner at M R One Properties</span>
+            </div>
+            <div class="article-stats">
+              <span class="read-time"><i class="fas fa-clock"></i> 15 min read</span>
+              <span class="share-count"><i class="fas fa-share"></i> Share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ARTICLE FEATURED IMAGE ===== -->
+  <section class="article-featured-image">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="featured-image-wrapper">
+            <img src="images/Can AI Really_Predict_Real_Estate_Prices.jpeg" alt="AI and Real Estate Prediction" class="featured-image" onerror="this.src='../assets/images/blog-small.avif'">
+            <div class="image-caption">Exploring the reality behind AI's promises in real estate price prediction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ARTICLE CONTENT ===== -->
+  <main class="article-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <article class="article-body">
+            
+            <!-- Introduction -->
+            <div class="article-intro">
+              <p class="lead">Every industry claims to be "AI-powered," and real estate is no exception. From automated valuations to intelligent chatbots, the promise sounds irresistible: feed a machine enough data, and it will forecast property prices with precision.</p>
+              <p>But here's the truth most won't say out loud—even with the best GPUs, data scientists, and algorithms, AI cannot reliably predict real estate prices, especially in dynamic markets like Dubai. Let's explore why.</p>
+            </div>
+
+            <!-- Social Share Buttons -->
+            <div class="article-social-share">
+              <span class="share-label">Share this article:</span>
+              <div class="social-buttons">
+                <button class="social-btn facebook" onclick="shareArticle('facebook')">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+                <button class="social-btn twitter" onclick="shareArticle('twitter')">
+                  <i class="fab fa-twitter"></i>
+                </button>
+                <button class="social-btn linkedin" onclick="shareArticle('linkedin')">
+                  <i class="fab fa-linkedin-in"></i>
+                </button>
+                <button class="social-btn whatsapp" onclick="shareArticle('whatsapp')">
+                  <i class="fab fa-whatsapp"></i>
+                </button>
+                <button class="social-btn copy" onclick="copyArticleLink()">
+                  <i class="fas fa-link"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Article Sections -->
+            <section class="article-section">
+              <h2>1. The Validation Problem: The Past Doesn't Follow the Rules</h2>
+              <p>You can't test a model on a future that hasn't happened. The common workaround—backtesting on historical data fails in real estate.</p>
+              <p>Unlike the stock market, property markets are non-stationary: the rules keep changing. Government policy shifts, migration surges, or global shocks mean a model trained on 2015–2019 data was useless in 2020.</p>
+              <p>The problem isn't just the slow feedback loop; it's that the past is an unreliable guide to the future. Deploying such a model is like driving forward while staring in the rear-view mirror.</p>
+            </section>
+
+            <section class="article-section">
+              <h2>2. Supply-Side Dynamics Defy Historical Extrapolation</h2>
+              <p>Consider Dubai's off-plan property launches. In 2023, the market saw 89,290 new unit launches. Anyone training a predictive model on historical data at that time would have no basis to anticipate what came next.</p>
+              <p>In 2024, new launches surged to <strong>167,588 units</strong>, an 88% increase in a single year.</p>
+              <p>Some might argue that launches don't equal completions, many off-plan units won't deliver for 3–5 years. True. But that misses the point entirely. The issue isn't about predicting delivery; it's about predicting developer behavior and market sentiment. No algorithm could have foreseen this surge in launches because it was driven by developer confidence, regulatory shifts, and capital flows—none of which follow historical patterns.</p>
+              <div class="highlight-box">
+                <p><strong>Key Insight:</strong> Supply-side dynamics in Dubai defy historical extrapolation.</p>
+              </div>
+            </section>
+
+            <section class="article-section">
+              <h2>3. Even the Giants Failed: Lessons from Zillow and Opendoor</h2>
+              <p>Global leaders like Zillow and Opendoor spent hundreds of millions building price-prediction engines. They had massive data, elite talent, and deep capital.</p>
+              <p>The result? <strong>Billions in losses.</strong> Zillow shut down its "Zestimate" home-buying unit after repeated mispricing.</p>
+              <p>Critics might say Zillow's failure was about iBuying (actually purchasing homes), not just predictions. But that distinction strengthens the argument: even with billions of dollars on the line and every incentive to get predictions right, they couldn't. If companies with skin in the game fail at valuation (pricing a home today) in transparent, mature markets, what chance does anyone have at forecasting (pricing a home next year) in a fast-moving market like Dubai?</p>
+            </section>
+
+            <section class="article-section">
+              <h2>4. The Human Element: The Black-Box Problem</h2>
+              <p>Even the most sophisticated algorithms, XGBoost, Gradient Boosting Machines, Random Forests, depend on human assumptions about supply, interest rates, and demand. If those assumptions are wrong, the output collapses.</p>
+              <p>But AI introduces a deeper risk: the black box.</p>
+              <p>Models can learn spurious correlations, hiding their flawed logic from their own creators. An AI doesn't see reality; it sees statistical patterns. It isn't a crystal ball, it's a mirror reflecting the biases and blind spots of its data and its makers.</p>
+            </section>
+
+            <section class="article-section">
+              <h2>5. Lack of Demographic Nuance</h2>
+              <p>Effective forecasting requires detailed demographic insights: age distribution, lifestyle preferences, purchasing patterns, and household composition. Without these granular inputs, AI models miss critical market nuances.</p>
+              <p>In Dubai, such demographic data is either fragmented or unavailable. Models cannot distinguish between demand from young professionals seeking studio apartments versus families looking for villas, or between end-users and investors. This demographic blindness leads to fundamentally flawed predictions.</p>
+            </section>
+
+            <section class="article-section">
+              <h2>6. The "Garbage In, Garbage Out" Rule</h2>
+              <p>No model outperforms its data.</p>
+              <p>In Dubai, data is fragmented across developers, off-plan launches, and private resale records. Without consistent, verified ground truth, actual transaction data, not asking prices, models start detecting patterns in noise.</p>
+              <p>The result is precision without accuracy: a number calculated to six decimal places that means nothing at all.</p>
+            </section>
+
+            <section class="article-section">
+              <h2>7. Incomplete Insights into Income and Purchasing Power</h2>
+              <p>Dubai's real estate market lacks official, centralized data on buyer income levels, employment status, and overall purchasing power. Beyond this, there is no transparent tracking of first-time home buyers, mortgage defaults, the proportion of non-resident investors, or even buyers' nationalities. These omissions create significant blind spots for any AI model:</p>
+              
+              <div class="data-gaps-list">
+                <div class="data-gap-item">
+                  <h4>Unknown First-Time Buyer Metrics</h4>
+                  <p>First-time home buyers affect demand patterns differently from repeat or seasoned investors. Without statistics on how many are entering the market, AI algorithms struggle to predict buyer behavior accurately.</p>
+                </div>
+                
+                <div class="data-gap-item">
+                  <h4>No Clarity on Foreclosures</h4>
+                  <p>Foreclosures can flood the market with distressed properties, impacting prices. However, the lack of publicly available default mortgage data means AI forecasts might miss potential downward pressures on property values.</p>
+                </div>
+                
+                <div class="data-gap-item">
+                  <h4>Untracked Non-Resident Investors</h4>
+                  <p>Many property transactions in Dubai involve international buyers. Yet there's no official breakdown of how many non-residents invest each year, making it difficult to assess external demand volatility.</p>
+                </div>
+                
+                <div class="data-gap-item">
+                  <h4>Missing Buyer Nationality Data</h4>
+                  <p>A common misconception: many assume Dubai publishes buyer nationality data. It doesn't. What exists is tenant nationality data from Ejari rental contracts, an entirely different dataset. Cultural and regulatory factors differ by nationality, influencing property preferences. Without official records of buyer nationality, any demand segmentation or demographic modeling is fundamentally incomplete.</p>
+                </div>
+                
+                <div class="data-gap-item">
+                  <h4>No Income/Employment Databases</h4>
+                  <p>Income levels and employment rates, core indicators in many real estate markets are simply not publicly available in Dubai, creating further challenges for accurate affordability analysis.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="article-section">
+              <h2>8. The AI Disruption Wildcard</h2>
+              <p>There's a profound irony here: while we debate AI's ability to predict real estate prices, we're all watching to see how AI applications will reshape the job market itself.</p>
+              <p>Will AI create new jobs or displace existing ones? Economists disagree, and the outcome remains genuinely uncertain. But in Dubai, a city with a service-oriented economy and a large expatriate workforce, the stakes are particularly high. If AI displaces significant portions of the workforce, demand for affordable properties could shift dramatically. If it creates new high-paying roles, luxury demand might surge instead.</p>
+              <p>This circular dependency—where the technology we're asking to predict the market may simultaneously be reshaping it—creates yet another variable that no current model can account for. It's not a certainty; it's a wildcard. And wildcards, by definition, break predictive models.</p>
+            </section>
+
+            <section class="article-section">
+              <h2>9. The Validation Paradox: Low Velocity, High Stakes</h2>
+              <p>Real estate transactions have inherently low velocity compared to financial markets. A property might change hands once every 5–10 years, meaning feedback loops are measured in years, not days.</p>
+              <p>Consider an analogy: enterprise software companies don't upgrade to a new Oracle database version until the release has been proven stable in production environments. They wait. They test. They validate. The cost of failure is too high to trust an unproven system.</p>
+              <p>Some might argue that software validation differs from market prediction. But the underlying principle is identical: high-stakes decisions require proven track records. A database crash costs millions; a wrong property investment can cost a family their life savings.</p>
+              <p>How, then, should we approach a first-of-its-kind AI model making predictions about an asset class where validation takes years? We cannot confirm whether a model's 2024 predictions were accurate until 2027 or beyond, by which point market conditions have changed entirely.</p>
+              <div class="highlight-box">
+                <p><strong>The Validation Paradox:</strong> The very act of waiting to validate defeats the purpose of prediction.</p>
+              </div>
+            </section>
+
+            <section class="article-section">
+              <h2>10. The Mature-Market Argument: Valuation ≠ Forecasting</h2>
+              <p>Critics may say, "But in Australia or the U.S., AI price predictions are fairly accurate."</p>
+              <p>That confuses valuation (what something is worth today) with forecasting (what it will be worth next year). As the Zillow example proved, even large-scale valuation is incredibly difficult.</p>
+              <p>Mature markets with decades of standardized data enable more stable models, but sentiment, policy shifts, and investor psychology still drive prices—forces no algorithm can fully learn or predict.</p>
+            </section>
+
+            <section class="article-section">
+              <h2>11. Not All AI Is Hopeless, Just Misapplied</h2>
+              <p>To be clear, AI already adds value in many parts of real estate:</p>
+              <ul class="benefits-list">
+                <li>Photo enhancement and content recognition</li>
+                <li>Automated property descriptions from images</li>
+                <li>Natural-language search that understands human queries</li>
+                <li>Smart lead routing and agent-performance tracking</li>
+              </ul>
+              <p>These applications make real estate smarter, not prophetic, and that distinction matters.</p>
+            </section>
+
+            <section class="article-section">
+              <h2>12. What Works Better Than Prediction</h2>
+              <p>At DXBinteract, we believe the smarter path isn't predicting the future, it's understanding the present with unmatched clarity.</p>
+              <p>Our Market Intelligence Framework focuses on:</p>
+              <ul class="framework-list">
+                <li>Real-time transaction analytics</li>
+                <li>Yield-compression signals</li>
+                <li>Price-to-rent divergence</li>
+                <li>Days-on-market (DOM) metrics</li>
+                <li>Bid-weakness indicators</li>
+              </ul>
+              <p>These don't forecast prices. They reveal market strength and direction, empowering investors to act on evidence, not speculation.</p>
+            </section>
+
+            <section class="article-section">
+              <h2>13. The Honest Investor's Advantage</h2>
+              <p>While others chase prediction fantasies, successful investors stay grounded in timeless fundamentals:</p>
+              <ul class="fundamentals-list">
+                <li>Land is finite.</li>
+                <li>The population is rising.</li>
+                <li>Supply takes time to adjust.</li>
+              </ul>
+              <p>Understanding these constants, not outsourcing judgment to a black box, separates the strategic investor from the speculator.</p>
+            </section>
+
+            <!-- Call to Action -->
+            <div class="article-cta">
+              <div class="cta-content">
+                <h3>Ready for Data-Driven Real Estate Intelligence?</h3>
+                <p>Stop chasing predictions and start understanding the market. Discover how our real-time market intelligence can give you a competitive edge in Dubai's dynamic property landscape.</p>
+                <a href="../index.html#consultationModal" class="btn cta-btn">Schedule a Consultation</a>
+              </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="article-conclusion">
+              <h3>Final Thought</h3>
+              <p>AI is transforming real estate, but not as fortune-tellers promised. Its real power lies in efficiency, transparency, and insight, not prophecy.</p>
+              <p>At DXBinteract, we don't sell predictions. We build understanding.</p>
+              <p>We empower investors with clarity, truth, and data-driven confidence.</p>
+            </div>
+
+            <!-- Tags -->
+            <div class="article-tags">
+              <span class="tags-label">Tags:</span>
+              <div class="tag-list">
+                <span class="tag">AI Technology</span>
+                <span class="tag">Real Estate Prediction</span>
+                <span class="tag">Market Analysis</span>
+                <span class="tag">Investment Strategy</span>
+                <span class="tag">Dubai Property</span>
+              </div>
+            </div>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== RELATED ARTICLES ===== -->
+  <section class="related-articles-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="section-title">Related Articles</h2>
+          <div class="row" id="relatedArticlesContainer">
+            <!-- Related articles will be loaded dynamically -->
+            <div class="col-lg-4 col-md-6 mb-4">
+              <article class="related-article-card">
+                <a href="dubai-real-estate-market-2025-recap-record-year.html">
+                  <div class="related-article-image">
+                    <img src="images/Dubai Real_Estate_Market_2025_Recap.webp" alt="Dubai Market Recap">
+                  </div>
+                </a>
+                <div class="related-article-content">
+                  <span class="related-category">Market Analysis</span>
+                  <h4 class="related-title">
+                    <a href="dubai-real-estate-market-2025-recap-record-year.html">Dubai Real Estate Market 2025 Recap: A Record Year</a>
+                  </h4>
+                  <span class="related-date">December 30, 2024</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <article class="related-article-card">
+                <a href="15-best-restaurants-dubai-uae.html">
+                  <div class="related-article-image">
+                    <img src="images/dubaiSkyline.webp" alt="Best Restaurants Dubai">
+                  </div>
+                </a>
+                <div class="related-article-content">
+                  <span class="related-category">Lifestyle</span>
+                  <h4 class="related-title">
+                    <a href="15-best-restaurants-dubai-uae.html">15 Best Restaurants in Dubai, UAE</a>
+                  </h4>
+                  <span class="related-date">July 25, 2024</span>
+                </div>
+              </article>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <article class="related-article-card">
+                <a href="family-friendly-activities-dubai-uae.html">
+                  <div class="related-article-image">
+                    <img src="images/dubaiAppartments.webp" alt="Family Activities">
+                  </div>
+                </a>
+                <div class="related-article-content">
+                  <span class="related-category">Lifestyle</span>
+                  <h4 class="related-title">
+                    <a href="family-friendly-activities-dubai-uae.html">Family Friendly Activities in Dubai, UAE</a>
+                  </h4>
+                  <span class="related-date">August 10, 2024</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER SIGNUP ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="newsletter-content">
+            <h3>Stay Updated</h3>
+            <p>Get the latest insights on Dubai real estate, technology trends, and market intelligence delivered to your inbox.</p>
+            <form class="newsletter-form" id="articleNewsletterForm">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your email address" required>
+                <button type="submit" class="btn newsletter-btn">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-full">
+    <!-- Footer content identical to main site -->
+    <div class="footer-top">
+      <div class="footer-logo">
+        <span class="footer-logo-mark">
+          <img src="../assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="footer-logo-img">
+        </span>
+        <span class="footer-logo-text">MOHAMAD AHMAD<br><small>DUBAI</small></span>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-col footer-col-left">
+          <h6>CONTACT</h6>
+          <p>ahmad@mr1properties.com<br>+971 56 227 9111</p>
+        </div>
+        <div class="footer-col footer-col-center">
+          <h6>OFFICE</h6>
+          <p>Bay Square Building 10, Floor 4, Office 402<br>Business Bay, Dubai, UAE</p>
+        </div>
+        <div class="footer-col footer-col-right">
+          <h6>NEWSLETTER</h6>
+          <p>For exclusive news & market updates sign up to our newsletter</p>
+          <label class="footer-input-label">EMAIL ADDRESS</label>
+          <input type="email" class="footer-input" placeholder="Enter Your Email Address">
+          <div class="footer-consent">
+            <input type="checkbox" id="footerConsent" class="footer-checkbox">
+            <label for="footerConsent">I agree to receive marketing communications</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-middle">
+      <div class="footer-watermark"></div>
+      <div class="footer-license-wrap">
+        <img src="../assets/images/Logo/m r one Properties logo.png" class="footer-compass-logo" alt="Compass Logo">
+        <div class="footer-license-text">
+          <p>Mohamad Ahmad | Associate Partner<br>M R One Properties | RERA Licensed</p>
+          <p class="footer-disclaimer">
+            All information is from sources deemed reliable but is subject to errors, omissions, changes in price, prior sale or withdrawal without notice.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span class="footer-credit">
+          <img src="../assets/images/Logo/m r one Properties logo.png" alt="Luxury Presence Logo" class="footer-lp-logo">
+          Real Estate Website Design by <a href="#">Luxury Presence</a>
+        </span>
+        <span class="footer-copy">Copyright © M R One Properties Dubai 2026 | <a href="#">Privacy Policy</a></span>
+      </div>
+      <div class="footer-social-icons">
+        <a href="https://www.facebook.com/p/M-R-One-Properties-61551373948924/" target="_blank" rel="noopener noreferrer"><span class="icon fb"></span></a>
+        <a href="https://www.instagram.com/mroneproperties/" target="_blank" rel="noopener noreferrer"><span class="icon ig"></span></a>
+        <a href="https://www.youtube.com/@MROneProperties" target="_blank" rel="noopener noreferrer"><span class="icon yt"></span></a>
+        <a href="https://www.linkedin.com/company/mr-oneproperties/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><span class="icon li"></span></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Blog Manager JS -->
+  <script src="js/blog-manager.js"></script>
+
+  <!-- Article functionality -->
+  <script>
+    // Social sharing functions
+    function shareArticle(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      const text = encodeURIComponent("Can AI really predict real estate prices? An honest analysis of AI limitations in property forecasting.");
+      
+      let shareUrl;
+      
+      switch(platform) {
+        case 'facebook':
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+          break;
+        case 'twitter':
+          shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+          break;
+        case 'linkedin':
+          shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+          break;
+        case 'whatsapp':
+          shareUrl = `https://wa.me/?text=${text}%20${url}`;
+          break;
+      }
+      
+      if (shareUrl) {
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+      }
+    }
+
+    function copyArticleLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        // Show success message
+        const button = document.querySelector('.social-btn.copy');
+        const originalIcon = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        setTimeout(() => {
+          button.innerHTML = originalIcon;
+        }, 2000);
+      });
+    }
+
+    // Navbar scroll effect
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbar = document.getElementById('global-navbar');
+      
+      function updateNavbar() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+      
+      window.addEventListener('scroll', updateNavbar);
+      updateNavbar(); // Initial call
+    });
+  </script>
+
+</body>
+</html>
