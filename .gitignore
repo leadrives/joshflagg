@@ -1,6 +1,11 @@
 # Vercel Deployment Files
 .vercel
 
+# Sanity CMS
+sanity/.env.local
+sanity/node_modules/
+sanity/dist/
+
 # macOS
 .DS_Store
 .DS_Store?
