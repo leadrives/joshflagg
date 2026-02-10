@@ -98,16 +98,16 @@ class BlogManager {
           "featured": false
         },
         {
-          "id": "15-best-restaurants-dubai-uae",
-          "title": "15 Best Restaurants in Dubai, UAE",
-          "slug": "15-best-restaurants-dubai-uae",
+          "id": "dubai-property-market-outlook-2026",
+          "title": "Dubai Property Market Outlook 2026: Investment Insights",
+          "slug": "dubai-property-market-outlook-2026-investment-insights",
           "author": "Mohamad Ahmad",
-          "date": "2024-07-25",
-          "readTime": "10 min read",
-          "category": "Lifestyle",
-          "tags": ["Dining", "Restaurants", "Dubai Cuisine", "Fine Dining"],
-          "excerpt": "Curated guide to Dubai's finest dining establishments, featuring diverse cuisines and exceptional culinary experiences.",
-          "featuredImage": "images/dubaiSkyline.webp",
+          "date": "2024-12-15",
+          "readTime": "8 min read",
+          "category": "Market Analysis",
+          "tags": ["Dubai Real Estate", "Investment", "Market Trends", "2026 Outlook"],
+          "excerpt": "Comprehensive analysis of Dubai's real estate market trends, investment opportunities, and growth projections for 2026.",
+          "featuredImage": "images/Dubai_Invest_2026.jpg",
           "featured": false
         },
         {
@@ -116,11 +116,11 @@ class BlogManager {
           "slug": "family-friendly-activities-dubai-uae",
           "author": "Mohamad Ahmad",
           "date": "2024-08-10",
-          "readTime": "8 min read",
+          "readTime": "7 min read",
           "category": "Lifestyle",
-          "tags": ["Family", "Activities", "Dubai Tourism", "Children"],
+          "tags": ["Family Activities", "Dubai Lifestyle", "Entertainment", "Tourism"],
           "excerpt": "Comprehensive guide to family-friendly activities and attractions in Dubai, perfect for residents and visitors with children.",
-          "featuredImage": "images/dubaiAppartments.webp",
+          "featuredImage": "../assets/images/4a72697f-369e-4c44-9002-98f124db0c0c.avif",
           "featured": false
         }
       ]
