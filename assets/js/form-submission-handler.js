@@ -129,7 +129,22 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       await submitToSanity(payload);
       
-      alert(formConfig.successMessage || 'Thank you! We have received your submission.');
+      // Show thank-you message for parallax form instead of alert
+      if (formConfig.source === 'parallax-form') {
+        const formBox = form.closest('.parallax-form-box');
+        if (formBox) {
+          formBox.innerHTML = `
+            <div class="parallax-thankyou">
+              <div class="parallax-thankyou-icon">✓</div>
+              <h2 class="parallax-thankyou-heading">Thank You!</h2>
+              <p class="parallax-thankyou-text">Your inquiry has been received. Ahmad will personally reach out to you within <strong>30 minutes</strong>.</p>
+              <p class="parallax-thankyou-subtext">We look forward to helping you find your dream property.</p>
+            </div>
+          `;
+        }
+      } else {
+        alert(formConfig.successMessage || 'Thank you! We have received your submission.');
+      }
       form.reset();
       
       if (formConfig.modalId) {
