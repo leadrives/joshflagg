@@ -156,11 +156,18 @@ class ProjectsModalLoader {
 
       this.container.innerHTML = items.map(item => this.createCard(item)).join('');
       
-      // Re-attach "View Details" to show an alert or modal (as requested by existing legacy code pattern)
+      // "View Details" opens the consultation/contact modal
       this.container.querySelectorAll('.project-view-btn').forEach(btn => {
           btn.addEventListener('click', (e) => {
               e.preventDefault();
-              alert(`View details for: ${btn.dataset.title}\nID: ${btn.dataset.id}`);
+              // Close the projects modal first
+              const projectsModal = bootstrap.Modal.getInstance(document.getElementById('projectsModal'));
+              if (projectsModal) projectsModal.hide();
+              // Open consultation modal after a short delay to avoid Bootstrap conflicts
+              setTimeout(() => {
+                  const consultationModal = new bootstrap.Modal(document.getElementById('consultationModal'));
+                  consultationModal.show();
+              }, 300);
           });
       });
   }
