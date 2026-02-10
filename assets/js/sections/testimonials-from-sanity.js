@@ -125,9 +125,8 @@
     // Middle stat (index 1) gets center class to match existing layout
     const centerClass = index === 1 ? ' center' : '';
     
-    // For original stats, show 0 and let animation count up
-    // For duplicate stats (loop), show the final number
-    const displayNumber = isOriginal ? '0' : stat.number;
+    // Always display the actual number (CSS handles the scrolling animation)
+    const displayNumber = stat.number;
     
     return `
       <div class="ft-stat${centerClass}">
