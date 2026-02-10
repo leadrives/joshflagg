@@ -2279,6 +2279,44 @@ document.addEventListener("DOMContentLoaded", () => {
   <!-- Featured Videos (Shorts) Loader -->
   <script src="assets/js/sections/featured-videos-from-sanity.js"></script>
 
+  <!-- Carousel Click → Modal Handlers -->
+  <script>
+  (function() {
+    // Notable Transactions carousel cards → open Projects Modal
+    const notableCarousel = document.getElementById('notableCarousel');
+    if (notableCarousel) {
+      notableCarousel.style.cursor = 'pointer';
+      notableCarousel.addEventListener('click', function(e) {
+        // Don't trigger if clicking nav arrows or controls
+        if (e.target.closest('.carousel-nav-btn, .carousel-control-prev, .carousel-control-next, [data-bs-slide]')) return;
+        const modal = new bootstrap.Modal(document.getElementById('projectsModal'));
+        modal.show();
+      });
+    }
+
+    // Testimonials slider → open Testimonials Modal
+    const ftSlider = document.querySelector('.ft-slider');
+    if (ftSlider) {
+      ftSlider.style.cursor = 'pointer';
+      ftSlider.addEventListener('click', function(e) {
+        if (e.target.closest('.ft-nav-btn, .ft-prev, .ft-next')) return;
+        const modal = new bootstrap.Modal(document.getElementById('testimonialsModal'));
+        modal.show();
+      });
+    }
+
+    // Exclusive Listings slides → open Projects Modal
+    const exSlider = document.querySelector('.ex-listing-slider');
+    if (exSlider) {
+      exSlider.addEventListener('click', function(e) {
+        if (e.target.closest('.ex-nav, .ex-nav-btn, .ex-prev, .ex-next')) return;
+        const modal = new bootstrap.Modal(document.getElementById('projectsModal'));
+        modal.show();
+      });
+    }
+  })();
+  </script>
+
 </body>
 
 <!--
