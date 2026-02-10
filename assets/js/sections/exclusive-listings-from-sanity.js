@@ -397,12 +397,16 @@
       if (window.SanityPropertyFetcher) {
           const curatedResult = await window.SanityPropertyFetcher.getCuratedExclusiveListings();
           
-          if (curatedResult && curatedResult.properties && curatedResult.properties.length > 0) {
+          // Always apply title/subtitle from homepage settings if available
+          if (curatedResult && (curatedResult.title || curatedResult.subtitle)) {
               sectionData = { title: curatedResult.title, subtitle: curatedResult.subtitle };
+          }
+          
+          if (curatedResult && curatedResult.properties && curatedResult.properties.length > 0) {
               properties = curatedResult.properties;
               console.log('✨ Found curated exclusive listings:', properties.length);
           } else {
-              // 2. Fallback
+              // 2. Fallback - fetch all exclusive properties by type
               console.log('⚠️ No curated listings, fetching all exclusive properties...');
               properties = await window.SanityPropertyFetcher.getExclusiveListings();
           }

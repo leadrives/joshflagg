@@ -495,7 +495,7 @@
 <!-- ===== EXCLUSIVE LISTINGS SECTION (DYNAMIC) ===== -->
 <!-- Enhanced with real Valley & Grand Polo property data -->
 <!-- Fallback: Original dummy data preserved in structure -->
-<section class="ex-listing-section">
+<section id="ex-listing-section" class="ex-listing-section">
 
   <div class="ex-listing-title">
     <h2>Exclusive Listings</h2>
@@ -700,7 +700,7 @@
   </div>
 </section>
 
-<section class="neighborhoods-section">
+<section id="neighborhoods-section" class="neighborhoods-section">
   <div class="neighborhoods-container">
 
     <div class="neighborhoods-slider">
@@ -1112,7 +1112,7 @@
   <div class="footer-top">
     <div class="footer-logo">
       <span class="footer-logo-mark">
-        <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="footer-logo-img">
+        <!-- <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="footer-logo-img"> -->
       </span>
       <span class="footer-logo-text">MOHAMAD AHMAD<br><small>DUBAI</small></span>
     </div>
@@ -1438,9 +1438,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   <!-- Custom JavaScript Files -->
   <script src="assets/js/notable-transactions-loader.js"></script>
-  <script src="assets/js/property-loader.js"></script>
   <script src="assets/js/properties-modal-loader.js"></script>
-  <script src="assets/js/neighborhood-loader.js"></script>
   
   <!-- Navbar Scroll Handler -->
   <script>
@@ -2242,6 +2240,9 @@ document.addEventListener("DOMContentLoaded", () => {
   <!-- Shared Sanity Property Fetcher (Clean Architecture) -->
   <script src="assets/js/utils/sanity-property-fetcher.js"></script>
 
+  <!-- Neighborhood Loader for Dynamic Community Cards -->
+  <script src="assets/js/neighborhood-loader.js"></script>
+
   <!-- Navigation Loader for Dynamic Navigation and Logo -->
   <script src="assets/js/sections/navigation-from-sanity.js"></script>
 
@@ -2249,7 +2250,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <script src="assets/js/sections/exclusive-listings-from-sanity.js"></script>
 
   <!-- Property Loader for Dynamic Exclusive Listings (Fallback) -->
-  <!-- <script src="assets/js/property-loader.js"></script> -->
+  <script src="assets/js/property-loader.js"></script>
 
   <!-- Properties Modal Loader for Dynamic Property Cards -->
   <script src="assets/js/properties-modal-loader.js"></script>
