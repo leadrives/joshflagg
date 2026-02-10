@@ -234,7 +234,7 @@ class BlogManager {
         </h2>
         <p class="featured-excerpt">${blog.excerpt}</p>
         <div class="featured-author-info">
-          <img src="../assets/images/Logo/mronelogo2.png" alt="${blog.author}" class="author-avatar">
+          <img src="images/MohamadAhamad.jpg" alt="${blog.author}" class="author-avatar">
           <div class="author-details">
             <span class="author-name">${blog.author}</span>
             <span class="author-title">Luxury Real Estate Expert</span>
