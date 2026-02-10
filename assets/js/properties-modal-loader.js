@@ -96,7 +96,21 @@ class PropertiesModalLoader {
     if (!properties || properties.length === 0) {
       container.innerHTML = `
         <div class="col-12 text-center py-5">
-          <p class="text-muted">No properties found in ${neighborhoodName}.</p>
+          <div style="max-width: 480px; margin: 0 auto;">
+            <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;">🏙️</div>
+            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #1a1a1a; margin-bottom: 0.75rem;">
+              ${neighborhoodName} — Coming Soon
+            </h4>
+            <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Exclusive listings in ${neighborhoodName} are being curated. Contact us for early access to premium properties in this area.
+            </p>
+            <button class="btn" 
+              data-bs-toggle="modal" 
+              data-bs-target="#consultationModal"
+              style="background-color: #1a1a1a; color: #fff; padding: 10px 28px; border: none; font-family: 'Lato', sans-serif; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;">
+              Enquire Now
+            </button>
+          </div>
         </div>
       `;
       return;
