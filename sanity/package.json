@@ -2,6 +2,7 @@
   "name": "ahamadnew",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
@@ -14,16 +15,32 @@
     "import": "sanity dataset import backup.tar.gz production",
     "schema:extract": "sanity schema extract --format=ts",
     "manage": "sanity manage",
-    "docs": "sanity docs"
+    "docs": "sanity docs",
+    "test": "node scripts/test-connection.js",
+    "test:read": "node scripts/test-read-only.js",
+    "setup": "node scripts/setupContent.js",
+    "import:properties": "node scripts/import-properties.js",
+    "import:blogs": "node scripts/import-blogs.js",
+    "import:all": "npm run import:properties && npm run import:blogs",
+    "import:dry": "DRY_RUN=1 npm run import:all",
+    "create:hero": "node scripts/create-hero-section.js",
+    "create:about": "node scripts/create-about-section.js",
+    "setup:notable": "node scripts/setup-notable-transactions.js",
+    "setup:testimonials": "node scripts/setup-testimonials.js",
+    "verify:testimonials": "node scripts/verify-testimonials.js",
+    "update:testimonials": "node scripts/add-testimonials-to-homepage.js"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
+    "@sanity/client": "^7.14.1",
     "@sanity/vision": "^5.8.1",
+    "dotenv": "^17.2.4",
     "react": "^19.1",
     "react-dom": "^19.1",
     "sanity": "^5.8.1",
+    "sanity-plugin-documents-pane": "^3.0.2",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
@@ -31,6 +48,7 @@
     "@types/react": "^19.1",
     "eslint": "^9.28",
     "prettier": "^3.5",
+    "tsx": "^4.21.0",
     "typescript": "^5.8"
   },
   "prettier": {

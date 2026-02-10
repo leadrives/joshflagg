@@ -6,6 +6,13 @@ export const blogPost = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'legacyId',
+      title: 'Legacy ID',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      description: 'Unique identifier from original JSON data',
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -87,7 +94,7 @@ export const blogPost = defineType({
       type: 'array',
       of: [{type: 'string'}],
       options: {
-        predefined: [
+        list: [
           {title: 'Market Analysis', value: 'market-analysis'},
           {title: 'Investment Tips', value: 'investment-tips'},
           {title: 'Dubai Real Estate', value: 'dubai-real-estate'},
@@ -120,8 +127,18 @@ export const blogPost = defineType({
       title: 'Featured Post',
       type: 'boolean',
       initialValue: false,
-    }),
-    defineField({
+    }),    defineField({
+      name: 'relatedArticles',
+      title: 'Related Articles',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'blogPost'}],
+        },
+      ],
+      description: 'Related blog posts from original JSON',
+    }),    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',

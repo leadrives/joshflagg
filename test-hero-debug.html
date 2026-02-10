@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hero Debug Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .debug-box {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .error { border-left-color: #dc3545; }
+        .success { border-left-color: #28a745; }
+        .warning { border-left-color: #ffc107; }
+    </style>
+</head>
+<body>
+    <h1>Hero Section Debug Test</h1>
+    
+    <div id="debug-log"></div>
+    
+    <!-- Simulate hero elements -->
+    <div class="hero-section">
+        <h1 class="hero-title">Original Title</h1>
+        <p class="hero-subtitle">Original Subtitle</p>
+        <div class="hero-buttons">
+            <a href="#">Original CTA</a>
+        </div>
+    </div>
+
+    <!-- Load Sanity dependencies -->
+    <script src="assets/js/sanity/sanity-config.js"></script>
+    <script src="assets/js/sanity/sanity-read.js"></script>
+    
+    <script>
+        const log = document.getElementById('debug-log');
+        
+        function addLog(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `debug-box ${type}`;
+            div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            log.appendChild(div);
+            console.log(message);
+        }
+        
+        // Test the hero loading
+        async function testHero() {
+            addLog('Starting hero test...', 'info');
+            
+            // Check if SanityRead exists
+            if (!window.SanityRead) {
+                addLog('❌ SanityRead not available', 'error');
+                return;
+            }
+            addLog('✅ SanityRead is available', 'success');
+            
+            // Test query
+            try {
+                const query = `*[_type=="homePage"][0]{
+                    heroSection{
+                        title,
+                        subtitle,
+                        ctaText,
+                        ctaLink,
+                        mediaType,
+                        youtubeId,
+                        posterImage{
+                            asset->{url}
+                        },
+                        heroImage{
+                            asset->{url}
+                        }
+                    }
+                }`;
+                
+                addLog('🔄 Querying Sanity...', 'info');
+                const result = await window.SanityRead.query(query);
+                
+                if (result && result.heroSection) {
+                    addLog(`✅ Hero data received: ${JSON.stringify(result.heroSection, null, 2)}`, 'success');
+                    
+                    // Test DOM updates
+                    const titleEl = document.querySelector('.hero-title');
+                    const subtitleEl = document.querySelector('.hero-subtitle');
+                    const ctaEl = document.querySelector('.hero-buttons a');
+                    
+                    if (titleEl) {
+                        titleEl.innerHTML = result.heroSection.title.replace(/\\n/g, '<br/>');
+                        addLog('✅ Updated title', 'success');
+                    }
+                    
+                    if (subtitleEl) {
+                        subtitleEl.textContent = result.heroSection.subtitle;
+                        addLog('✅ Updated subtitle', 'success');
+                    }
+                    
+                    if (ctaEl && result.heroSection.ctaText) {
+                        ctaEl.textContent = result.heroSection.ctaText;
+                        addLog('✅ Updated CTA', 'success');
+                    }
+                    
+                } else {
+                    addLog('❌ No hero data received', 'error');
+                }
+                
+            } catch (error) {
+                addLog(`❌ Query error: ${error.message}`, 'error');
+            }
+        }
+        
+        // Wait a bit for SanityRead to load
+        setTimeout(() => {
+            testHero();
+        }, 500);
+    </script>
+</body>
+</html>

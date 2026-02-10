@@ -6,6 +6,25 @@ export const property = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'legacyId',
+      title: 'Legacy ID',
+      type: 'string',
+      description: 'Unique identifier from original JSON data (auto-generated for new entries)',
+      hidden: true,
+    }),
+    defineField({
+      name: 'listingType',
+      title: 'Listing Type',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: [
+          {title: 'Notable Transaction', value: 'notable'},
+          {title: 'Exclusive Listing', value: 'exclusive'},
+        ],
+      },
+    }),
+    defineField({
       name: 'title',
       title: 'Property Title',
       type: 'string',

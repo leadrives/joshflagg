@@ -6,8 +6,24 @@
  */
 
 import { writeClient } from '../lib/sanityClient'
-import propertiesData from '../../assets/data/properties.json'
-import blogsData from '../../assets/data/blogs.json'
+import { readFileSync } from 'fs'
+import { join } from 'path'
+
+// Helper function to read JSON files
+function readJSONFile(filePath: string) {
+  try {
+    // Use relative path from project root instead of __dirname
+    const fullPath = join(process.cwd(), filePath)
+    const content = readFileSync(fullPath, 'utf8')
+    return JSON.parse(content)
+  } catch (error) {
+    console.warn(`Could not read ${filePath}:`, (error as Error).message)
+    return []
+  }
+}
+
+const propertiesData = readJSONFile('assets/data/properties.json')
+const blogsData = readJSONFile('assets/data/blogs.json')
 
 /**
  * Migrate properties from existing JSON to Sanity
@@ -15,12 +31,22 @@ import blogsData from '../../assets/data/blogs.json'
 async function migrateProperties() {
   console.log('🏠 Migrating properties...')
   
-  const properties = propertiesData.map((property, index) => ({
+  // Check if property data exists and is valid
+  if (!Array.isArray(propertiesData) || propertiesData.length === 0) {
+    console.warn('⚠️ No property data found or invalid format. Skipping property migration.')
+    return []
+  }
+  
+  const properties = propertiesData.map((property: any, index: number) => ({
     _type: 'property',
-    title: property.name,
-    price: property.price,
-    priceNumeric: parseFloat(property.price.replace(/[^\d.-]/g, '')) || 0,
-    location: property.location,
+    title: property.name || `Property ${index + 1}`,
+    slug: {
+      _type: 'slug',
+      current: property.slug || `property-${index + 1}`
+    },
+    price: property.price || 'Price on request',
+    priceNumeric: parseFloat(property.price?.replace(/[^\d.-]/g, '')) || 0,
+    location: property.location || 'Dubai, UAE',
     propertyType: property.type?.toLowerCase() || 'apartment',
     bedrooms: property.bedrooms || null,
     bathrooms: property.bathrooms || null,
@@ -32,7 +58,7 @@ async function migrateProperties() {
         children: [
           {
             _type: 'span',
-            text: property.description || '',
+            text: property.description || 'No description available',
           },
         ],
       },
@@ -43,14 +69,18 @@ async function migrateProperties() {
     isFeatured: index < 6, // Mark first 6 as featured
     isExclusive: property.exclusive || false,
     publishedAt: new Date().toISOString(),
-    seoTitle: property.name,
+    seoTitle: property.name || `Property ${index + 1}`,
     seoDescription: property.description?.substring(0, 160),
   }))
 
   try {
-    const result = await writeClient.createOrReplace(properties)
+    const results = []
+    for (const property of properties) {
+      const result = await writeClient.create(property)
+      results.push(result)
+    }
     console.log(`✅ Migrated ${properties.length} properties`)
-    return result
+    return results
   } catch (error) {
     console.error('❌ Error migrating properties:', error)
   }
@@ -62,10 +92,20 @@ async function migrateProperties() {
 async function migrateBlogPosts() {
   console.log('📝 Migrating blog posts...')
   
-  const blogPosts = blogsData.map((blog, index) => ({
+  // Check if blog data exists and is valid
+  if (!Array.isArray(blogsData) || blogsData.length === 0) {
+    console.warn('⚠️ No blog data found or invalid format. Skipping blog migration.')
+    return []
+  }
+  
+  const blogPosts = blogsData.map((blog: any, index: number) => ({
     _type: 'blogPost',
-    title: blog.title,
-    excerpt: blog.excerpt || blog.description?.substring(0, 200),
+    title: blog.title || `Blog Post ${index + 1}`,
+    slug: {
+      _type: 'slug',
+      current: blog.slug || `blog-post-${index + 1}`
+    },
+    excerpt: blog.excerpt || blog.description?.substring(0, 200) || 'No excerpt available',
     content: [
       {
         _type: 'block',
@@ -73,7 +113,7 @@ async function migrateBlogPosts() {
         children: [
           {
             _type: 'span',
-            text: blog.content || blog.description || '',
+            text: blog.content || blog.description || 'No content available',
           },
         ],
       },
@@ -88,14 +128,18 @@ async function migrateBlogPosts() {
     isPublished: true,
     isFeatured: index < 3, // Mark first 3 as featured
     publishedAt: blog.date || new Date().toISOString(),
-    seoTitle: blog.title,
-    seoDescription: blog.excerpt?.substring(0, 160),
+    seoTitle: blog.title || `Blog Post ${index + 1}`,
+    seoDescription: (blog.excerpt || blog.description || '')?.substring(0, 160),
   }))
 
   try {
-    const result = await writeClient.createOrReplace(blogPosts)
+    const results = []
+    for (const blogPost of blogPosts) {
+      const result = await writeClient.create(blogPost)
+      results.push(result)
+    }
     console.log(`✅ Migrated ${blogPosts.length} blog posts`)
-    return result
+    return results
   } catch (error) {
     console.error('❌ Error migrating blog posts:', error)
   }
@@ -216,11 +260,7 @@ async function runMigrations() {
   }
 }
 
-// Run migrations if this file is executed directly
-if (require.main === module) {
-  runMigrations()
-}
-
+// Export functions for use in other modules
 export {
   migrateProperties,
   migrateBlogPosts,

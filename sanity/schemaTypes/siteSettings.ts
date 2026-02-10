@@ -30,6 +30,50 @@ export const siteSettings = defineType({
       },
     }),
     defineField({
+      name: 'navigation',
+      title: 'Navigation Menu',
+      type: 'object',
+      fields: [
+        {
+          name: 'leftLinks',
+          title: 'Left Navigation Links',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                {name: 'label', title: 'Link Label', type: 'string'},
+                {name: 'url', title: 'Link URL', type: 'string'},
+                {name: 'isModal', title: 'Opens Modal', type: 'boolean', initialValue: false},
+                {name: 'modalTarget', title: 'Modal Target', type: 'string', 
+                 description: 'Modal target (e.g., #projectsModal)',
+                 hidden: ({parent}) => !parent?.isModal},
+              ],
+            },
+          ],
+        },
+        {
+          name: 'rightLinks',
+          title: 'Right Navigation Links', 
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                {name: 'label', title: 'Link Label', type: 'string'},
+                {name: 'url', title: 'Link URL', type: 'string'},
+                {name: 'isButton', title: 'Display as Button', type: 'boolean', initialValue: false},
+                {name: 'isModal', title: 'Opens Modal', type: 'boolean', initialValue: false},
+                {name: 'modalTarget', title: 'Modal Target', type: 'string',
+                 description: 'Modal target (e.g., #consultationModal)',
+                 hidden: ({parent}) => !parent?.isModal},
+              ],
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'favicon',
       title: 'Favicon',
       type: 'image',
@@ -55,6 +99,28 @@ export const siteSettings = defineType({
         {name: 'address', title: 'Address', type: 'text'},
         {name: 'whatsapp', title: 'WhatsApp Number', type: 'string'},
       ],
+    }),
+    defineField({
+      name: 'siteUrl',
+      title: 'Site URL',
+      type: 'url',
+      description: 'Primary site URL (e.g., https://joshflagg.ae)',
+    }),
+    defineField({
+      name: 'defaultOgImage',
+      title: 'Default OG Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        },
+      ],
+      description: 'Default Open Graph image for social sharing',
     }),
   ],
 })

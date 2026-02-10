@@ -226,8 +226,17 @@ let propertyLoader;
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-  propertyLoader = new PropertyLoader();
-  propertyLoader.init();
+  // Wait for Sanity loader to complete before checking
+  setTimeout(() => {
+    // Check if Sanity loader has already handled this
+    if (window.__SANITY_EXCLUSIVE_DONE__) {
+      console.log('ℹ️ Property Loader: Sanity loader already handled exclusive listings, skipping JSON loader');
+      return;
+    }
+
+    propertyLoader = new PropertyLoader();
+    propertyLoader.init();
+  }, 1000); // Give Sanity loader time to complete
 });
 
 // Global functions for navigation

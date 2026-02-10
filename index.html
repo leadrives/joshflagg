@@ -61,6 +61,17 @@
 
   <!-- Custom CSS Styles -->
   <link rel="stylesheet" href="assets/css/style.css" />
+  
+  <!-- Dynamic Exclusive Listings Subtitle Style -->
+  <style>
+    .ex-listing-subtitle {
+      color: #888;
+      font-size: 14px;
+      margin-top: 8px;
+      margin-bottom: 0;
+      font-weight: 300;
+    }
+  </style>
 </head>
 <body>
 
@@ -269,36 +280,36 @@
       <!-- FALLBACK SLIDE 1 (shown if JavaScript fails) -->
       <div class="carousel-item active" data-slide="0">
         <div class="carousel-card">
-          <img src="assets/images/four-seasons-private-residences-al-maryah-island.webp" 
+          <img src="https://cdn.sanity.io/images/xwla8vtz/production/b91d7214b4550e12f5e6dd0a7fc1143b15d5f70f-2450x1400.jpg" 
                class="card-img" 
-               alt="Palm Jumeirah Villa"
-               data-price="150,000,000 AED" 
-               data-name="Palm Jumeirah Villa">
-          <div class="status-label">Sold</div>
+               alt="Park Gate 2 by Emaar"
+               data-price="AED 14,12M" 
+               data-name="Park Gate 2 by Emaar">
+          <div class="status-label">For Sale</div>
         </div>
       </div>
 
       <!-- FALLBACK SLIDE 2 (shown if JavaScript fails) -->
       <div class="carousel-item" data-slide="1">
         <div class="carousel-card">
-          <img src="assets/images/the-row-saadiyat-aldar.webp" 
+          <img src="https://cdn.sanity.io/images/xwla8vtz/production/a897cd3cb14602fc992041f5000aa19c9a89f9e4-2450x1400.jpg" 
                class="card-img" 
-               alt="Downtown Dubai Penthouse"
-               data-price="85,000,000 AED" 
-               data-name="Downtown Dubai Penthouse">
-          <div class="status-label">Sold</div>
+               alt="Mareva at The Oasis"
+               data-price="AED 13.47M" 
+               data-name="Mareva at The Oasis">
+          <div class="status-label">For Sale</div>
         </div>
       </div>
 
       <!-- FALLBACK SLIDE 3 (shown if JavaScript fails) -->
       <div class="carousel-item" data-slide="2">
         <div class="carousel-card">
-          <img src="assets/images/hudayriyat-island-modon.jpg" 
+          <img src="https://cdn.sanity.io/images/xwla8vtz/production/2548aeb2cdb33766316a27ff84648d705ce39f42-1920x1000.jpg" 
                class="card-img" 
-               alt="Dubai Marina Tower"
-               data-price="65,000,000 AED" 
-               data-name="Dubai Marina Tower">
-          <div class="status-label">Sold</div>
+               alt="Creek Beach Grove"
+               data-price="AED 2,000,000" 
+               data-name="Creek Beach Grove">
+          <div class="status-label">For Sale</div>
         </div>
       </div>
 
@@ -318,8 +329,8 @@
         </span>
         <span class="vertical-line"></span>
         <div class="text-details">
-          <p class="detail-price">150,000,000 AED</p>
-          <p class="detail-name">Palm Jumeirah Villa</p>
+          <p class="detail-price">AED 14,12M</p>
+          <p class="detail-name">Park Gate 2 by Emaar</p>
         </div>
       </div>
 
@@ -352,8 +363,8 @@
           </span>
           <span class="vertical-line"></span>
           <div class="text-details">
-            <p class="detail-price">150,000,000 AED</p>
-            <p class="detail-name">Palm Jumeirah Villa</p>
+            <p class="detail-price">AED 14,12M</p>
+            <p class="detail-name">Park Gate 2 by Emaar</p>
           </div>
         </div>
 
@@ -488,9 +499,10 @@
 
   <div class="ex-listing-title">
     <h2>Exclusive Listings</h2>
+    <!-- Subtitle will be dynamically added by Sanity script if configured -->
   </div>
 
-  <!-- Dynamic slider container - populated by property-loader.js -->
+  <!-- Dynamic slider container - populated by Sanity CMS with JSON fallback -->
   <div class="ex-listing-slider">
 
     <!-- FALLBACK SLIDE 1 (shown if JavaScript fails) -->
@@ -504,7 +516,7 @@
             <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties" class="ex-monogram-img">
           </div>
           <div class="ex-tag">FOR SALE</div>
-          <h3 class="ex-address">KAIA at The Valley</h3>
+          <h3 class="ex-address">111KAIA at The Valley</h3>
           <div class="ex-location">The Valley, Dubai, UAE</div>
           <div class="ex-price">2,800,000 AED</div>
         </div>
@@ -518,8 +530,8 @@
 
         <!-- Nav Arrows -->
         <div class="ex-nav">
-          <button class="ex-prev" onclick="propertyLoader?.previousSlide()">←</button>
-          <button class="ex-next" onclick="propertyLoader?.nextSlide()">→</button>
+          <button class="ex-prev" onclick="window.__SANITY_EXCLUSIVE_LOADER__?.previousSlide()">←</button>
+          <button class="ex-next" onclick="window.__SANITY_EXCLUSIVE_LOADER__?.nextSlide()">→</button>
         </div>
 
       </div>
@@ -550,8 +562,8 @@
 
         <!-- Nav Arrows -->
         <div class="ex-nav">
-          <button class="ex-prev" onclick="propertyLoader?.previousSlide()">←</button>
-          <button class="ex-next" onclick="propertyLoader?.nextSlide()">→</button>
+          <button class="ex-prev" onclick="window.__SANITY_EXCLUSIVE_LOADER__?.previousSlide()">←</button>
+          <button class="ex-next" onclick="window.__SANITY_EXCLUSIVE_LOADER__?.nextSlide()">→</button>
         </div>
 
       </div>
@@ -643,7 +655,7 @@
   </div>
 </section>
 
-<section class="parallax-hero-section" style="background-image: url('assets/images/dubai-city-burj-khalifa-skyline-silhouette-cityscape-dusk-3840x2160-5904.jpg');">
+<section id="mid-parallax-hero" class="parallax-hero-section" style="background-image: url('assets/images/dubai-city-burj-khalifa-skyline-silhouette-cityscape-dusk-3840x2160-5904.jpg');">
   <div class="parallax-hero-overlay"></div>
   <div class="parallax-hero-content">
     <div class="parallax-hero-logo">
@@ -963,7 +975,7 @@
   </div>
 </section>
 
-<section class="py-5" style="background-color: #f8f9fa; min-height: auto; overflow: hidden; position: relative;">
+<section id="featured-videos-section" class="py-5" style="background-color: #f8f9fa; min-height: auto; overflow: hidden; position: relative;">
   <div class="container-fluid px-1 px-md-3">
 
     <!-- Section Heading -->
@@ -1176,7 +1188,7 @@
    * Shorts data (JSON).
    * You can later move this into a separate .json file + fetch() if you want.
    */
-  const YT_SHORTS_DATA = [
+  window.defaultShortsData = [
     { "url": "https://youtube.com/shorts/gpZZVxTNOHI?si=rAcA_siF23l1wK3a" },
     { "url": "https://youtube.com/shorts/PdxI9t5cZ_Y?si=s3IPweS7vzEWXnue" },
     { "url": "https://youtube.com/shorts/BRmSK9f5M1E?si=b0nAnHmpWXeHYVo4" },
@@ -1189,7 +1201,7 @@
     { "url": "https://youtube.com/shorts/DV1l8PRWYKk?si=J1q9PUQhRNqQcufg" }
   ];
 
-  (function initYouTubeShorts3DCarousel(){
+  window.initYouTubeShorts3DCarousel = function(data){
     const track = document.getElementById('ytShortsTrack');
     const dotsWrap = document.getElementById('ytShortsDots');
     const root = track?.closest('.YouTubeShortsCarousel3D_root__viTF0');
@@ -1224,11 +1236,12 @@
 
     const makeEmbedSrc = (videoId) => {
       // safest baseline with autoplay enabled
-      return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${videoId}`;
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${videoId}`;
     };
 
     // --- build model from JSON ---
-    const items = YT_SHORTS_DATA
+    const sourceData = data || window.defaultShortsData;
+    const items = sourceData
       .map(x => ({ ...x, id: extractYouTubeId(x.url) }))
       .filter(x => !!x.id);
 
@@ -1396,7 +1409,10 @@
     // initial
     setActive(0, false);
     startAuto();
-  })();
+  };
+
+  // Initial load with default data
+  window.initYouTubeShorts3DCarousel(window.defaultShortsData);
 </script>
 
 <script>
@@ -1405,13 +1421,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.querySelector(".neighborhoods-nav .prev");
   const nextBtn = document.querySelector(".neighborhoods-nav .next");
   
-  prevBtn.addEventListener("click", () => {
-    slider.scrollBy({ left: -300, behavior: "smooth" });
-  });
+  if (slider && prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: -300, behavior: "smooth" });
+    });
 
-  nextBtn.addEventListener("click", () => {
-    slider.scrollBy({ left: 300, behavior: "smooth" });
-  });
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({ left: 300, behavior: "smooth" });
+    });
+  }
 });
 </script>
 
@@ -1422,6 +1440,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <script src="assets/js/notable-transactions-loader.js"></script>
   <script src="assets/js/property-loader.js"></script>
   <script src="assets/js/properties-modal-loader.js"></script>
+  <script src="assets/js/neighborhood-loader.js"></script>
   
   <!-- Navbar Scroll Handler -->
   <script>
@@ -1650,141 +1669,7 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
  
   <!-- Consultation Modal JavaScript -->
-  <script>
-    // Modal and form functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const modal = document.getElementById('consultationModal');
-      const form = document.getElementById('consultationForm');
-      const submitBtn = document.querySelector('.consultation-submit');
-      const phoneInput = document.getElementById('phoneNumber');
-      const countrySelect = document.getElementById('countryCode');
-      
-      // Phone number formatting
-      phoneInput.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        const countryCode = countrySelect.value;
-        
-        if (countryCode === '+1') {
-          // US/Canada format: (XXX) XXX-XXXX
-          if (value.length >= 6) {
-            value = value.replace(/(\d{3})(\d{3})(\d{4}).*/, '($1) $2-$3');
-          } else if (value.length >= 3) {
-            value = value.replace(/(\d{3})(\d{1,3})/, '($1) $2');
-          }
-        } else {
-          // International format: XXX-XXX-XXXX
-          if (value.length >= 6) {
-            value = value.replace(/(\d{1,4})(\d{1,3})(\d{1,4}).*/, '$1-$2-$3');
-          } else if (value.length >= 3) {
-            value = value.replace(/(\d{1,4})(\d{1,3})/, '$1-$2');
-          }
-        }
-        
-        e.target.value = value;
-      });
-      
-      // Form validation
-      function validateForm() {
-        let isValid = true;
-        clearErrors();
-        
-        // Name validation
-        const fullName = document.getElementById('fullName').value.trim();
-        if (!fullName || fullName.length < 2) {
-          showError('fullNameError', 'Please enter your full name');
-          isValid = false;
-        }
-        
-        // Phone validation
-        const phoneNumber = document.getElementById('phoneNumber').value.trim();
-        const phoneRegex = /^[\(\)\d\s\-\+]{10,}$/;
-        if (!phoneNumber || !phoneRegex.test(phoneNumber)) {
-          showError('phoneError', 'Please enter a valid phone number');
-          isValid = false;
-        }
-        
-        // Date validation
-        const preferredDate = document.getElementById('preferredDate').value;
-        if (!preferredDate) {
-          showError('dateError', 'Please select a preferred date');
-          isValid = false;
-        } else {
-          const selectedDate = new Date(preferredDate);
-          const minDate = new Date('2026-02-05');
-          const maxDate = new Date('2026-02-07');
-          if (selectedDate < minDate || selectedDate > maxDate) {
-            showError('dateError', 'Please select a date between Feb 5-7, 2026');
-            isValid = false;
-          }
-        }
-        
-        // Time validation
-        const preferredTime = document.getElementById('preferredTime').value;
-        if (!preferredTime) {
-          showError('timeError', 'Please select a preferred time');
-          isValid = false;
-        }
-        
-        // Consent validation
-        const consent = document.getElementById('consent').checked;
-        if (!consent) {
-          showError('consentError', 'Please agree to be contacted');
-          isValid = false;
-        }
-        
-        return isValid;
-      }
-      
-      function showError(elementId, message) {
-        const errorElement = document.getElementById(elementId);
-        if (errorElement) {
-          errorElement.textContent = message;
-          errorElement.style.display = 'block';
-        }
-      }
-      
-      function clearErrors() {
-        const errors = document.querySelectorAll('.consultation-error');
-        errors.forEach(error => {
-          error.textContent = '';
-          error.style.display = 'none';
-        });
-      }
-      
-      // Form submission
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        if (validateForm()) {
-          // Show loading state
-          submitBtn.disabled = true;
-          document.querySelector('.submit-text').style.display = 'none';
-          document.querySelector('.submit-loading').style.display = 'inline-block';
-          
-          // Simulate form submission
-          setTimeout(() => {
-            // Reset loading state
-            submitBtn.disabled = false;
-            document.querySelector('.submit-text').style.display = 'inline-block';
-            document.querySelector('.submit-loading').style.display = 'none';
-            
-            // Show success message and close modal
-            alert('Thank you! Your consultation request has been submitted. Mohamad Ahmad will contact you soon.');
-            
-            // Reset form and close modal
-            form.reset();
-            bootstrap.Modal.getInstance(modal).hide();
-          }, 2000);
-        }
-      });
-      
-      // Reset form when modal is hidden
-      modal.addEventListener('hidden.bs.modal', function() {
-        form.reset();
-        clearErrors();
-      });
-    });
-  </script>
+  <script src="assets/js/form-submission-handler.js"></script>
 
   <!-- ===== PROJECTS MODAL ===== -->
   <!-- Full-screen modal displaying all projects in elegant card layout -->
@@ -1810,167 +1695,20 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="modal-body projects-body">
           
           <!-- Filter Tabs -->
-          <div class="projects-filter-tabs">
-            <button class="filter-tab active" data-filter="all">All Projects</button>
-            <button class="filter-tab" data-filter="luxury">Luxury Developments</button>
-            <button class="filter-tab" data-filter="waterfront">Waterfront Properties</button>
-            <button class="filter-tab" data-filter="downtown">Downtown Dubai</button>
-            <button class="filter-tab" data-filter="palm">Palm Jumeirah</button>
+          <div class="projects-filter-tabs" id="projects-filter-tabs">
+             <!-- Dynamically Populated -->
           </div>
           
           <!-- Projects Grid -->
-          <div class="projects-grid">
-            
-            <!-- Project Card 1 -->
-            <div class="project-card" data-category="luxury waterfront">
-              <div class="project-image-wrapper">
-                <img src="assets/images/jacob-co-beachfront-living-al-jurf.avif" alt="Burj Khalifa Residences" class="project-image">
-                <div class="project-overlay">
-                  <div class="project-status">Available</div>
-                  <div class="project-hover-content">
-                    <div class="project-monogram">
-                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
-                    </div>
-                    <button class="project-view-btn">View Details</button>
-                  </div>
-                </div>
-              </div>
-              <div class="project-info">
-                <h3 class="project-name">Burj Khalifa Residences</h3>
-                <p class="project-location">Downtown Dubai, UAE</p>
-                <div class="project-details">
-                  <span class="project-price">Starting from 8,500,000 AED</span>
-                  <span class="project-type">Luxury Apartments</span>
-                </div>
-                <p class="project-description">Exclusive residences in the world's tallest tower, offering unparalleled luxury and breathtaking city views.</p>
-              </div>
-            </div>
-            
-            <!-- Project Card 2 -->
-            <div class="project-card" data-category="waterfront palm">
-              <div class="project-image-wrapper">
-                <img src="assets/images/sha-residences-al-jurf-imkan.avif" alt="Emirates Hills Estates" class="project-image">
-                <div class="project-overlay">
-                  <div class="project-status sold">Sold Out</div>
-                  <div class="project-hover-content">
-                    <div class="project-monogram">
-                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
-                    </div>
-                    <button class="project-view-btn">View Details</button>
-                  </div>
-                </div>
-              </div>
-              <div class="project-info">
-                <h3 class="project-name">Emirates Hills Estates</h3>
-                <p class="project-location">Emirates Hills, Dubai, UAE</p>
-                <div class="project-details">
-                  <span class="project-price">From 15,000,000 AED</span>
-                  <span class="project-type">Luxury Villas</span>
-                </div>
-                <p class="project-description">Ultra-premium gated community featuring magnificent villas with golf course and lake views.</p>
-              </div>
-            </div>
-            
-            <!-- Project Card 3 -->
-            <div class="project-card" data-category="waterfront luxury">
-              <div class="project-image-wrapper">
-                <img src="assets/images/carousel/img.avif" alt="Dubai Marina Towers" class="project-image">
-                <div class="project-overlay">
-                  <div class="project-status">Available</div>
-                  <div class="project-hover-content">
-                    <div class="project-monogram">
-                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
-                    </div>
-                    <button class="project-view-btn">View Details</button>
-                  </div>
-                </div>
-              </div>
-              <div class="project-info">
-                <h3 class="project-name">Dubai Marina Towers</h3>
-                <p class="project-location">Dubai Marina, UAE</p>
-                <div class="project-details">
-                  <span class="project-price">Starting from 3,200,000 AED</span>
-                  <span class="project-type">Marina Apartments</span>
-                </div>
-                <p class="project-description">Modern waterfront living with panoramic marina views and world-class amenities.</p>
-              </div>
-            </div>
-            
-            <!-- Project Card 4 -->
-            <div class="project-card" data-category="palm waterfront">
-              <div class="project-image-wrapper">
-                <img src="assets/images/carousel/img3.avif" alt="Palm Jumeirah Villas" class="project-image">
-                <div class="project-overlay">
-                  <div class="project-status">Available</div>
-                  <div class="project-hover-content">
-                    <div class="project-monogram">
-                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
-                    </div>
-                    <button class="project-view-btn">View Details</button>
-                  </div>
-                </div>
-              </div>
-              <div class="project-info">
-                <h3 class="project-name">Palm Jumeirah Villas</h3>
-                <p class="project-location">Palm Jumeirah, Dubai, UAE</p>
-                <div class="project-details">
-                  <span class="project-price">From 25,000,000 AED</span>
-                  <span class="project-type">Beachfront Villas</span>
-                </div>
-                <p class="project-description">Exclusive beachfront villas on the iconic Palm Jumeirah with private beach access.</p>
-              </div>
-            </div>
-            
-            <!-- Project Card 5 -->
-            <div class="project-card" data-category="downtown luxury">
-              <div class="project-image-wrapper">
-                <img src="assets/images/hero/vcgt8tivc2pewre3tvjz.avif" alt="DIFC Towers" class="project-image">
-                <div class="project-overlay">
-                  <div class="project-status">Available</div>
-                  <div class="project-hover-content">
-                    <div class="project-monogram">
-                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
-                    </div>
-                    <button class="project-view-btn">View Details</button>
-                  </div>
-                </div>
-              </div>
-              <div class="project-info">
-                <h3 class="project-name">DIFC Towers</h3>
-                <p class="project-location">DIFC, Dubai, UAE</p>
-                <div class="project-details">
-                  <span class="project-price">Starting from 4,500,000 AED</span>
-                  <span class="project-type">Business District Apartments</span>
-                </div>
-                <p class="project-description">Sophisticated apartments in Dubai's premier financial district with premium amenities.</p>
-              </div>
-            </div>
-            
-            <!-- Project Card 6 -->
-            <div class="project-card" data-category="luxury waterfront">
-              <div class="project-image-wrapper">
-                <img src="assets/images/jacob-co-beachfront-living-al-jurf.avif" alt="Jumeirah Beach Residences" class="project-image">
-                <div class="project-overlay">
-                  <div class="project-status">Available</div>
-                  <div class="project-hover-content">
-                    <div class="project-monogram">
-                      <img src="assets/images/Logo/mronelogo2.png" alt="MR One Properties">
-                    </div>
-                    <button class="project-view-btn">View Details</button>
-                  </div>
-                </div>
-              </div>
-              <div class="project-info">
-                <h3 class="project-name">Jumeirah Beach Residences</h3>
-                <p class="project-location">JBR, Dubai, UAE</p>
-                <div class="project-details">
-                  <span class="project-price">From 2,800,000 AED</span>
-                  <span class="project-type">Beachfront Apartments</span>
-                </div>
-                <p class="project-description">Stunning beachfront living with direct beach access and vibrant community atmosphere.</p>
-              </div>
-            </div>
-            
+          <div class="projects-grid" id="projects-grid">
+             <!-- Dynamically Populated -->
+          </div>
+          
+          <!-- Loading State -->
+          <div id="projects-loader" class="text-center py-5" style="display: none;">
+             <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+             </div>
           </div>
           
         </div>
@@ -1990,49 +1728,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 
-  <!-- Projects Modal JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const filterTabs = document.querySelectorAll('.filter-tab');
-      const projectCards = document.querySelectorAll('.project-card');
-      
-      // Filter functionality
-      filterTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          const filter = this.dataset.filter;
-          
-          // Update active tab
-          filterTabs.forEach(t => t.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Filter cards
-          projectCards.forEach(card => {
-            if (filter === 'all' || card.dataset.category.includes(filter)) {
-              card.style.display = 'block';
-              card.style.animation = 'fadeInUp 0.6s ease forwards';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-      
-      // View details buttons
-      document.querySelectorAll('.project-view-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          // Here you can add logic to show project details
-          const projectName = this.closest('.project-card').querySelector('.project-name').textContent;
-          alert(`View details for: ${projectName}\nThis would typically open a detailed project page or modal.`);
-        });
-      });
-      
-      // Reset filter when modal is closed
-      document.getElementById('projectsModal').addEventListener('hidden.bs.modal', function() {
-        filterTabs[0].click(); // Reset to "All Projects"
-      });
-    });
-  </script>
+  <!-- Projects Modal JavaScript handled by assets/js/projects-modal-loader.js -->
 
   <!-- ===== TESTIMONIALS MODAL ===== -->
   <!-- Modal displaying all client testimonials in elegant layout -->
@@ -2196,6 +1892,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <!-- Properties Grid -->
           <div class="properties-grid">
             
+            <!-- Dynamic Sanity Properties -->
+            <div id="dynamic-properties" class="community-properties" style="display: none;"></div>
+
             <!-- Valley Properties (Default) -->
             <div id="valley-properties" class="community-properties" style="display: contents;">
             
@@ -2501,55 +2200,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
       
-      // Handle neighborhood card clicks to show relevant properties
-      document.querySelectorAll('.neighborhood-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-          const community = this.dataset.community;
-          const communityTitle = this.dataset.title;
-          
-          console.log('Community clicked:', community); // Debug log
-          
-          // Hide all community property sections
-          document.querySelectorAll('.community-properties').forEach(section => {
-            section.style.display = 'none';
-          });
-          
-          if (community === 'valley') {
-            // Update modal title and show Valley properties
-            document.getElementById('propertiesModalLabel').textContent = 'Valley Properties';
-            document.querySelector('.properties-subtitle').textContent = 'Discover Premium Developments in The Valley Community';
-            document.getElementById('valley-properties').style.display = 'contents';
-            
-            // Update footer contact info
-            document.querySelector('.contact-label').textContent = 'Interested in Valley Properties?';
-            
-          } else if (community === 'grandpolo') {
-            console.log('Showing Grand Polo properties'); // Debug log
-            // Update modal title and show Grand Polo properties
-            document.getElementById('propertiesModalLabel').textContent = 'Grand Polo Club & Resort Properties';
-            document.querySelector('.properties-subtitle').textContent = 'Discover Luxury Equestrian Living at Grand Polo Club & Resort';
-            
-            const grandPoloSection = document.getElementById('grandpolo-properties');
-            if (grandPoloSection) {
-              grandPoloSection.style.display = 'contents';
-              console.log('Grand Polo section found and displayed'); // Debug log
-            } else {
-              console.log('Grand Polo section NOT found'); // Debug log
-            }
-            
-            // Update footer contact info
-            document.querySelector('.contact-label').textContent = 'Interested in Grand Polo Properties?';
-          } else {
-            console.log('No matching community found, defaulting to Valley:', community); // Debug log
-            // Default to Valley if no community match
-            document.getElementById('propertiesModalLabel').textContent = 'Valley Properties';
-            document.querySelector('.properties-subtitle').textContent = 'Discover Premium Developments in The Valley Community';
-            document.getElementById('valley-properties').style.display = 'contents';
-            document.querySelector('.contact-label').textContent = 'Interested in Valley Properties?';
-          }
-        });
-      });
-      
       // Cleanup function for modal overlays
       function cleanupModalBackdrops() {
         // Remove any stray backdrops
@@ -2574,47 +2224,59 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Add modal show event listener for properties modal
       document.getElementById('propertiesModal').addEventListener('show.bs.modal', function(e) {
-        // Get the trigger element (the neighborhood card that was clicked)
-        const triggerElement = e.relatedTarget;
-        if (triggerElement) {
-          const neighborhoodCard = triggerElement.closest('.neighborhood-card');
-          if (neighborhoodCard) {
-            const community = neighborhoodCard.dataset.community;
-            console.log('Modal opening for community:', community);
-            
-            // Trigger the community selection logic
-            if (community === 'grandpolo') {
-              document.querySelectorAll('.community-properties').forEach(section => {
-                section.style.display = 'none';
-              });
-              document.getElementById('propertiesModalLabel').textContent = 'Grand Polo Club & Resort Properties';
-              document.querySelector('.properties-subtitle').textContent = 'Discover Luxury Equestrian Living at Grand Polo Club & Resort';
-              document.getElementById('grandpolo-properties').style.display = 'contents';
-              document.querySelector('.contact-label').textContent = 'Interested in Grand Polo Properties?';
-            } else {
-              // Default to Valley
-              document.querySelectorAll('.community-properties').forEach(section => {
-                section.style.display = 'none';
-              });
-              document.getElementById('propertiesModalLabel').textContent = 'Valley Properties';
-              document.querySelector('.properties-subtitle').textContent = 'Discover Premium Developments in The Valley Community';
-              document.getElementById('valley-properties').style.display = 'contents';
-              document.querySelector('.contact-label').textContent = 'Interested in Valley Properties?';
-            }
-          }
-        }
+        // Clear any hardcoded defaults, let the loader handle it
+        document.getElementById('valley-properties').style.display = 'none';
+        const grandPolo = document.getElementById('grandpolo-properties');
+        if (grandPolo) grandPolo.style.display = 'none';
       });
     });
   </script>
 
-  <!-- Property Loader for Dynamic Exclusive Listings -->
-  <script src="assets/js/property-loader.js"></script>
+  <!-- Sanity Configuration -->
+  <script src="assets/js/sanity/sanity-config.js"></script>
+  <script src="assets/js/sanity/sanity-token.js"></script>
+
+  <!-- Sanity Read Client -->
+  <script src="assets/js/sanity/sanity-read.js"></script>
+
+  <!-- Shared Sanity Property Fetcher (Clean Architecture) -->
+  <script src="assets/js/utils/sanity-property-fetcher.js"></script>
+
+  <!-- Navigation Loader for Dynamic Navigation and Logo -->
+  <script src="assets/js/sections/navigation-from-sanity.js"></script>
+
+  <!-- Exclusive Listings Loader - Sanity Integration (Primary) -->
+  <script src="assets/js/sections/exclusive-listings-from-sanity.js"></script>
+
+  <!-- Property Loader for Dynamic Exclusive Listings (Fallback) -->
+  <!-- <script src="assets/js/property-loader.js"></script> -->
 
   <!-- Properties Modal Loader for Dynamic Property Cards -->
   <script src="assets/js/properties-modal-loader.js"></script>
 
+  <!-- Projects Modal Loader (Notable Transactions) -->
+  <script src="assets/js/projects-modal-loader.js"></script>
+
   <!-- Notable Transactions Loader for Dynamic Carousel Content -->
   <script src="assets/js/notable-transactions-loader.js"></script>
+
+  <!-- Testimonials Loader for Dynamic Authority Section Content -->
+  <script src="assets/js/sections/testimonials-from-sanity.js"></script>
+
+  <!-- Hero Section Loader for Dynamic Hero Content -->
+  <script src="assets/js/sections/hero-from-sanity.js"></script>
+
+  <!-- About Carousel Loader for Dynamic About Section Content -->
+  <script src="assets/js/sections/about-carousel-from-sanity.js"></script>
+
+  <!-- Expertise Section Loader for Dynamic Expertise Content -->
+  <script src="assets/js/sections/expertise-from-sanity.js"></script>
+
+  <!-- Parallax Hero Loader -->
+  <script src="assets/js/sections/parallax-hero-from-sanity.js"></script>
+
+  <!-- Featured Videos (Shorts) Loader -->
+  <script src="assets/js/sections/featured-videos-from-sanity.js"></script>
 
 </body>
 

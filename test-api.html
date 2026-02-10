@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sanity API Test</title>
+</head>
+<body>
+    <h1>Sanity API Test</h1>
+    <button onclick="testSanityAPI()">Test API</button>
+    <pre id="output"></pre>
+
+    <script>
+        async function testSanityAPI() {
+            const output = document.getElementById('output');
+            output.textContent = 'Testing...';
+            
+            try {
+                const query = `*[_type=="homePage"][0]{testimonialsSection}`;
+                const url = `https://xwla8vtz.api.sanity.io/v2024-02-06/data/query/production?query=${encodeURIComponent(query)}`;
+                
+                console.log('Testing URL:', url);
+                
+                const response = await fetch(url);
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('API Response:', data);
+                
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('API Error:', error);
+                output.textContent = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

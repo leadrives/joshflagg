@@ -28,6 +28,15 @@ class BlogManager {
   }
 
   async loadBlogData() {
+    // Check if Sanity data is available
+    if (window.__SANITY_BLOGS__) {
+      console.log('✅ Using blog data from Sanity');
+      this.blogData = window.__SANITY_BLOGS__;
+      this.filteredBlogs = [...this.blogData.blogs];
+      console.log(`Successfully loaded ${this.blogData.blogs.length} blog articles from Sanity`);
+      return;
+    }
+
     try {
       console.log('Attempting to load blog data from data/blogs.json');
       const response = await fetch('data/blogs.json');
@@ -402,7 +411,16 @@ class BlogManager {
 }
 
 // Initialize blog manager when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {  // Listen for Sanity blog data if it loads after blog-manager initializes
+  window.addEventListener('sanity-blogs-loaded', (event) => {
+    if (window.blogManager && event.detail.blogData) {
+      console.log('📦 Received Sanity blog data after initialization');
+      window.blogManager.blogData = event.detail.blogData;
+      window.blogManager.filteredBlogs = [...event.detail.blogData.blogs];
+      window.blogManager.renderFeaturedBlog();
+      window.blogManager.renderBlogGrid();
+    }
+  });
   window.blogManager = new BlogManager();
 });
 

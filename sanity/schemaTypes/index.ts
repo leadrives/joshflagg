@@ -1,5 +1,6 @@
 import {blogPost} from './blogPost'
 import {brandPartner} from './brandPartner'
+import submission from './submission'
 import {homePage} from './homePage'
 import {neighborhood} from './neighborhood'
 import {property} from './property'
@@ -12,9 +13,10 @@ export const schemaTypes = [
   homePage,
   
   // Content types
+  neighborhood,
   property,
   blogPost,
-  neighborhood,
   testimonial,
   brandPartner,
+  submission,
 ]

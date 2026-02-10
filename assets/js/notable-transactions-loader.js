@@ -11,33 +11,33 @@ class NotableTransactionsLoader {
     this.transactions = null;
     this.fallbackData = [
       {
-        id: "fallback-palm-jumeirah",
-        name: "Palm Jumeirah Villa",
-        price: "150,000,000",
-        currency: "AED",
-        status: "Sold",
+        id: "fallback-park-gate-2",
+        name: "Park Gate 2 by Emaar",
+        price: "AED 14,12M",
+        currency: "",
+        status: "For Sale",
         images: { 
-          main: "assets/images/four-seasons-private-residences-al-maryah-island.webp" 
+          main: "https://cdn.sanity.io/images/xwla8vtz/production/b91d7214b4550e12f5e6dd0a7fc1143b15d5f70f-2450x1400.jpg" 
         }
       },
       {
-        id: "fallback-downtown-penthouse", 
-        name: "Downtown Dubai Penthouse",
-        price: "85,000,000",
-        currency: "AED",
-        status: "Sold",
+        id: "fallback-mareva-oasis", 
+        name: "Mareva at The Oasis",
+        price: "AED 13.47M",
+        currency: "",
+        status: "For Sale",
         images: { 
-          main: "assets/images/the-row-saadiyat-aldar.webp" 
+          main: "https://cdn.sanity.io/images/xwla8vtz/production/a897cd3cb14602fc992041f5000aa19c9a89f9e4-2450x1400.jpg" 
         }
       },
       {
-        id: "fallback-dubai-marina",
-        name: "Dubai Marina Tower", 
-        price: "65,000,000",
-        currency: "AED",
-        status: "Sold",
+        id: "fallback-creek-beach-grove",
+        name: "Creek Beach Grove", 
+        price: "AED 2,000,000",
+        currency: "",
+        status: "For Sale",
         images: { 
-          main: "assets/images/hudayriyat-island-modon.jpg" 
+          main: "https://cdn.sanity.io/images/xwla8vtz/production/2548aeb2cdb33766316a27ff84648d705ce39f42-1920x1000.jpg" 
         }
       }
     ];
@@ -64,12 +64,35 @@ class NotableTransactionsLoader {
   }
 
   /**
-   * Load notable transactions from JSON file with retry logic
+   * Load notable transactions from Sanity (via shared Fetcher)
    */
   async loadTransactions() {
     this.loadAttempts++;
     
     try {
+      // Use Shared Fetcher if available
+      if (window.SanityPropertyFetcher) {
+        console.log('🔄 Notable Transactions: Fetching from Sanity...');
+        const sanityData = await window.SanityPropertyFetcher.getNotableTransactions();
+        
+        if (sanityData && sanityData.length > 0) {
+            // Transform Sanity data to expected format
+            this.transactions = sanityData.map(item => ({
+                id: item._id,
+                name: item.title,
+                price: item.price || 'Price on Request',
+                currency: '',
+                status: item.status === 'sold' ? 'Sold' : (item.status === 'for-sale' ? 'For Sale' : (item.status || 'Available')),
+                images: {
+                    main: item.imageUrl || 'assets/images/placeholder.webp'
+                }
+            }));
+            return this.transactions;
+        }
+      }
+
+      // Fallback to local JSON if Sanity returns nothing or fails
+      console.warn('⚠️ Notable Transactions: Sanity returned no data, trying local JSON...');
       const response = await fetch('assets/data/properties.json?t=' + Date.now());
       
       if (!response.ok) {
@@ -80,10 +103,6 @@ class NotableTransactionsLoader {
       
       if (!data.notableTransactions || !Array.isArray(data.notableTransactions)) {
         throw new Error('Invalid JSON structure: notableTransactions not found');
-      }
-      
-      if (data.notableTransactions.length === 0) {
-        throw new Error('No notable transactions data available');
       }
       
       this.transactions = data.notableTransactions;
@@ -131,11 +150,14 @@ class NotableTransactionsLoader {
       carouselInner.appendChild(slide);
     });
 
-    // Update detail info with first transaction
-    if (this.transactions.length > 0 && detailPrice && detailName) {
+    // Update ALL detail-price and detail-name elements (mobile + desktop)
+    if (this.transactions.length > 0) {
       const firstTransaction = this.transactions[0];
-      detailPrice.textContent = `${firstTransaction.price} ${firstTransaction.currency}`;
-      detailName.textContent = firstTransaction.name;
+      const displayPrice = firstTransaction.currency 
+        ? `${firstTransaction.price} ${firstTransaction.currency}` 
+        : firstTransaction.price;
+      document.querySelectorAll('.detail-price').forEach(el => el.textContent = displayPrice);
+      document.querySelectorAll('.detail-name').forEach(el => el.textContent = firstTransaction.name);
     }
   }
 
@@ -147,12 +169,16 @@ class NotableTransactionsLoader {
     slideDiv.className = `carousel-item ${index === 0 ? 'active' : ''}`;
     slideDiv.setAttribute('data-slide', index.toString());
     
+    const displayPrice = transaction.currency 
+      ? `${transaction.price} ${transaction.currency}` 
+      : transaction.price;
+
     slideDiv.innerHTML = `
       <div class="carousel-card">
         <img src="${transaction.images.main}" 
              class="card-img" 
              alt="${transaction.name}"
-             data-price="${transaction.price} ${transaction.currency}" 
+             data-price="${displayPrice}" 
              data-name="${transaction.name}">
         <div class="status-label">${transaction.status}</div>
       </div>
@@ -198,15 +224,10 @@ class NotableTransactionsLoader {
    */
   initializePreviewAnimation() {
     const carouselEl = document.getElementById('notableCarousel');
-    const priceEl = document.querySelector('.detail-price');
-    const nameEl = document.querySelector('.detail-name');
     const slides = document.querySelectorAll('#notableCarousel .carousel-item');
-    const prevBtn = document.querySelector('[data-bs-target="#notableCarousel"][data-bs-slide="prev"]');
-    const nextBtn = document.querySelector('[data-bs-target="#notableCarousel"][data-bs-slide="next"]');
     
     let currentIndex = 0;
     const totalSlides = slides.length;
-    let isTransitioning = false;
 
     // Position slides for multi-preview layout
     const positionSlides = () => {
@@ -221,79 +242,49 @@ class NotableTransactionsLoader {
       });
     };
 
-    // Update property info
+    // Update property info — update ALL instances (mobile + desktop)
     const updatePropertyInfo = (slideIndex) => {
       const activeSlide = slides[slideIndex];
+      if (!activeSlide) return;
       const activeImg = activeSlide.querySelector('.card-img');
       
-      if (activeImg && priceEl && nameEl) {
+      if (activeImg) {
         const price = activeImg.dataset.price;
         const name = activeImg.dataset.name;
         
-        if (price) priceEl.textContent = price;
-        if (name) nameEl.textContent = name;
+        if (price) document.querySelectorAll('.detail-price').forEach(el => el.textContent = price);
+        if (name) document.querySelectorAll('.detail-name').forEach(el => el.textContent = name);
       }
     };
 
-    // Handle manual navigation
-    const navigateToSlide = (targetIndex) => {
-      if (isTransitioning) return;
-      
-      isTransitioning = true;
-      currentIndex = targetIndex;
-      
-      // Update Bootstrap carousel
-      const carousel = bootstrap.Carousel.getInstance(carouselEl);
-      if (carousel) {
-        carousel.to(targetIndex);
-      }
-      
-      setTimeout(() => {
-        isTransitioning = false;
-        positionSlides();
-        updatePropertyInfo(currentIndex);
-      }, 100);
-    };
+    // Remove data-bs-slide attributes to prevent Bootstrap's built-in handler
+    // from conflicting with our custom navigation logic
+    const allNavBtns = document.querySelectorAll('[data-bs-target="#notableCarousel"][data-bs-slide]');
+    allNavBtns.forEach(btn => {
+      const direction = btn.getAttribute('data-bs-slide');
+      btn.removeAttribute('data-bs-slide');
+      btn.removeAttribute('data-bs-target');
+      btn.setAttribute('data-notable-dir', direction);
 
-    // Custom button handlers
-    if (prevBtn) {
-      // Remove existing listeners to avoid conflicts
-      prevBtn.replaceWith(prevBtn.cloneNode(true));
-      const newPrevBtn = document.querySelector('[data-bs-target="#notableCarousel"][data-bs-slide="prev"]');
-      
-      newPrevBtn.addEventListener('click', function(e) {
+      btn.addEventListener('click', function(e) {
         e.preventDefault();
-        const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        navigateToSlide(newIndex);
-      });
-    }
-
-    if (nextBtn) {
-      // Remove existing listeners to avoid conflicts
-      nextBtn.replaceWith(nextBtn.cloneNode(true));
-      const newNextBtn = document.querySelector('[data-bs-target="#notableCarousel"][data-bs-slide="next"]');
-      
-      newNextBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const newIndex = (currentIndex + 1) % totalSlides;
-        navigateToSlide(newIndex);
-      });
-    }
-
-    // Handle carousel events
-    if (carouselEl) {
-      carouselEl.addEventListener('slide.bs.carousel', function (e) {
-        if (!isTransitioning) {
-          isTransitioning = true;
-          currentIndex = parseInt(e.relatedTarget.dataset.slide);
+        e.stopPropagation();
+        const carousel = bootstrap.Carousel.getInstance(carouselEl);
+        if (!carousel) return;
+        if (direction === 'prev') {
+          carousel.prev();
+        } else {
+          carousel.next();
         }
       });
-      
+    });
+
+    // Handle carousel events — single listener for all updates
+    if (carouselEl) {
       carouselEl.addEventListener('slid.bs.carousel', function (e) {
-        currentIndex = parseInt(e.relatedTarget.dataset.slide);
+        currentIndex = parseInt(e.relatedTarget.dataset.slide) || 0;
         positionSlides();
         updatePropertyInfo(currentIndex);
-        isTransitioning = false;
       });
 
       // Initialize layout
@@ -307,7 +298,6 @@ class NotableTransactionsLoader {
     this.carouselControls = {
       positionSlides,
       updatePropertyInfo,
-      navigateToSlide,
       currentIndex: () => currentIndex,
       totalSlides
     };
@@ -341,45 +331,43 @@ class NotableTransactionsLoader {
       <!-- Slide 1 -->
       <div class="carousel-item active" data-slide="0">
         <div class="carousel-card">
-          <img src="assets/images/four-seasons-private-residences-al-maryah-island.webp" 
+          <img src="https://cdn.sanity.io/images/xwla8vtz/production/b91d7214b4550e12f5e6dd0a7fc1143b15d5f70f-2450x1400.jpg" 
                class="card-img" 
-               alt="Palm Jumeirah Villa"
-               data-price="150,000,000 AED" 
-               data-name="Palm Jumeirah Villa">
-          <div class="status-label">Sold</div>
+               alt="Park Gate 2 by Emaar"
+               data-price="AED 14,12M" 
+               data-name="Park Gate 2 by Emaar">
+          <div class="status-label">For Sale</div>
         </div>
       </div>
 
       <!-- Slide 2 -->
       <div class="carousel-item" data-slide="1">
         <div class="carousel-card">
-          <img src="assets/images/the-row-saadiyat-aldar.webp" 
+          <img src="https://cdn.sanity.io/images/xwla8vtz/production/a897cd3cb14602fc992041f5000aa19c9a89f9e4-2450x1400.jpg" 
                class="card-img" 
-               alt="Downtown Dubai Penthouse"
-               data-price="85,000,000 AED" 
-               data-name="Downtown Dubai Penthouse">
-          <div class="status-label">Sold</div>
+               alt="Mareva at The Oasis"
+               data-price="AED 13.47M" 
+               data-name="Mareva at The Oasis">
+          <div class="status-label">For Sale</div>
         </div>
       </div>
 
       <!-- Slide 3 -->
       <div class="carousel-item" data-slide="2">
         <div class="carousel-card">
-          <img src="assets/images/hudayriyat-island-modon.jpg" 
+          <img src="https://cdn.sanity.io/images/xwla8vtz/production/2548aeb2cdb33766316a27ff84648d705ce39f42-1920x1000.jpg" 
                class="card-img" 
-               alt="Dubai Marina Tower"
-               data-price="65,000,000 AED" 
-               data-name="Dubai Marina Tower">
-          <div class="status-label">Sold</div>
+               alt="Creek Beach Grove"
+               data-price="AED 2,000,000" 
+               data-name="Creek Beach Grove">
+          <div class="status-label">For Sale</div>
         </div>
       </div>
     `;
 
     // Reset detail info
-    const detailPrice = document.querySelector('.detail-price');
-    const detailName = document.querySelector('.detail-name');
-    if (detailPrice) detailPrice.textContent = '150,000,000 AED';
-    if (detailName) detailName.textContent = 'Palm Jumeirah Villa';
+    document.querySelectorAll('.detail-price').forEach(el => el.textContent = 'AED 14,12M');
+    document.querySelectorAll('.detail-name').forEach(el => el.textContent = 'Park Gate 2 by Emaar');
 
     // Reinitialize with original animation system
     this.initializeBootstrapCarousel();
@@ -404,6 +392,12 @@ let notableTransactionsLoader = null;
 
 // Auto-initialization when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
+  // Check if Sanity loader has already handled this
+  if (window.__SANITY_NOTABLE_DONE__) {
+    console.log('ℹ️ Notable Transactions: Sanity loader already handled, skipping JSON loader');
+    return;
+  }
+
   // Initialize loader
   notableTransactionsLoader = new NotableTransactionsLoader();
   
