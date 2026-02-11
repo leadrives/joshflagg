@@ -4082,6 +4082,7 @@ textarea {
   position: sticky;
   bottom: 0;
   z-index: 10;
+  display: block;
 }
 
 .projects-footer-content {
@@ -4090,6 +4091,7 @@ textarea {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
+  gap: 1rem;
 }
 
 .footer-contact-info {
