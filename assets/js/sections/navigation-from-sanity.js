@@ -45,6 +45,39 @@
   };
 
   /**
+   * Attach click listeners to all mobile nav links so the Bootstrap
+   * collapse menu closes automatically when a link is tapped.
+   * Safe to call multiple times (uses event delegation on the collapse element).
+   */
+  function setupMobileNavAutoClose() {
+    const navbarCollapse = document.getElementById('navbarContent');
+    if (!navbarCollapse) return;
+
+    // Remove previous delegated listener (if any) to avoid duplicates
+    if (navbarCollapse._mobileCloseHandler) {
+      navbarCollapse.removeEventListener('click', navbarCollapse._mobileCloseHandler);
+    }
+
+    const handler = function(e) {
+      // Only act on link / button clicks inside the mobile nav area
+      const link = e.target.closest('a.navigation__link, a.btn');
+      if (!link) return;
+
+      // Only collapse when we're actually on mobile (collapse is visible)
+      if (!navbarCollapse.classList.contains('show')) return;
+
+      // Use Bootstrap API to toggle/hide the collapse
+      const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse, { toggle: false });
+      bsCollapse.hide();
+    };
+
+    navbarCollapse.addEventListener('click', handler);
+    navbarCollapse._mobileCloseHandler = handler;
+
+    console.log('✅ Mobile nav auto-close handler attached');
+  }
+
+  /**
    * Update logo images
    * @param {object} siteSettings - Site settings data from Sanity
    */
@@ -171,6 +204,9 @@
     
     // Update mobile navigation
     updateMobileNavigation(navigation);
+
+    // Re-attach mobile nav auto-close after DOM replacement
+    setupMobileNavAutoClose();
     
     console.log('✅ Navigation updated successfully');
   }
@@ -224,6 +260,9 @@
       document.addEventListener('DOMContentLoaded', init);
       return;
     }
+
+    // Attach mobile nav auto-close for hardcoded/fallback links immediately
+    setupMobileNavAutoClose();
 
     console.log('✅ DOM ready, checking SanityRead...');
     
