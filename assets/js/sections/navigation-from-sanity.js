@@ -169,10 +169,7 @@
       const mobileLinksHTML = allMainLinks.map(link => createLinkHTML(link, false)).join('\n            ');
       mobileContainer.innerHTML = mobileLinksHTML;
       
-      // Add SELL link that was hardcoded
-      mobileContainer.innerHTML += '\n            <a href="#work-with-josh-section" class="navigation__link">SELL</a>';
-      
-      console.log('✅ Updated mobile main navigation with', allMainLinks.length + 1, 'links (including SELL)');
+      console.log('✅ Updated mobile main navigation with', allMainLinks.length, 'links');
     }
 
     // Update second mobile section (button links)
