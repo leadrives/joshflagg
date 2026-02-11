@@ -1,6 +1,12 @@
 /* ===== BLOG STYLES ===== */
 /* Blog-specific styling that extends the main site styles */
 
+/* Blog Navbar Override - Fixed black background for all blog pages */
+#global-navbar {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
 /* Blog Header Section */
 .blog-header-section {
   position: relative;
