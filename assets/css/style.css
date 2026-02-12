@@ -3824,7 +3824,11 @@ textarea {
   border: none;
   border-radius: 0;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  overflow: visible;
+}
+
+.consultation-modal .modal-body {
+  overflow: visible;
 }
 
 /* ===== 19. PROJECTS MODAL ===== */
@@ -4582,6 +4586,7 @@ textarea {
 .consultation-body {
   padding: 2rem 2.5rem;
   background: #fff;
+  overflow: visible;
 }
 
 .consultation-subtitle {
@@ -4596,6 +4601,7 @@ textarea {
 .consultation-group {
   margin-bottom: 1.5rem;
   position: relative;
+  overflow: visible;
 }
 
 .consultation-label {
@@ -4638,6 +4644,15 @@ textarea {
   display: flex;
   gap: 0;
   align-items: stretch;
+  overflow: visible;
+  position: relative;
+}
+
+/* Phone input within wrapper - override consultation-input width */
+.phone-input-wrapper .consultation-input.phone-input {
+  width: auto;
+  flex: 1;
+  min-width: 0;
 }
 
 /* ── Country Phone Picker ── */
@@ -4715,7 +4730,7 @@ textarea {
 
 .country-picker-dropdown.open {
   max-height: 380px;
-  overflow: visible;
+  overflow: hidden;
   opacity: 1;
   transform: translateY(0);
 }
@@ -4837,6 +4852,7 @@ textarea {
 .phone-input {
   flex: 1;
   border-radius: 0 !important;
+  width: auto;
 }
 
 /* ── Parallax form phone picker overrides ── */
