@@ -12,21 +12,76 @@ document.addEventListener('DOMContentLoaded', function() {
   const userLocation = { ip: null, country: null };
   let propertyContext = { name: null, id: null, community: null };
 
-  // --- 1. Fetch User Location ---
-  fetch('https://ipapi.co/json/')
-    .then(r => r.json())
+  // --- 1. Fetch User Location (with fallback services) ---
+  function fetchLocation() {
+    // Try primary service
+    return fetch('https://ipapi.co/json/')
+      .then(r => {
+        if (!r.ok) throw new Error('ipapi.co failed');
+        return r.json();
+      })
+      .then(data => {
+        if (!data.ip) throw new Error('No IP from ipapi.co');
+        return {
+          ip: data.ip,
+          country: data.country_name,
+          countryCode: data.country_code
+        };
+      })
+      .catch(() => {
+        // Fallback 1: ipinfo.io (no key needed for basic info)
+        return fetch('https://ipinfo.io/json?token=')
+          .then(r => r.ok ? r.json() : Promise.reject())
+          .then(data => ({
+            ip: data.ip,
+            country: data.country,
+            countryCode: data.country
+          }))
+          .catch(() => {
+            // Fallback 2: ip-api.com (free, no key)
+            return fetch('https://ip-api.com/json/?fields=query,country,countryCode')
+              .then(r => r.ok ? r.json() : Promise.reject())
+              .then(data => ({
+                ip: data.query,
+                country: data.country,
+                countryCode: data.countryCode
+              }))
+              .catch(() => {
+                // Fallback 3: Cloudflare trace (always works)
+                return fetch('https://www.cloudflare.com/cdn-cgi/trace')
+                  .then(r => r.text())
+                  .then(text => {
+                    const lines = Object.fromEntries(
+                      text.trim().split('\n').map(l => l.split('='))
+                    );
+                    return {
+                      ip: lines.ip || 'unknown',
+                      country: lines.loc || 'unknown',
+                      countryCode: lines.loc || ''
+                    };
+                  });
+              });
+          });
+      });
+  }
+
+  fetchLocation()
     .then(data => {
       userLocation.ip = data.ip;
-      userLocation.country = data.country_name;
-      console.log('📍 Location:', userLocation.country);
+      userLocation.country = data.country;
+      console.log('📍 Location:', data.country, '| IP:', data.ip);
       
       // Dispatch event for country phone picker auto-detection
-      window.__countryPickerDetectedISO = data.country_code;
+      window.__countryPickerDetectedISO = data.countryCode;
       window.dispatchEvent(new CustomEvent('countryDetected', {
-        detail: { countryCode: data.country_code, countryName: data.country_name }
+        detail: { countryCode: data.countryCode, countryName: data.country }
       }));
     })
-    .catch(console.warn);
+    .catch(err => {
+      console.warn('📍 Location detection failed:', err);
+      userLocation.ip = 'unavailable';
+      userLocation.country = 'unavailable';
+    });
 
 
   // --- 2. Property Context (Modal Listener) ---
@@ -127,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       await submitToSanity(payload);
       
-      // Show thank-you message for parallax form instead of alert
+      // Show thank-you message based on form source
       if (formConfig.source === 'parallax-form') {
         const formBox = form.closest('.parallax-form-box');
         if (formBox) {
@@ -140,12 +195,57 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           `;
         }
-      } else {
-        alert(formConfig.successMessage || 'Thank you! We have received your submission.');
+      } else if (formConfig.source === 'consultation-modal') {
+        // Show thank-you inside the consultation modal
+        const modalBody = document.querySelector('#consultationModal .consultation-body');
+        const modalFooter = document.querySelector('#consultationModal .consultation-footer');
+        if (modalBody) {
+          modalBody.innerHTML = `
+            <div class="form-thankyou">
+              <div class="form-thankyou-icon">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <circle cx="32" cy="32" r="30" stroke="#7c6d5c" stroke-width="2" fill="none"/>
+                  <path d="M20 33l8 8 16-16" stroke="#7c6d5c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
+              <h3 class="form-thankyou-heading">Consultation Scheduled!</h3>
+              <p class="form-thankyou-text">Thank you, <strong>${getFieldValue('fullName') || 'there'}</strong>. Your consultation request has been received.</p>
+              <p class="form-thankyou-text">Ahmad will personally reach out to confirm your appointment within <strong>30 minutes</strong>.</p>
+              <p class="form-thankyou-subtext">We look forward to helping you find your dream property in Dubai.</p>
+            </div>
+          `;
+        }
+        if (modalFooter) {
+          modalFooter.innerHTML = `
+            <button type="button" class="btn consultation-submit" data-bs-dismiss="modal" style="width:100%;">Close</button>
+          `;
+        }
+      } else if (formConfig.source === 'work-with-ahmad') {
+        // Show thank-you inside the WWJ form section
+        const formContainer = form.closest('.work-with-josh-container');
+        if (formContainer) {
+          // Keep the header, replace form area
+          const wwjForm = formContainer.querySelector('.wwj-form');
+          if (wwjForm) {
+            wwjForm.innerHTML = `
+              <div class="form-thankyou wwj-thankyou">
+                <div class="form-thankyou-icon">
+                  <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
+                    <circle cx="32" cy="32" r="30" stroke="#fff" stroke-width="2" fill="none"/>
+                    <path d="M20 33l8 8 16-16" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                </div>
+                <h3 class="form-thankyou-heading">Message Sent!</h3>
+                <p class="form-thankyou-text">Thank you for reaching out. Ahmad will get back to you within <strong>30 minutes</strong>.</p>
+                <p class="form-thankyou-subtext">We appreciate your interest in working with us.</p>
+              </div>
+            `;
+          }
+        }
       }
       form.reset();
       
-      if (formConfig.modalId) {
+      if (formConfig.modalId && formConfig.source !== 'consultation-modal') {
         const modalEl = document.getElementById(formConfig.modalId);
         if (window.bootstrap && window.bootstrap.Modal && modalEl) {
           const modalInstance = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
