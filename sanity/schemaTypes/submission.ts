@@ -50,6 +50,7 @@ export default defineType({
           { title: 'Consultation Modal', value: 'consultation-modal' },
           { title: 'Work With Ahmad', value: 'work-with-ahmad' },
           { title: 'Parallax Form', value: 'parallax-form' },
+          { title: 'Newsletter', value: 'newsletter' },
         ],
       },
     }),

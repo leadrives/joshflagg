@@ -1366,10 +1366,22 @@
       <div class="footer-col footer-col-right">
         <h6>NEWSLETTER</h6>
         <p>For exclusive news & market updates sign up to our newsletter</p>
-        <label class="footer-input-label">EMAIL ADDRESS</label>
-        <input type="email" class="footer-input" placeholder="Enter Your Email Address">
-        <div class="footer-consent">
-          <label><input type="checkbox"> I agree to be contacted by Mohamad Ahmad via call, email, and text for real estate services… <a href="#">Privacy Policy</a>.</label>
+        <form id="newsletterForm" class="newsletter-form">
+          <label class="footer-input-label" for="newsletter-email">EMAIL ADDRESS</label>
+          <input type="email" id="newsletter-email" class="footer-input" placeholder="Enter Your Email Address" required>
+          <div class="footer-consent">
+            <label><input type="checkbox" id="newsletter-consent" required> I agree to be contacted by Mohamad Ahmad via call, email, and text for real estate services… <a href="#">Privacy Policy</a>.</label>
+          </div>
+          <button type="submit" class="newsletter-submit-btn">SUBSCRIBE</button>
+        </form>
+        <div id="newsletter-thankyou" class="newsletter-thankyou" style="display:none;">
+          <div class="newsletter-thankyou-icon">
+            <svg width="40" height="40" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="30" stroke="#7c6d5c" stroke-width="2" fill="none"/>
+              <path d="M20 33l8 8 16-16" stroke="#7c6d5c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <p class="newsletter-thankyou-text">Thank you for subscribing! You'll receive exclusive updates soon.</p>
         </div>
       </div>
 

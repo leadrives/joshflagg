@@ -3375,6 +3375,46 @@ textarea {
   color: #444;
 }
 
+/* Newsletter Subscribe Button */
+.newsletter-submit-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 32px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #7c6d5c;
+  border: 1px solid #7c6d5c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.newsletter-submit-btn:hover {
+  background-color: transparent;
+  color: #7c6d5c;
+}
+.newsletter-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Newsletter Thank You */
+.newsletter-thankyou {
+  animation: fadeInUp 0.5s ease forwards;
+  text-align: left;
+}
+.newsletter-thankyou-icon {
+  margin-bottom: 10px;
+}
+.newsletter-thankyou-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
 /* MIDDLE */
 .footer-middle {
   position: relative;
@@ -3607,6 +3647,16 @@ textarea {
     margin-top: 0.2rem;
     width: 16px;
     height: 16px;
+  }
+
+  .newsletter-submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+  }
+
+  .newsletter-thankyou {
+    text-align: center;
   }
   
   /* Mobile Footer Middle */

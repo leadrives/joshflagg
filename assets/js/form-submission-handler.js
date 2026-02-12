@@ -311,6 +311,58 @@ document.addEventListener('DOMContentLoaded', function() {
     }));
   }
 
+  // D. Newsletter Form (Footer)
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const emailInput = document.getElementById('newsletter-email');
+      const consentBox = document.getElementById('newsletter-consent');
+      const btn = newsletterForm.querySelector('button[type="submit"]');
+      
+      if (!emailInput || !emailInput.value) {
+        newsletterForm.reportValidity();
+        return;
+      }
+      
+      if (!consentBox || !consentBox.checked) {
+        alert('Please agree to the privacy policy to subscribe.');
+        return;
+      }
+      
+      // Loading state
+      const originalText = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Subscribing...'; }
+      
+      const payload = {
+        _type: 'submission',
+        source: 'newsletter',
+        email: emailInput.value,
+        ipAddress: userLocation.ip,
+        country: userLocation.country,
+        submittedAt: new Date().toISOString(),
+        status: 'new',
+        propertyOfInterest: 'Newsletter Subscription',
+      };
+      
+      Object.keys(payload).forEach(key => payload[key] === null && delete payload[key]);
+      
+      try {
+        await submitToSanity(payload);
+        // Show thank-you, hide form
+        newsletterForm.style.display = 'none';
+        const thankyou = document.getElementById('newsletter-thankyou');
+        if (thankyou) thankyou.style.display = 'block';
+      } catch (err) {
+        console.error('Newsletter submission error:', err);
+        alert('Error subscribing. Please try again.');
+      } finally {
+        if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
+      }
+    });
+  }
+
 
   // --- Sanity Write Logic ---
   async function submitToSanity(data) {
