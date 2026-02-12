@@ -20,13 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
       userLocation.country = data.country_name;
       console.log('📍 Location:', userLocation.country);
       
-      // Update Country Selects if they exist
-      const countrySelects = document.querySelectorAll('select.country-select');
-      countrySelects.forEach(select => {
-         if (data.country_code === 'US') select.value = '+1';
-         else if (data.country_code === 'AE') select.value = '+971';
-         else if (data.country_code === 'GB') select.value = '+44';
-      });
+      // Dispatch event for country phone picker auto-detection
+      window.__countryPickerDetectedISO = data.country_code;
+      window.dispatchEvent(new CustomEvent('countryDetected', {
+        detail: { countryCode: data.country_code, countryName: data.country_name }
+      }));
     })
     .catch(console.warn);
 

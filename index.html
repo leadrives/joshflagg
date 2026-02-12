@@ -779,7 +779,23 @@
           </div>
           <div class="parallax-form-group">
             <label for="form-phone">Phone *</label>
-            <input type="tel" id="form-phone" placeholder="Enter your phone number" required />
+            <div class="phone-input-wrapper parallax-phone-wrapper">
+              <input type="hidden" id="formCountryCode" name="countryCode" value="+971">
+              <div class="country-picker" id="parallaxCountryPicker">
+                <button type="button" class="country-picker-btn" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="cp-flag">🇦🇪</span>
+                  <span class="cp-code">+971</span>
+                  <span class="cp-arrow">&#9662;</span>
+                </button>
+                <div class="country-picker-dropdown" role="listbox">
+                  <div class="cp-search-wrap">
+                    <input type="text" class="cp-search" placeholder="Search country..." autocomplete="off">
+                  </div>
+                  <ul class="cp-list"></ul>
+                </div>
+              </div>
+              <input type="tel" id="form-phone" placeholder="Enter phone number" required />
+            </div>
           </div>
           <div class="parallax-form-group parallax-form-group-full">
             <label for="form-email">Email *</label>
@@ -1224,7 +1240,23 @@
 
           <div class="wwj-group">
             <label for="wwj-phone">Phone *</label>
-            <input type="tel" id="wwj-phone" name="phone" required>
+            <div class="phone-input-wrapper wwj-phone-wrapper">
+              <input type="hidden" id="wwjCountryCode" name="countryCode" value="+971">
+              <div class="country-picker" id="wwjCountryPicker">
+                <button type="button" class="country-picker-btn" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="cp-flag">🇦🇪</span>
+                  <span class="cp-code">+971</span>
+                  <span class="cp-arrow">&#9662;</span>
+                </button>
+                <div class="country-picker-dropdown" role="listbox">
+                  <div class="cp-search-wrap">
+                    <input type="text" class="cp-search" placeholder="Search country..." autocomplete="off">
+                  </div>
+                  <ul class="cp-list"></ul>
+                </div>
+              </div>
+              <input type="tel" id="wwj-phone" name="phone" placeholder="Enter phone number" required>
+            </div>
           </div>
         </div>
 
@@ -1734,18 +1766,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="consultation-group">
                   <label for="phoneNumber" class="consultation-label">Phone Number *</label>
                   <div class="phone-input-wrapper">
-                    <select id="countryCode" name="countryCode" class="country-select" required>
-                      <option value="+1" data-flag="🇺🇸" selected>🇺🇸 +1</option>
-                      <option value="+1" data-flag="🇨🇦">🇨🇦 +1</option>
-                      <option value="+44" data-flag="🇬🇧">🇬🇧 +44</option>
-                      <option value="+61" data-flag="🇦🇺">🇦🇺 +61</option>
-                      <option value="+33" data-flag="🇫🇷">🇫🇷 +33</option>
-                      <option value="+49" data-flag="🇩🇪">🇩🇪 +49</option>
-                      <option value="+39" data-flag="🇮🇹">🇮🇹 +39</option>
-                      <option value="+34" data-flag="🇪🇸">🇪🇸 +34</option>
-                      <option value="+81" data-flag="🇯🇵">🇯🇵 +81</option>
-                      <option value="+86" data-flag="🇨🇳">🇨🇳 +86</option>
-                    </select>
+                    <!-- Hidden input stores the selected dial code -->
+                    <input type="hidden" id="countryCode" name="countryCode" value="+971">
+                    <!-- Custom searchable country picker -->
+                    <div class="country-picker" id="countryPicker">
+                      <button type="button" class="country-picker-btn" id="countryPickerBtn" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="cp-flag" id="cpFlag">🇦🇪</span>
+                        <span class="cp-code" id="cpCode">+971</span>
+                        <span class="cp-arrow">&#9662;</span>
+                      </button>
+                      <div class="country-picker-dropdown" id="countryPickerDropdown" role="listbox">
+                        <div class="cp-search-wrap">
+                          <input type="text" class="cp-search" id="cpSearch" placeholder="Search country..." autocomplete="off">
+                        </div>
+                        <ul class="cp-list" id="cpList">
+                          <!-- Populated by JS -->
+                        </ul>
+                      </div>
+                    </div>
                     <input type="tel" id="phoneNumber" name="phoneNumber" class="consultation-input phone-input" placeholder="Enter phone number" required>
                   </div>
                   <div class="consultation-error" id="phoneError"></div>
@@ -1822,6 +1860,9 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
  
+  <!-- Country Phone Picker (before form handler) -->
+  <script src="assets/js/country-phone-picker.js"></script>
+
   <!-- Consultation Modal JavaScript -->
   <script src="assets/js/form-submission-handler.js"></script>
 

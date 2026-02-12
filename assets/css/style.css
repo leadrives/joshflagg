@@ -3190,6 +3190,62 @@ textarea {
   border-color: #fff;
 }
 
+/* WWJ form phone picker overrides (dark theme) */
+.wwj-phone-wrapper {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.wwj-phone-wrapper .country-picker-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  padding: 0.65rem 0.5rem;
+  min-width: 100px;
+  gap: 0.3rem;
+  transition: border-color 0.3s ease;
+}
+
+.wwj-phone-wrapper .country-picker-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.wwj-phone-wrapper .country-picker-btn:focus {
+  border-color: #fff;
+  box-shadow: none;
+}
+
+.wwj-phone-wrapper .cp-code {
+  color: #fff;
+}
+
+.wwj-phone-wrapper .cp-arrow {
+  color: #aaa;
+}
+
+.wwj-phone-wrapper input[type="tel"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0.65rem 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-family: 'Lato', sans-serif;
+}
+
+.wwj-phone-wrapper input[type="tel"]::placeholder {
+  color: #999;
+}
+
+.wwj-phone-wrapper input[type="tel"]:focus {
+  border-color: #fff;
+}
+
 .wwj-message-group {
   width: 100%;
   margin-bottom: 1.5rem;
@@ -4580,29 +4636,264 @@ textarea {
 /* Phone input wrapper */
 .phone-input-wrapper {
   display: flex;
-  gap: 0.5rem;
+  gap: 0;
   align-items: stretch;
 }
 
-.country-select {
-  width: 120px;
+/* ── Country Phone Picker ── */
+.country-picker {
+  position: relative;
   flex-shrink: 0;
-  padding: 0.75rem 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 0;
-  font-size: 0.9rem;
-  background: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-.country-select:focus {
+.country-picker-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 100%;
+  padding: 0.75rem 0.6rem;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-radius: 0;
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  min-width: 105px;
+}
+
+.country-picker-btn:hover {
+  background: #f0ede8;
+}
+
+.country-picker-btn:focus {
+  outline: none;
   border-color: #7c6d5c;
-  box-shadow: 0 0 0 3px rgba(124, 109, 92, 0.1);
+  box-shadow: 0 0 0 2px rgba(124, 109, 92, 0.15);
+}
+
+.cp-flag {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.cp-code {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  font-family: 'Lato', sans-serif;
+}
+
+.cp-arrow {
+  font-size: 0.6rem;
+  color: #888;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.country-picker-btn[aria-expanded="true"] .cp-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.country-picker-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 320px;
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.country-picker-dropdown.open {
+  max-height: 380px;
+  overflow: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Search */
+.cp-search-wrap {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+  border-radius: 8px 8px 0 0;
+}
+
+.cp-search {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: 'Lato', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafafa;
+}
+
+.cp-search:focus {
+  border-color: #7c6d5c;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(124, 109, 92, 0.1);
+}
+
+.cp-search::placeholder {
+  color: #aaa;
+}
+
+/* List */
+.cp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+  max-height: 290px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.cp-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cp-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cp-list::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 10px;
+}
+
+/* Group headers */
+.cp-group-header {
+  padding: 0.45rem 0.75rem 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+  background: #f8f8f8;
+  border-top: 1px solid #f0f0f0;
+  user-select: none;
+}
+
+.cp-group-header:first-child {
+  border-top: none;
+}
+
+/* Option rows */
+.cp-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  outline: none;
+}
+
+.cp-option:hover,
+.cp-option:focus {
+  background: #f5f2ed;
+}
+
+.cp-opt-flag {
+  font-size: 1.15rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cp-opt-name {
+  flex: 1;
+  font-size: 0.85rem;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cp-opt-dial {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 500;
+  flex-shrink: 0;
+  font-family: 'Lato', sans-serif;
 }
 
 .phone-input {
   flex: 1;
+  border-radius: 0 !important;
+}
+
+/* ── Parallax form phone picker overrides ── */
+.parallax-phone-wrapper {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.parallax-phone-wrapper .country-picker-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  padding: 0.75rem 0.5rem;
+  min-width: 100px;
+  gap: 0.3rem;
+  transition: border-color 0.3s ease;
+}
+
+.parallax-phone-wrapper .country-picker-btn:hover {
+  background: rgba(124, 109, 92, 0.08);
+}
+
+.parallax-phone-wrapper .country-picker-btn:focus {
+  border-color: #7c6d5c;
+  box-shadow: none;
+}
+
+.parallax-phone-wrapper .cp-code {
+  color: #222;
+}
+
+.parallax-phone-wrapper .cp-arrow {
+  color: #999;
+}
+
+.parallax-phone-wrapper input[type="tel"] {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  color: #222;
+  transition: border-color 0.3s ease;
+  font-family: 'Lato', sans-serif;
+}
+
+.parallax-phone-wrapper input[type="tel"]::placeholder {
+  color: #999;
+}
+
+.parallax-phone-wrapper input[type="tel"]:focus {
+  border-color: #7c6d5c;
 }
 
 /* Textarea styling */
@@ -4801,12 +5092,19 @@ textarea {
   }
   
   .phone-input-wrapper {
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: row;
+    gap: 0;
   }
   
-  .country-select {
-    width: 100%;
+  .country-picker-btn {
+    min-width: 95px;
+    padding: 0.65rem 0.5rem;
+  }
+
+  .country-picker-dropdown {
+    width: calc(100vw - 3rem);
+    max-width: 320px;
+    left: 0;
   }
   
   .consultation-footer {
